@@ -1,0 +1,132 @@
+import Link from 'next/link';
+import { Wrench, Phone, MapPin, Mail } from 'lucide-react';
+import { getParametre } from '@/lib/parametres';
+import { getVilles } from '@/lib/villes';
+import { getServices } from '@/lib/services';
+import {
+  formaterTelephone,
+  telephoneVersHref,
+  SITE_NAME,
+} from '@/lib/utils';
+
+export async function Footer() {
+  const [tel, email, siret, services, villes] = await Promise.all([
+    getParametre('TEL_PRINCIPAL'),
+    getParametre('EMAIL_CONTACT'),
+    getParametre('SIRET'),
+    getServices(),
+    getVilles(),
+  ]);
+
+  return (
+    <footer className="mt-16 border-t border-slate-200 bg-borne-encre text-slate-300 mb-cta-sticky">
+      <div className="container-borne grid grid-cols-2 gap-6 py-10 sm:py-14 md:grid-cols-4">
+        <div className="col-span-2 md:col-span-1">
+          <div className="flex items-center gap-2">
+            <span className="grid h-9 w-9 place-items-center rounded-lg gradient-bleu text-white">
+              <Wrench className="h-4 w-4" strokeWidth={2.5} />
+            </span>
+            <span className="text-base font-black text-white">{SITE_NAME}</span>
+          </div>
+          <p className="mt-3 text-sm">
+            Borne dépannage Var (83) — débouchage, inspection caméra, fosse
+            septique, pompe de relevage. 24h/7j, intervention sous 1h.
+          </p>
+          <a
+            href={telephoneVersHref(tel)}
+            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-borne-vert px-4 py-2 font-bold text-white hover:bg-borne-vert-fonce"
+          >
+            <Phone className="h-4 w-4" />
+            {formaterTelephone(tel)}
+          </a>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white">
+            Services
+          </h3>
+          <ul className="mt-3 space-y-1.5 text-sm">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/depannage?service=${s.slug}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {s.icone} {s.nom}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white">
+            Villes
+          </h3>
+          <ul className="mt-3 grid grid-cols-2 gap-x-3 gap-y-1.5 text-sm">
+            {villes.map((v) => (
+              <li key={v.slug}>
+                <Link
+                  href={`/depannage/${v.slug}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {v.nom}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xs font-black uppercase tracking-[0.2em] text-white">
+            Légal & contact
+          </h3>
+          <ul className="mt-3 space-y-1.5 text-sm">
+            <li>
+              <Link href="/mentions-legales" className="hover:text-white">
+                Mentions légales
+              </Link>
+            </li>
+            <li>
+              <Link href="/cgv" className="hover:text-white">
+                CGV
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/politique-confidentialite"
+                className="hover:text-white"
+              >
+                Politique de confidentialité
+              </Link>
+            </li>
+            <li className="pt-2">
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-2 hover:text-white"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                {email}
+              </a>
+            </li>
+            <li>
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="h-3.5 w-3.5" />
+                Var (83) — France
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10 py-5">
+        <div className="container-borne flex flex-col items-center justify-between gap-2 text-xs text-slate-400 sm:flex-row">
+          <p>
+            © {new Date().getFullYear()} {SITE_NAME} — SIRET {siret}
+          </p>
+          <p>Site conçu mobile-first — Borne McDonald's pour le dépannage.</p>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -1,0 +1,159 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Parametre {
+  id        String   @id @default(cuid())
+  cle       String   @unique
+  valeur    String
+  updatedAt DateTime @updatedAt
+}
+
+model Ville {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  nom          String
+  codePostal   String
+  population   Int
+  latitude     Float
+  longitude    Float
+  description  String?  @db.Text
+  facteurTarif Float    @default(1.0)
+  ordre        Int
+
+  realisations Realisation[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([slug])
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  nom         String
+  icone       String
+  couleur     String
+  description String   @db.Text
+  ordre       Int
+
+  questions    Question[]
+  tarif        Tarif?
+  realisations Realisation[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Question {
+  id        String   @id @default(cuid())
+  serviceId String
+  service   Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  ordre     Int
+  libelle   String
+
+  reponses Reponse[]
+
+  @@unique([serviceId, ordre])
+}
+
+model Reponse {
+  id           String   @id @default(cuid())
+  questionId   String
+  question     Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  libelle      String
+  icone        String?
+  facteurTarif Float    @default(1.0)
+  forceDevis   Boolean  @default(false)
+  ordre        Int
+
+  @@unique([questionId, ordre])
+}
+
+model Tarif {
+  id          String  @id @default(cuid())
+  serviceId   String  @unique
+  service     Service @relation(fields: [serviceId], references: [id])
+  prixMin     Int
+  prixMax     Int
+  unite       String  @default("intervention")
+  description String?
+
+  updatedAt DateTime @updatedAt
+}
+
+model Realisation {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  villeId     String
+  ville       Ville    @relation(fields: [villeId], references: [id])
+  serviceId   String
+  service     Service  @relation(fields: [serviceId], references: [id])
+
+  titre       String
+  description String   @db.Text
+  contexte    String   @db.Text
+  solution    String   @db.Text
+  resultat    String   @db.Text
+
+  photoAvant  String[]
+  photoApres  String[]
+
+  dateRealisation   DateTime
+  dureeIntervention Int?
+
+  noteClient   Int?
+  avisClient   String?  @db.Text
+  prenomClient String?
+
+  publie Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([villeId, publie])
+  @@index([serviceId, publie])
+}
+
+model LeadDevis {
+  id        String   @id @default(cuid())
+  villeSlug String
+  service   String
+  reponses  Json
+
+  nom       String
+  telephone String
+  email     String?
+  adresse   String?
+  message   String?  @db.Text
+
+  status String @default("NOUVEAU")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model AppelTracking {
+  id           String @id @default(cuid())
+  villeSlug    String
+  service      String
+  tarifAffiche Int
+  reponses     Json
+
+  userAgent String?
+  referrer  String?
+  ip        String?
+
+  createdAt DateTime @default(now())
+
+  @@index([villeSlug, service, createdAt])
+}

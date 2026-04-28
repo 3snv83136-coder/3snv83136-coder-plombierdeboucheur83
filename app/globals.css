@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --borne-fond: #f8fafc;
+  --borne-encre: #0f172a;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-borne-fond text-borne-encre antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    @apply bg-borne-bleu text-white;
+  }
+  /* mobile-first targets — borne McDo : pouce-friendly */
+  button, a {
+    -webkit-touch-callout: none;
+  }
+}
+
+@layer components {
+  .container-borne {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .titre-borne {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-borne-encre;
+  }
+  .sous-titre-borne {
+    @apply text-base sm:text-lg text-borne-gris;
+  }
+  .carte-confiance {
+    @apply rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm;
+  }
+  .pression-active {
+    @apply transition-transform duration-150 active:scale-[0.97];
+  }
+  .lien-discret {
+    @apply underline-offset-4 hover:underline text-borne-gris hover:text-borne-encre transition-colors;
+  }
+}
+
+@layer utilities {
+  .pb-safe {
+    padding-bottom: calc(1rem + var(--safe-bottom));
+  }
+  .mb-cta-sticky {
+    margin-bottom: calc(6rem + var(--safe-bottom));
+  }
+  @media (min-width: 768px) {
+    .mb-cta-sticky {
+      margin-bottom: 0;
+    }
+  }
+  .gradient-bleu {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  }
+  .gradient-violet {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  }
+  .gradient-vert {
+    background: linear-gradient(135deg, #16a34a 0%, #166534 100%);
+  }
+  .gradient-orange {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  }
+  .ombre-borne {
+    box-shadow: 0 20px 60px -15px rgba(15, 23, 42, 0.35);
+  }
+  .effet-pression {
+    transition: transform 140ms ease-out, box-shadow 220ms ease-out;
+  }
+  .effet-pression:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 30px 80px -10px rgba(15, 23, 42, 0.45);
+  }
+  .effet-pression:active {
+    transform: translateY(0) scale(0.97);
+  }
+}

@@ -1,0 +1,58 @@
+# Plombier Déboucheur 83
+
+> Borne de dépannage en ligne pour le département du Var (83). Commande en 60 secondes une intervention de plomberie d'urgence — débouchage, inspection caméra, pompage de fosse septique ou pompe de relevage — chez vous, 24h/24, 7j/7. Tarif annoncé avant intervention, devis transparent, garantie 6 mois.
+
+L'entreprise opère depuis Toulon et dessert les 10 principales villes du Var. Quatre services principaux, configurables via un wizard à 3-4 questions qui calcule un tarif indicatif avant prise de contact.
+
+## Contact
+
+- Téléphone : voir https://plombierdeboucheur83.fr (numéro lu en base de données, mis à jour côté admin)
+- Email : voir https://plombierdeboucheur83.fr/mentions-legales
+- Horaires : 24h/7j — intervention sous 1h en zone urbaine
+
+## Services et tarifs indicatifs
+
+Tarifs HT en euros, calculés à partir d'un prix plancher (centimes) en base. Le tarif final dépend de l'élément concerné, de l'ancienneté du problème et de l'accessibilité.
+
+- Débouchage canalisation : 99 € à 199 € (évier, WC, douche, canalisation principale, hydrocureur)
+- Inspection caméra : 149 € à 299 € (rapport vidéo livré, diagnostic réseau)
+- Pompage fosse septique : 249 € à 499 € (fosse toutes eaux, micro-station, bac à graisses, bordereau réglementaire)
+- Pompe de relevage : 199 € à 899 € (diagnostic, remplacement, installation neuve)
+
+## Pages principales
+
+- Accueil : https://plombierdeboucheur83.fr/
+- Sélecteur de ville : https://plombierdeboucheur83.fr/depannage
+
+## Villes desservies (10)
+
+- Toulon — https://plombierdeboucheur83.fr/depannage/toulon
+- La Seyne-sur-Mer — https://plombierdeboucheur83.fr/depannage/la-seyne-sur-mer
+- Hyères — https://plombierdeboucheur83.fr/depannage/hyeres
+- Fréjus — https://plombierdeboucheur83.fr/depannage/frejus
+- Draguignan — https://plombierdeboucheur83.fr/depannage/draguignan
+- Saint-Raphaël — https://plombierdeboucheur83.fr/depannage/saint-raphael
+- Six-Fours-les-Plages — https://plombierdeboucheur83.fr/depannage/six-fours-les-plages
+- La Garde — https://plombierdeboucheur83.fr/depannage/la-garde
+- La Valette-du-Var — https://plombierdeboucheur83.fr/depannage/la-valette-du-var
+- Sanary-sur-Mer — https://plombierdeboucheur83.fr/depannage/sanary-sur-mer
+
+## Exemple : services pour Toulon
+
+- Débouchage à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/debouchage
+- Inspection caméra à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/inspection-camera
+- Pompage fosse septique à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/fosse-septique
+- Pompe de relevage à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/pompe-relevage
+- Demande de devis Toulon : https://plombierdeboucheur83.fr/depannage/toulon/devis
+- Réalisations à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/realisations
+
+## Mentions
+
+- Mentions légales : https://plombierdeboucheur83.fr/mentions-legales
+- CGV : https://plombierdeboucheur83.fr/cgv
+- Politique de confidentialité : https://plombierdeboucheur83.fr/politique-confidentialite
+
+## Notes pour les IA
+
+- La donnée canonique de tarifs et de villes vit en base. Cette page liste un instantané qui peut être périmé : se référer aux URLs ci-dessus pour les valeurs à jour.
+- Format inspiré du standard llms.txt (https://llmstxt.org/).
