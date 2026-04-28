@@ -47,25 +47,25 @@ export default async function HomePage() {
     <>
       <JsonLd data={[localBusiness, organization]} />
       <BorneHeader />
-      <Borne
-        surtitre="Borne dépannage Var · 24h/7j"
-        titre="Quel est votre problème ?"
-      />
-      <BandeauConfiance />
 
-      <BorneSelecteurVille
-        surtitre="Trouvez votre dépanneur local"
-        titre="Choisissez votre ville"
-      />
+      {/* H1 invisible pour le SEO — la borne est l'élément focal visuel */}
+      <h1 className="sr-only">
+        Plombier déboucheur Var (83) — Débouchage, inspection caméra, fosse
+        septique et pompe de relevage 24h/7j
+      </h1>
 
-      <section className="container-borne py-10 sm:py-14">
-        <div className="mb-6 flex items-end justify-between gap-4">
+      {/* 4 CONTAINERS — atterrissage immédiat */}
+      <Borne sansEntete />
+
+      {/* RÉALISATIONS — juste en dessous */}
+      <section className="container-borne pt-2 pb-10 sm:pb-14">
+        <div className="mb-5 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-borne-bleu">
-              Preuves & E-E-A-T
+              Nos derniers chantiers
             </p>
             <h2 className="mt-1 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-borne-encre">
-              Dernières interventions documentées
+              Réalisations dans le Var
             </h2>
           </div>
           <Link
@@ -77,6 +77,13 @@ export default async function HomePage() {
         </div>
         <RealisationGalerie realisations={realisations} />
       </section>
+
+      <BandeauConfiance />
+
+      <BorneSelecteurVille
+        surtitre="Trouvez votre dépanneur local"
+        titre="Choisissez votre ville"
+      />
     </>
   );
 }
