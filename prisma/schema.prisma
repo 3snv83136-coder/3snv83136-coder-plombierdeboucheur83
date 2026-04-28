@@ -39,6 +39,7 @@ model Service {
   id          String   @id @default(cuid())
   slug        String   @unique
   nom         String
+  slogan      String?
   icone       String
   couleur     String
   description String   @db.Text

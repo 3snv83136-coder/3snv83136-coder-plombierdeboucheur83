@@ -43,6 +43,7 @@ export async function Borne({ ville, titre, surtitre, sansEntete }: Props) {
             service={{
               slug: service.slug,
               nom: service.nom,
+              slogan: service.slogan,
               icone: service.icone,
               couleur: service.couleur,
               description: service.description,

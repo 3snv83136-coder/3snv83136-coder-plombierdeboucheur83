@@ -50,6 +50,7 @@ async function main() {
       where: { slug: s.slug },
       update: {
         nom: s.nom,
+        slogan: s.slogan,
         icone: s.icone,
         couleur: s.couleur,
         description: s.description,
@@ -58,6 +59,7 @@ async function main() {
       create: {
         slug: s.slug,
         nom: s.nom,
+        slogan: s.slogan,
         icone: s.icone,
         couleur: s.couleur,
         description: s.description,

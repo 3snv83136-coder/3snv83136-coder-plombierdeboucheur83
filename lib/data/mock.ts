@@ -37,6 +37,8 @@ export type QuestionData = {
 export type ServiceData = {
   slug: string;
   nom: string;
+  /** Libellé court "borne McDo" affiché sur le bouton seulement. */
+  slogan?: string;
   icone: string;
   couleur: string;
   description: string;
@@ -211,6 +213,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'debouchage',
     nom: 'Débouchage canalisation',
+    slogan: 'Ça bouche !',
     icone: 'Droplets',
     couleur: '#0e7490',
     ordre: 1,
@@ -254,6 +257,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'inspection-camera',
     nom: 'Inspection caméra',
+    slogan: 'Voir où ça bloque',
     icone: 'Camera',
     couleur: '#334155',
     ordre: 2,
@@ -294,6 +298,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'fosse-septique',
     nom: 'Pompage fosse septique',
+    slogan: 'Vider ma fosse',
     icone: 'Truck',
     couleur: '#15803d',
     ordre: 3,
@@ -344,6 +349,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: 'pompe-relevage',
     nom: 'Pompe de relevage',
+    slogan: 'Ma pompe lâche',
     icone: 'Cog',
     couleur: '#9a3412',
     ordre: 4,

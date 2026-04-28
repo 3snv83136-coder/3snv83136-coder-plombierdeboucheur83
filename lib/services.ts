@@ -6,6 +6,7 @@ export type ServiceComplet = {
   id: string;
   slug: string;
   nom: string;
+  slogan?: string;
   icone: string;
   couleur: string;
   description: string;
@@ -32,6 +33,7 @@ function fromMock(s: ServiceData): ServiceComplet {
     id: s.slug,
     slug: s.slug,
     nom: s.nom,
+    slogan: s.slogan,
     icone: s.icone,
     couleur: s.couleur,
     description: s.description,
@@ -72,6 +74,7 @@ export async function getServices(): Promise<ServiceComplet[]> {
           id: s.id,
           slug: s.slug,
           nom: s.nom,
+          slogan: s.slogan ?? undefined,
           icone: s.icone,
           couleur: s.couleur,
           description: s.description,

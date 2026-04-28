@@ -7,6 +7,7 @@ type Props = {
   service: {
     slug: string;
     nom: string;
+    slogan?: string;
     icone: string;
     couleur: string;
     description?: string;
@@ -64,17 +65,15 @@ export function BorneButton({ service, villeSlug, className }: Props) {
       </div>
 
       <div className="relative flex flex-col gap-0.5 sm:gap-1">
-        <h3 className="text-base sm:text-2xl lg:text-3xl font-black leading-tight tracking-tight">
-          {service.nom}
+        <h3 className="text-lg sm:text-3xl lg:text-4xl font-black leading-[1.05] tracking-tight">
+          {service.slogan ?? service.nom}
         </h3>
+        <p className="text-[11px] sm:text-sm font-semibold text-white/75 leading-tight">
+          {service.nom}
+        </p>
         {service.prixMin !== undefined && (
-          <p className="text-xs sm:text-base font-semibold text-white/80">
+          <p className="mt-0.5 text-xs sm:text-base font-bold text-white/85">
             Dès {formatPrixEuros(service.prixMin)}
-          </p>
-        )}
-        {service.description && (
-          <p className="hidden sm:line-clamp-2 mt-1 text-xs sm:text-sm text-white/70 leading-snug">
-            {service.description}
           </p>
         )}
       </div>
