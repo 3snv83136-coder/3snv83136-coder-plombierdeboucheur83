@@ -15,11 +15,11 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 export const alt = 'Plombier Déboucheur 83 — dépannage par ville';
 
-const SERVICES_PILLS: { nom: string; icone: string }[] = [
-  { nom: 'Débouchage', icone: '🚿' },
-  { nom: 'Caméra', icone: '📹' },
-  { nom: 'Fosse', icone: '🚛' },
-  { nom: 'Relevage', icone: '⚙️' },
+const SERVICES_PILLS: { nom: string; bg: string }[] = [
+  { nom: 'Débouchage', bg: '#0e7490' },
+  { nom: 'Caméra', bg: '#334155' },
+  { nom: 'Fosse septique', bg: '#15803d' },
+  { nom: 'Pompe relevage', bg: '#9a3412' },
 ];
 
 export default async function VilleOpengraphImage({
@@ -42,8 +42,7 @@ export default async function VilleOpengraphImage({
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '64px 72px',
-          background:
-            'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+          background: 'linear-gradient(135deg, #1e3a5f 0%, #0f2138 100%)',
           color: '#ffffff',
           fontFamily: 'sans-serif',
         }}
@@ -100,16 +99,14 @@ export default async function VilleOpengraphImage({
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 12,
-                  background: 'rgba(255,255,255,0.15)',
-                  padding: '16px 24px',
-                  borderRadius: 14,
-                  fontSize: 26,
+                  background: s.bg,
+                  padding: '14px 22px',
+                  borderRadius: 12,
+                  fontSize: 24,
                   fontWeight: 600,
                 }}
               >
-                <span style={{ fontSize: 36 }}>{s.icone}</span>
-                <span>{s.nom}</span>
+                {s.nom}
               </div>
             ))}
           </div>

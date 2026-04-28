@@ -3,8 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --borne-fond: #f8fafc;
-  --borne-encre: #0f172a;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -22,7 +20,6 @@
   ::selection {
     @apply bg-borne-bleu text-white;
   }
-  /* mobile-first targets — borne McDo : pouce-friendly */
   button, a {
     -webkit-touch-callout: none;
   }
@@ -38,14 +35,8 @@
   .sous-titre-borne {
     @apply text-base sm:text-lg text-borne-gris;
   }
-  .carte-confiance {
-    @apply rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm;
-  }
   .pression-active {
     @apply transition-transform duration-150 active:scale-[0.97];
-  }
-  .lien-discret {
-    @apply underline-offset-4 hover:underline text-borne-gris hover:text-borne-encre transition-colors;
   }
 }
 
@@ -61,29 +52,29 @@
       margin-bottom: 0;
     }
   }
-  .gradient-bleu {
-    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+  .gradient-sarcelle {
+    background: linear-gradient(135deg, #0e7490 0%, #155e75 100%);
   }
-  .gradient-violet {
-    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  .gradient-anthracite {
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
   }
   .gradient-vert {
-    background: linear-gradient(135deg, #16a34a 0%, #166534 100%);
+    background: linear-gradient(135deg, #15803d 0%, #14532d 100%);
   }
-  .gradient-orange {
-    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  .gradient-cuivre {
+    background: linear-gradient(135deg, #9a3412 0%, #7c2d12 100%);
   }
-  .ombre-borne {
-    box-shadow: 0 20px 60px -15px rgba(15, 23, 42, 0.35);
+  .gradient-marine {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f2138 100%);
   }
   .effet-pression {
     transition: transform 140ms ease-out, box-shadow 220ms ease-out;
   }
   .effet-pression:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 30px 80px -10px rgba(15, 23, 42, 0.45);
+    transform: translateY(-2px);
+    box-shadow: 0 22px 48px -8px rgba(15, 23, 42, 0.28);
   }
   .effet-pression:active {
-    transform: translateY(0) scale(0.97);
+    transform: translateY(0) scale(0.98);
   }
 }

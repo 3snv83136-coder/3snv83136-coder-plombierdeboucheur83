@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Star, Calendar, Clock, MapPin, Wrench, Quote } from 'lucide-react';
 import { RealisationAvantApres } from './RealisationAvantApres';
 import { BoutonAppel } from '@/components/shared/BoutonAppel';
+import { Icone } from '@/components/shared/Icone';
 import type { RealisationComplete } from '@/lib/realisations';
 
 type Props = { realisation: RealisationComplete };
@@ -28,7 +29,8 @@ export function RealisationFiche({ realisation: r }: Props) {
             className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-bold text-white"
             style={{ backgroundColor: r.service.couleur }}
           >
-            <span aria-hidden>{r.service.icone}</span> {r.service.nom}
+            <Icone name={r.service.icone} className="h-3.5 w-3.5" strokeWidth={2.4} />
+            {r.service.nom}
           </span>
           {r.noteClient !== null && (
             <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-3 py-1.5 text-sm font-bold text-amber-800">
@@ -91,15 +93,18 @@ export function RealisationFiche({ realisation: r }: Props) {
         {/* sections texte */}
         <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {[
-            { titre: '🔍 Le contexte', texte: r.contexte },
-            { titre: '🛠️ Notre intervention', texte: r.solution },
-            { titre: '✅ Le résultat', texte: r.resultat },
+            { titre: 'Le contexte', icone: 'Search' as const, texte: r.contexte },
+            { titre: 'Notre intervention', icone: 'Wrench' as const, texte: r.solution },
+            { titre: 'Le résultat', icone: 'CheckCircle2' as const, texte: r.resultat },
           ].map((s) => (
             <div
               key={s.titre}
               className="rounded-2xl border border-slate-200 bg-white p-5 sm:p-6"
             >
-              <h2 className="text-lg font-black text-borne-encre">{s.titre}</h2>
+              <div className="flex items-center gap-2">
+                <Icone name={s.icone} className="h-5 w-5 text-borne-bleu" />
+                <h2 className="text-lg font-black text-borne-encre">{s.titre}</h2>
+              </div>
               <p className="mt-2 text-sm leading-relaxed text-borne-gris">
                 {s.texte}
               </p>

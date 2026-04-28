@@ -4,6 +4,9 @@ import { BorneSelecteurVille } from '@/components/borne/BorneSelecteurVille';
 import { BorneHeader } from '@/components/borne/BorneHeader';
 import { RealisationGalerie } from '@/components/realisations/RealisationGalerie';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { SectionPhotoPlombier } from '@/components/sections/SectionPhotoPlombier';
+import { SectionAvis } from '@/components/sections/SectionAvis';
+import { SectionAssurance } from '@/components/sections/SectionAssurance';
 import { getRealisations } from '@/lib/realisations';
 import { getVilles } from '@/lib/villes';
 import { getParametres } from '@/lib/parametres';
@@ -48,7 +51,6 @@ export default async function HomePage() {
       <JsonLd data={[localBusiness, organization]} />
       <BorneHeader />
 
-      {/* H1 invisible pour le SEO — la borne est l'élément focal visuel */}
       <h1 className="sr-only">
         Plombier déboucheur Var (83) — Débouchage, inspection caméra, fosse
         septique et pompe de relevage 24h/7j
@@ -77,6 +79,15 @@ export default async function HomePage() {
         </div>
         <RealisationGalerie realisations={realisations} />
       </section>
+
+      {/* PHOTO PLOMBIER + ENGAGEMENTS */}
+      <SectionPhotoPlombier />
+
+      {/* AVIS CLIENTS */}
+      <SectionAvis />
+
+      {/* ASSURANCE & GARANTIES */}
+      <SectionAssurance />
 
       <BandeauConfiance />
 

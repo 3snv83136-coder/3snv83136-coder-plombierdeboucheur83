@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, FileText, CheckCircle2, AlertTriangle, Sparkles } from 'lucide-react';
+import { Phone, FileText, CheckCircle2, AlertTriangle, Shield } from 'lucide-react';
 import { calculerTarifSync, formaterPrix } from '@/lib/calcul-tarif';
 import { telephoneVersHref, formaterTelephone } from '@/lib/utils';
+import { Icone } from '@/components/shared/Icone';
 
 type Recap = {
   questionLibelle: string;
@@ -73,9 +74,9 @@ export function WizardResultat(props: Props) {
               >
                 <span
                   aria-hidden
-                  className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white text-xl"
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-white text-borne-gris"
                 >
-                  {r.reponseIcone}
+                  <Icone name={r.reponseIcone} className="h-4 w-4" />
                 </span>
                 <div className="flex-1 leading-tight">
                   <p className="text-xs text-borne-gris">{r.questionLibelle}</p>
@@ -101,8 +102,8 @@ export function WizardResultat(props: Props) {
               className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full bg-white/15 blur-3xl"
             />
             <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] opacity-90">
-              <Sparkles className="h-4 w-4" />
-              Tarif transparent — {props.serviceIcone} {props.serviceNom}
+              <Shield className="h-4 w-4" />
+              Tarif transparent — {props.serviceNom}
             </p>
             <p className="mt-3 text-3xl sm:text-5xl lg:text-6xl font-black leading-none">
               {formaterPrix(tarif.prixMin, tarif.prixMax)}

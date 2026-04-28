@@ -3,6 +3,7 @@ import { Wrench, Phone, MapPin, Mail } from 'lucide-react';
 import { getParametre } from '@/lib/parametres';
 import { getVilles } from '@/lib/villes';
 import { getServices } from '@/lib/services';
+import { Icone } from '@/components/shared/Icone';
 import {
   formaterTelephone,
   telephoneVersHref,
@@ -50,9 +51,10 @@ export async function Footer() {
               <li key={s.slug}>
                 <Link
                   href={`/depannage?service=${s.slug}`}
-                  className="hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 hover:text-white transition-colors"
                 >
-                  {s.icone} {s.nom}
+                  <Icone name={s.icone} className="h-3.5 w-3.5" strokeWidth={2.2} />
+                  {s.nom}
                 </Link>
               </li>
             ))}

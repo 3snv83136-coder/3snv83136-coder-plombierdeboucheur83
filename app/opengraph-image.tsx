@@ -1,8 +1,8 @@
 // ============================================================
 // OG IMAGE GÉNÉRIQUE — 1200×630
 // ============================================================
-// Rendue à l'edge via next/og. Pas de Tailwind, pas d'image
-// externe : uniquement texte et formes.
+// Rendue à l'edge via next/og. Texte et formes uniquement.
+// Palette sobre : marine + sarcelle.
 // ============================================================
 
 import { ImageResponse } from 'next/og';
@@ -23,8 +23,7 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           justifyContent: 'space-between',
           padding: '72px',
-          background:
-            'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)',
+          background: 'linear-gradient(135deg, #1e3a5f 0%, #0f2138 100%)',
           color: '#ffffff',
           fontFamily: 'sans-serif',
         }}
@@ -34,7 +33,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 28,
               fontWeight: 600,
-              opacity: 0.85,
+              opacity: 0.7,
               letterSpacing: 2,
               textTransform: 'uppercase',
             }}
@@ -57,73 +56,33 @@ export default function OpengraphImage() {
               fontSize: 36,
               fontWeight: 500,
               marginTop: 28,
-              opacity: 0.9,
+              opacity: 0.85,
             }}
           >
             Intervention 24h/7j — Tarif annoncé avant
           </div>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            gap: 28,
-            fontSize: 28,
-            fontWeight: 600,
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'rgba(255,255,255,0.15)',
-              padding: '18px 28px',
-              borderRadius: 16,
-            }}
-          >
-            <span style={{ fontSize: 40 }}>🚿</span>
-            <span>Débouchage</span>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'rgba(255,255,255,0.15)',
-              padding: '18px 28px',
-              borderRadius: 16,
-            }}
-          >
-            <span style={{ fontSize: 40 }}>📹</span>
-            <span>Caméra</span>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'rgba(255,255,255,0.15)',
-              padding: '18px 28px',
-              borderRadius: 16,
-            }}
-          >
-            <span style={{ fontSize: 40 }}>🚛</span>
-            <span>Fosse</span>
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 12,
-              background: 'rgba(255,255,255,0.15)',
-              padding: '18px 28px',
-              borderRadius: 16,
-            }}
-          >
-            <span style={{ fontSize: 40 }}>⚙️</span>
-            <span>Relevage</span>
-          </div>
+        <div style={{ display: 'flex', gap: 16, fontSize: 26, fontWeight: 600 }}>
+          {[
+            { label: 'Débouchage', bg: '#0e7490' },
+            { label: 'Caméra', bg: '#334155' },
+            { label: 'Fosse septique', bg: '#15803d' },
+            { label: 'Pompe relevage', bg: '#9a3412' },
+          ].map((s) => (
+            <div
+              key={s.label}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                background: s.bg,
+                padding: '18px 24px',
+                borderRadius: 14,
+              }}
+            >
+              {s.label}
+            </div>
+          ))}
         </div>
       </div>
     ),

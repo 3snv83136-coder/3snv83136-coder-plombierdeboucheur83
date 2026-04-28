@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Star, Clock, MapPin } from 'lucide-react';
+import { Icone } from '@/components/shared/Icone';
 import type { RealisationComplete } from '@/lib/realisations';
 
 type Props = { realisation: RealisationComplete };
@@ -28,10 +29,10 @@ export function RealisationCarte({ realisation: r }: Props) {
           />
         )}
         <span
-          className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-black text-white shadow-md"
+          className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold text-white shadow-md"
           style={{ backgroundColor: r.service.couleur }}
         >
-          <span aria-hidden>{r.service.icone}</span>
+          <Icone name={r.service.icone} className="h-3.5 w-3.5" strokeWidth={2.4} />
           {r.service.nom}
         </span>
         {r.noteClient !== null && (

@@ -4,6 +4,7 @@ import { Borne } from '@/components/borne/Borne';
 import { BorneSelecteurVille } from '@/components/borne/BorneSelecteurVille';
 import { BandeauConfiance } from '@/components/borne/BandeauConfiance';
 import { FilAriane } from '@/components/shared/Breadcrumb';
+import { Icone } from '@/components/shared/Icone';
 import { getServiceBySlug } from '@/lib/services';
 
 export const revalidate = 3600;
@@ -32,8 +33,13 @@ export default async function DepannageIndex({ searchParams }: Props) {
           <p className="text-center text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-borne-bleu">
             Service présélectionné
           </p>
-          <p className="mt-1 text-center text-2xl sm:text-3xl font-black text-borne-encre">
-            {servicePreselectionne.icone} {servicePreselectionne.nom}
+          <p className="mt-1 inline-flex w-full items-center justify-center gap-3 text-2xl sm:text-3xl font-black text-borne-encre">
+            <Icone
+              name={servicePreselectionne.icone}
+              className="h-7 w-7"
+              strokeWidth={2.2}
+            />
+            {servicePreselectionne.nom}
           </p>
           <p className="mt-1 text-center text-sm text-borne-gris">
             Choisissez votre ville pour voir le tarif

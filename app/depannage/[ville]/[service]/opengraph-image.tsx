@@ -22,21 +22,32 @@ export const alt = 'Plombier Déboucheur 83 — service par ville';
 function gradientForService(slug: string, fallback: string): string {
   switch (slug) {
     case 'debouchage':
-      // Bleu
-      return 'linear-gradient(135deg, #2563eb 0%, #1e40af 100%)';
+      return 'linear-gradient(135deg, #0e7490 0%, #155e75 100%)';
     case 'inspection-camera':
-      // Violet
-      return 'linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)';
+      return 'linear-gradient(135deg, #334155 0%, #1e293b 100%)';
     case 'fosse-septique':
-      // Vert
-      return 'linear-gradient(135deg, #16a34a 0%, #14532d 100%)';
+      return 'linear-gradient(135deg, #15803d 0%, #14532d 100%)';
     case 'pompe-relevage':
-      // Orange
-      return 'linear-gradient(135deg, #ea580c 0%, #9a3412 100%)';
+      return 'linear-gradient(135deg, #9a3412 0%, #7c2d12 100%)';
     default: {
-      const c = fallback || '#2563eb';
-      return `linear-gradient(135deg, ${c} 0%, #111827 100%)`;
+      const c = fallback || '#1e3a5f';
+      return `linear-gradient(135deg, ${c} 0%, #0f2138 100%)`;
     }
+  }
+}
+
+function tagForService(slug: string): string {
+  switch (slug) {
+    case 'debouchage':
+      return 'CANAL';
+    case 'inspection-camera':
+      return 'VIDÉO';
+    case 'fosse-septique':
+      return 'FOSSE';
+    case 'pompe-relevage':
+      return 'POMPE';
+    default:
+      return 'PRO';
   }
 }
 
@@ -52,11 +63,11 @@ export default async function ServiceOpengraphImage({
 
   const nomVille = ville?.nom ?? 'Var (83)';
   const nomService = service?.nom ?? 'Plomberie';
-  const icone = service?.icone ?? '🔧';
   const aPartirDe = service ? formatPrixEuros(service.prixMin) : '';
+  const tag = tagForService(service?.slug ?? '');
   const gradient = gradientForService(
     service?.slug ?? '',
-    service?.couleur ?? '#2563eb'
+    service?.couleur ?? '#1e3a5f'
   );
 
   return new ImageResponse(
@@ -115,18 +126,20 @@ export default async function ServiceOpengraphImage({
         >
           <div
             style={{
-              fontSize: 200,
-              lineHeight: 1,
+              fontSize: 60,
+              fontWeight: 800,
+              letterSpacing: 4,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               width: 220,
               height: 220,
-              background: 'rgba(255,255,255,0.18)',
-              borderRadius: 32,
+              background: 'rgba(255,255,255,0.14)',
+              borderRadius: 24,
+              border: '4px solid rgba(255,255,255,0.25)',
             }}
           >
-            {icone}
+            {tag}
           </div>
           <div
             style={{

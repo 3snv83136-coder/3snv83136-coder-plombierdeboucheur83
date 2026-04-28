@@ -2,6 +2,7 @@
 
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Icone } from '@/components/shared/Icone';
 
 type Props = {
   reponse: {
@@ -32,22 +33,26 @@ export function WizardReponse({ reponse, couleur, onClick, index }: Props) {
       aria-label={reponse.libelle}
     >
       <span
-        className="grid h-12 w-12 sm:h-14 sm:w-14 shrink-0 place-items-center rounded-xl text-2xl sm:text-3xl"
-        style={{ backgroundColor: `${couleur}1a` }}
+        className="grid h-12 w-12 sm:h-14 sm:w-14 shrink-0 place-items-center rounded-xl"
+        style={{ backgroundColor: `${couleur}14` }}
         aria-hidden
       >
-        {reponse.icone}
+        <Icone
+          name={reponse.icone}
+          className="h-6 w-6 sm:h-7 sm:w-7"
+          strokeWidth={2}
+        />
       </span>
       <span className="flex-1 text-base sm:text-lg font-bold text-borne-encre">
         {reponse.libelle}
         {reponse.forceDevis && (
-          <span className="ml-2 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-700">
+          <span className="ml-2 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-amber-800">
             Devis
           </span>
         )}
       </span>
       <ArrowRight
-        className="h-5 w-5 shrink-0 opacity-50 transition-all group-hover:opacity-100 group-hover:translate-x-0.5"
+        className="h-5 w-5 shrink-0 opacity-40 transition-all group-hover:opacity-100 group-hover:translate-x-0.5"
         strokeWidth={2.5}
       />
       <span className="sr-only">Choix {index + 1}</span>

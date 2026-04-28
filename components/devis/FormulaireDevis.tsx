@@ -4,6 +4,7 @@ import { useState, useTransition } from 'react';
 import Link from 'next/link';
 import { CheckCircle2, AlertCircle, Send, ArrowLeft, Phone } from 'lucide-react';
 import { creerLeadDevis, type EtatFormulaire } from '@/actions/creerLeadDevis';
+import { Icone } from '@/components/shared/Icone';
 import { cn, formaterTelephone, telephoneVersHref } from '@/lib/utils';
 
 type ServiceLite = { slug: string; nom: string; icone: string; couleur: string };
@@ -120,9 +121,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut, telephone }
                       : undefined
                   }
                 >
-                  <span className="text-xl" aria-hidden>
-                    {s.icone}
-                  </span>
+                  <Icone name={s.icone} className="h-5 w-5" strokeWidth={2.2} />
                   <span className="leading-tight text-center">{s.nom}</span>
                 </button>
               ))}
