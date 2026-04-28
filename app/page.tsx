@@ -1,4 +1,3 @@
-import { Hero } from '@/components/borne/Hero';
 import { Borne } from '@/components/borne/Borne';
 import { BandeauConfiance } from '@/components/borne/BandeauConfiance';
 import { BorneSelecteurVille } from '@/components/borne/BorneSelecteurVille';
@@ -48,9 +47,8 @@ export default async function HomePage() {
     <>
       <JsonLd data={[localBusiness, organization]} />
       <BorneHeader />
-      <Hero />
       <Borne
-        surtitre="La borne dépannage"
+        surtitre="Borne dépannage Var · 24h/7j"
         titre="Quel est votre problème ?"
       />
       <BandeauConfiance />

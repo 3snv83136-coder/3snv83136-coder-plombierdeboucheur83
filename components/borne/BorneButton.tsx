@@ -34,8 +34,8 @@ export function BorneButton({ service, villeSlug, className }: Props) {
       href={href}
       aria-label={`${service.nom} — Démarrer`}
       className={cn(
-        'group relative flex aspect-square min-h-[260px] flex-col justify-between',
-        'overflow-hidden rounded-3xl p-5 sm:p-7 text-white',
+        'group relative flex aspect-square min-h-[150px] sm:min-h-[260px] flex-col justify-between',
+        'overflow-hidden rounded-3xl p-4 sm:p-7 text-white',
         gradient,
         'ombre-borne effet-pression',
         'focus-visible:outline focus-visible:outline-4 focus-visible:outline-white/60',
@@ -54,27 +54,27 @@ export function BorneButton({ service, villeSlug, className }: Props) {
 
       <div className="relative flex items-start justify-between">
         <span
-          className="text-5xl sm:text-6xl drop-shadow-md"
+          className="text-4xl sm:text-6xl drop-shadow-md leading-none"
           role="presentation"
           aria-hidden
         >
           {service.icone}
         </span>
-        <span className="grid h-10 w-10 place-items-center rounded-full bg-white/15 ring-1 ring-white/30 group-hover:bg-white group-hover:text-borne-encre transition-all">
+        <span className="grid h-8 w-8 sm:h-10 sm:w-10 place-items-center rounded-full bg-white/15 ring-1 ring-white/30 group-hover:bg-white group-hover:text-borne-encre transition-all">
           <ArrowRight
-            className="h-5 w-5 transition-transform group-hover:translate-x-0.5"
+            className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-0.5"
             strokeWidth={2.5}
           />
         </span>
       </div>
 
-      <div className="relative flex flex-col gap-1">
-        <h3 className="text-2xl sm:text-3xl font-black leading-tight tracking-tight">
+      <div className="relative flex flex-col gap-0.5 sm:gap-1">
+        <h3 className="text-base sm:text-2xl lg:text-3xl font-black leading-tight tracking-tight">
           {service.nom}
         </h3>
         {service.prixMin !== undefined && (
-          <p className="text-sm sm:text-base font-semibold text-white/85">
-            À partir de {formatPrixEuros(service.prixMin)}
+          <p className="text-xs sm:text-base font-semibold text-white/85">
+            Dès {formatPrixEuros(service.prixMin)}
           </p>
         )}
         {service.description && (

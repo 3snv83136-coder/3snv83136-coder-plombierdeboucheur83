@@ -5,9 +5,15 @@ import { getVilles } from '@/lib/villes';
 type Props = {
   titre?: string;
   surtitre?: string;
+  /** Si fourni, les liens villes vont directement vers /depannage/[ville]/[service] */
+  servicePreselectionne?: string;
 };
 
-export async function BorneSelecteurVille({ titre, surtitre }: Props) {
+export async function BorneSelecteurVille({
+  titre,
+  surtitre,
+  servicePreselectionne,
+}: Props) {
   const villes = await getVilles();
 
   return (
@@ -25,7 +31,11 @@ export async function BorneSelecteurVille({ titre, surtitre }: Props) {
         {villes.map((ville, idx) => (
           <li key={ville.slug}>
             <Link
-              href={`/depannage/${ville.slug}`}
+              href={
+                servicePreselectionne
+                  ? `/depannage/${ville.slug}/${servicePreselectionne}`
+                  : `/depannage/${ville.slug}`
+              }
               className="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 hover:border-borne-bleu hover:shadow-borne effet-pression"
             >
               <span className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full bg-slate-100 text-borne-gris group-hover:bg-borne-bleu group-hover:text-white transition-colors">
