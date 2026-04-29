@@ -1,0 +1,26 @@
+// ============================================================
+// AGRÉGATEUR DES BATCHES DE RÉALISATIONS
+// ============================================================
+// L'agent hebdomadaire ajoute un nouveau fichier de batch chaque
+// semaine (nom = `YYYY-WNN.ts`), exporte `export const BATCH:
+// RealisationData[] = [...]`, puis ajoute son import + spread ici.
+//
+// Convention du nom de fichier :
+//   - 2026-W18.ts  → semaine ISO 18 de 2026
+//   - 2026-W19.ts  → semaine ISO 19 de 2026
+//   - etc.
+//
+// Cet index alimente `lib/realisations.ts`. Le batch initial (30
+// réalisations seedées au lancement du site) reste dans
+// `lib/data/mock.ts → REALISATIONS`.
+// ============================================================
+
+import type { RealisationData } from '../mock';
+
+// === Batches hebdomadaires (à enrichir chaque semaine) ===
+// Format : import { BATCH as W18 } from './2026-W18';
+//          puis ajouter ...W18 dans le tableau ci-dessous.
+
+export const BATCHES_HEBDO: RealisationData[] = [
+  // L'agent récurrent ajoute ici ses batches.
+];

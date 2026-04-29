@@ -1,6 +1,12 @@
 import 'server-only';
 import { prisma } from './prisma';
 import { REALISATIONS, VILLES, SERVICES, type RealisationData } from './data/mock';
+import { BATCHES_HEBDO } from './data/realisations';
+
+const TOUTES_REALISATIONS: RealisationData[] = [
+  ...REALISATIONS,
+  ...BATCHES_HEBDO,
+];
 
 export type RealisationComplete = {
   id: string;
@@ -93,7 +99,7 @@ async function getAllFromDb(): Promise<RealisationComplete[] | null> {
 export async function getRealisations(): Promise<RealisationComplete[]> {
   const fromDb = await getAllFromDb();
   if (fromDb) return fromDb;
-  return REALISATIONS.filter((r) => r.publie)
+  return TOUTES_REALISATIONS.filter((r) => r.publie)
     .map(fromMock)
     .sort((a, b) => b.dateRealisation.getTime() - a.dateRealisation.getTime());
 }
