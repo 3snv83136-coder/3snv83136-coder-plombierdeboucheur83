@@ -8,6 +8,9 @@ import { BandeauConfiance } from '@/components/borne/BandeauConfiance';
 import { RealisationGalerie } from '@/components/realisations/RealisationGalerie';
 import { FilAriane } from '@/components/shared/Breadcrumb';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { ContenuSeoVille } from '@/components/sections/ContenuSeoVille';
+import { SectionAvis } from '@/components/sections/SectionAvis';
+import { SectionAssurance } from '@/components/sections/SectionAssurance';
 import { getVilleBySlug } from '@/lib/villes';
 import { getRealisationsParVille } from '@/lib/realisations';
 import { getServices } from '@/lib/services';
@@ -18,6 +21,7 @@ import {
   buildBreadcrumbJsonLd,
   buildAggregateRatingJsonLd,
 } from '@/lib/seo';
+import { CONTENU_VILLES_SEO } from '@/lib/content/villes-seo';
 import { SITE_NAME, SITE_URL } from '@/lib/utils';
 
 export const revalidate = 3600;
@@ -42,11 +46,10 @@ export default async function PageVille({ params }: Props) {
   const [realisationsToutes, realisationsTop, services, parametres] =
     await Promise.all([
       getRealisationsParVille(ville.slug),
-      getRealisationsParVille(ville.slug, 3),
+      getRealisationsParVille(ville.slug, 6),
       getServices(),
       getParametres(),
     ]);
-  const realisations = realisationsTop;
 
   const aggregate = buildAggregateRatingJsonLd({
     realisations: realisationsToutes,
@@ -74,6 +77,8 @@ export default async function PageVille({ params }: Props) {
     ],
   });
 
+  const contenuSeo = CONTENU_VILLES_SEO[ville.slug];
+
   return (
     <>
       <JsonLd data={[localBusiness, ...servicesJsonLd, breadcrumb]} />
@@ -85,28 +90,12 @@ export default async function PageVille({ params }: Props) {
         ]}
       />
 
+      {/* 4 CONTAINERS */}
       <Borne ville={{ slug: ville.slug, nom: ville.nom }} />
 
-      <BandeauConfiance />
-
-      {ville.description && (
-        <section className="container-borne py-10 sm:py-14">
-          <div className="mx-auto max-w-3xl">
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-borne-bleu">
-              Dépannage local · {ville.codePostal}
-            </p>
-            <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-borne-encre">
-              Plombier déboucheur à {ville.nom}
-            </h2>
-            <p className="mt-4 text-base sm:text-lg text-borne-gris leading-relaxed">
-              {ville.description}
-            </p>
-          </div>
-        </section>
-      )}
-
-      <section className="container-borne py-10 sm:py-14">
-        <div className="mb-6 flex items-end justify-between gap-4">
+      {/* RÉALISATIONS — directement sous les containers */}
+      <section className="container-borne pt-2 pb-10 sm:pb-14">
+        <div className="mb-5 flex items-end justify-between gap-4">
           <div>
             <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-borne-bleu">
               Nos derniers chantiers
@@ -123,7 +112,7 @@ export default async function PageVille({ params }: Props) {
           </Link>
         </div>
         <RealisationGalerie
-          realisations={realisations}
+          realisations={realisationsTop}
           vide={`Premières interventions documentées prochainement à ${ville.nom}.`}
         />
         <div className="mt-6 sm:hidden">
@@ -135,6 +124,24 @@ export default async function PageVille({ params }: Props) {
           </Link>
         </div>
       </section>
+
+      {/* CONTENU SEO ÉTENDU — ~1700 mots unique par ville */}
+      {contenuSeo && (
+        <ContenuSeoVille
+          contenu={contenuSeo}
+          ville={{
+            slug: ville.slug,
+            nom: ville.nom,
+            codePostal: ville.codePostal,
+          }}
+        />
+      )}
+
+      <BandeauConfiance />
+
+      {/* AVIS + ASSURANCE pour cohérence avec home */}
+      <SectionAvis />
+      <SectionAssurance />
     </>
   );
 }

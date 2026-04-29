@@ -1,0 +1,774 @@
+import type { ContenuSeoVille } from './types';
+
+// ============================================================
+// CONTENU SEO ÉTENDU — 10 villes du Var
+// ============================================================
+// Rédaction unique par ville (~1700 mots). Pas de duplicate
+// content : chaque texte mentionne des éléments factuels
+// spécifiques (quartiers, climat, sols, type d'habitat,
+// problématiques techniques locales).
+// ============================================================
+
+export const CONTENU_VILLES_SEO: Record<string, ContenuSeoVille> = {
+  // ============================================================
+  // TOULON — préfecture, port militaire, Haussmann
+  // ============================================================
+  toulon: {
+    intro: `Préfecture du Var et plus grande ville du département avec ses 178 000 habitants, Toulon concentre une part majeure des urgences de plomberie de la région. Adossée à la rade qui porte son nom et dominée par le mont Faron, la ville est traversée par un réseau d'évacuation hétérogène : conduites en grès vernissé du XIXᵉ siècle dans le centre Haussmannien autour de la place de la Liberté, canalisations en fonte héritées de l'extension portuaire, branchements PVC plus récents en périphérie. Cette superposition de générations de réseaux explique la fréquence des refoulements en bas de pente, particulièrement dans les artères qui descendent vers le port. La densité bâtie du centre, la présence de l'arsenal et du port militaire — qui imposent leur propre voirie — et l'orientation est-ouest des grands axes créent des configurations d'écoulement parfois capricieuses, notamment lors des épisodes cévenols qui touchent la ville en automne. Notre activité de plomberie d'urgence est née de ce constat simple : à Toulon, la plupart des bouchons ne sont pas des bouchons isolés, mais le symptôme d'un réseau qui a une histoire. Comprendre cette histoire — savoir lire la pente, deviner derrière le PVC une vieille fonte qui s'est cassée, identifier sur une caméra les traces de cure laissées par d'anciens passages — c'est ce que demande une intervention propre dans la ville.`,
+
+    habitat: `Le bâti toulonnais se lit en couches concentriques. Le cœur, autour du port et de la cathédrale, garde des immeubles bourgeois construits entre 1860 et 1900, dont les colonnes d'évacuation sont fréquemment encore en plomb sur les premiers mètres avant raccordement à la fonte du tout-à-l'égout. Autour, les quartiers de Saint-Roch, du Pont du Las et de la Rode présentent un habitat ouvrier dense, avec de petites copropriétés des années 1930-1950 où les colonnes uniques cumulent les eaux de plusieurs salles d'eau et favorisent les engorgements en cascade. Le Mourillon et le Cap-Brun, eux, ont gardé un caractère plus aéré : maisons individuelles avec jardin, villas de bord de mer, quelques résidences plus récentes côté Saint-Mandrier. Cette diversité a une conséquence directe sur notre métier : un débouchage sur une copropriété ancienne du Pont du Las ne se prépare pas comme une intervention sur une villa du Mourillon. Dans le premier cas, le diagnostic prime souvent sur la force brute, parce qu'un excès de pression peut faire céder une portion fragile. Dans le second, l'enjeu est plutôt l'accès au regard, fréquemment enterré sous des aménagements paysagers vieux de plusieurs décennies. Nos techniciens connaissent bien ces différences de configuration, et adaptent le matériel — buse haute pression, hérisson, furet électrique — à chaque réalité.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Refoulements en sortie de cuisine dans les copropriétés du centre',
+        serviceSlug: 'debouchage',
+        texte: `Dans les immeubles construits avant 1960 entre la place de la Liberté, le boulevard de Strasbourg et le quartier Saint-Roch, les colonnes d'évacuation cuisine cumulent souvent les rejets de quatre à six logements. Avec les années, les graisses se déposent sur les parois en fonte, surtout en partie basse, et finissent par former un anneau qui réduit le diamètre utile de moitié. Le symptôme typique : un évier qui se vide lentement chez vous alors que vos voisins du dessous voient régulièrement remonter une eau grasse. C'est un problème collectif, pas individuel — un débouchage local n'aura qu'un effet temporaire. Notre intervention type combine un curage haute pression sur l'ensemble de la colonne et un passage caméra de contrôle pour cartographier les zones encrassées et anticiper la prochaine intervention. Nous travaillons régulièrement avec les syndics toulonnais sur ce type de chantier coordonné.`,
+      },
+      {
+        titre: 'Recherche de fuite avant vente sur villas du Cap-Brun',
+        serviceSlug: 'inspection-camera',
+        texte: `Sur les villas du Cap-Brun, du Mourillon et de la corniche, les notaires demandent désormais quasi systématiquement un état du réseau d'assainissement avant signature. La raison : la plupart de ces propriétés ont été construites dans les années 1960-1970 avec des canalisations en fibrociment ou en grès qui montrent aujourd'hui des contre-pentes, des ovalisations ou des fissures que rien ne signale en surface tant qu'il n'y a pas d'inondation. Nous intervenons avec une caméra HD sur enrouleur jusqu'à 60 mètres, et fournissons un rapport vidéo daté avec relevés métriques. C'est ce document qui sert ensuite à la négociation, ou simplement à donner aux acquéreurs la sécurité de savoir dans quoi ils s'engagent. Compter une demi-journée pour une villa moyenne avec deux à trois branchements à inspecter.`,
+      },
+      {
+        titre: 'Vidanges de fosses dans les villas du Faron et de Lamalgue',
+        serviceSlug: 'fosse-septique',
+        texte: `Une partie des hauteurs de Toulon, notamment au-dessus du Faron et certains secteurs de Lamalgue ou de Mont Faron, n'est pas raccordée au tout-à-l'égout collectif et reste en assainissement non collectif. Les propriétaires y disposent d'une fosse toutes eaux ou d'une micro-station qu'il faut faire vidanger régulièrement, en moyenne tous les quatre ans. La spécificité toulonnaise : l'accès. Beaucoup de ces propriétés sont desservies par des chemins étroits, parfois en pente raide, qui n'admettent pas tous les camions hydrocureurs. Nous disposons d'un véhicule compact pour ces accès difficiles, qui réduit la distance utile de flexible à moins de 30 mètres et limite la majoration tarifaire. Bordereau de suivi des déchets remis systématiquement.`,
+      },
+      {
+        titre: 'Pompes de relevage en sous-sols inondables du Pont du Las',
+        serviceSlug: 'pompe-relevage',
+        texte: `Plusieurs secteurs bas du Pont du Las, du quartier des Routes et certaines portions de Sainte-Anne sont sous le niveau du tout-à-l'égout. Les caves, les buanderies et parfois les premiers niveaux d'habitation y dépendent d'une pompe de relevage qui remonte les eaux usées vers la canalisation publique. Quand cette pompe lâche un samedi soir, le sous-sol se remplit en quelques heures. Nous remplaçons en urgence les pompes équivalentes en stock — eaux usées domestiques, eaux vannes avec broyeur, eaux pluviales — et nous remettons en service le jour même dans la majorité des cas. Pour les installations neuves, nous dimensionnons la pompe en fonction de la hauteur manométrique réelle et du débit de pointe : un sous-dimensionnement est la cause numéro un des pannes prématurées que nous voyons dans le quartier.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Toulon est une ville de quartiers très typés, et chaque secteur a sa configuration de réseau, son type d'habitat, ses problématiques. Notre équipe intervient quotidiennement sur l'ensemble du périmètre communal et sur les communes limitrophes immédiates. Nos délais d'intervention sont calibrés pour rester sous l'heure dans le centre et la première couronne, et autour de quatre-vingt-dix minutes maximum pour les hauteurs et les hameaux excentrés. Nous connaissons les particularités d'accès — chemins étroits, copropriétés sans place de stationnement, sens uniques temporaires — qui font qu'une intervention bien préparée dure deux fois moins longtemps qu'un déplacement à l'aveugle.`,
+      liste: [
+        'Centre-ville (place de la Liberté, Liberté–Strasbourg)',
+        'Le Mourillon',
+        'Pont du Las',
+        'Saint-Roch',
+        'La Rode',
+        'Cap-Brun',
+        'Serinette',
+        'Lamalgue',
+        'Sainte-Anne',
+        'La Beaucaire',
+      ],
+    },
+
+    conseilsLocaux: `Le climat méditerranéen de Toulon impose deux vigilances saisonnières spécifiques. En automne, les épisodes cévenols génèrent des cumuls pluviométriques importants en peu d'heures, qui saturent les réseaux pluviaux et font remonter occasionnellement des eaux usées dans les sanitaires des étages bas. Avant ces épisodes — la météo locale les annonce généralement plusieurs jours à l'avance — pensez à vérifier que vos clapets anti-retour fonctionnent et que les regards de cour sont dégagés. En été, c'est l'inverse : la baisse des débits domestiques pendant les vacances, combinée à des températures élevées, accélère le vieillissement biologique des fosses septiques et des bacs à graisses. Si vous avez prévu de fermer la maison pendant trois semaines, faites couler quelques litres d'eau dans chaque siphon avant de partir et au retour. Pour les copropriétés, un curage préventif tous les deux ans des colonnes cuisine en septembre, juste avant la reprise d'occupation pleine, divise par deux le nombre d'urgences hivernales que nous traitons. C'est un geste collectif simple qui s'amortit largement.`,
+
+    delais: `Notre équipe est basée dans la rade toulonnaise, ce qui nous permet de tenir un délai d'intervention sous une heure sur toute la commune en journée et en début de soirée. La nuit et les week-ends, nous maintenons une astreinte technique avec deux véhicules permanents, ce qui porte le délai moyen autour de cinquante à soixante minutes pour le centre et un peu plus pour les hauteurs et les hameaux. Avant chaque déplacement, nous validons par téléphone le diagnostic de votre situation pour partir avec le bon matériel : un débouchage WC ne demande pas le même camion qu'un curage de canalisation principale. Cette anticipation évite les allers-retours et fait gagner trente à quarante minutes sur l'intervention totale.`,
+
+    faq: [
+      {
+        question: 'Pourquoi les copropriétés du centre de Toulon ont-elles plus de bouchons en hiver ?',
+        reponse: `Les températures plus basses font figer les graisses dans les colonnes d'évacuation cuisine, surtout en fonte. Les dépôts qui passaient encore en été se solidifient et finissent par former un anneau obstruant. Un curage préventif en septembre limite fortement les urgences hivernales.`,
+      },
+      {
+        question: 'Mon immeuble du Pont du Las a un sous-sol inondé après une pluie. Est-ce que vous gérez ?',
+        reponse: `Oui, nous traitons régulièrement ce type de cas. Selon la cause — pompe de relevage en panne, regard pluvial bouché, refoulement du tout-à-l'égout — l'intervention diffère. Nous diagnostiquons d'abord, sécurisons l'évacuation, puis programmons la réparation définitive si elle ne peut pas être faite immédiatement.`,
+      },
+      {
+        question: `J'achète une villa au Cap-Brun, le notaire me demande un état du réseau. C'est obligatoire ?`,
+        reponse: `Pas légalement obligatoire pour la plupart des configurations, mais fortement recommandé sur les villas anciennes. Le rapport vidéo et le métrage chiffrent l'état réel et protègent l'acquéreur contre les vices cachés. Nous fournissons un document opposable utilisable en négociation.`,
+      },
+      {
+        question: `Vous intervenez à l'arsenal ou sur les bâtiments militaires ?`,
+        reponse: `Non, l'arsenal et les sites militaires ont leurs propres équipes techniques internes et leurs procédures d'accès. Nous intervenons en revanche sur les logements de fonction situés hors emprise militaire et sur les commerces et restaurants qui jouxtent ces secteurs.`,
+      },
+      {
+        question: 'Combien de temps prévoir pour une vidange de fosse sur les hauteurs du Faron ?',
+        reponse: `Pour une fosse toutes eaux de 3 000 litres avec accès camion à moins de trente mètres, comptez environ quarante-cinq minutes sur place. Si l'accès est difficile (chemin étroit, distance supérieure), ajoutez vingt à trente minutes pour le déroulé du flexible et la sécurisation.`,
+      },
+    ],
+
+    conclusion: `Toulon est une ville où la plomberie ne s'improvise pas. Entre les réseaux du XIXᵉ et les pompes de relevage des sous-sols modernes, chaque intervention demande un diagnostic posé avant l'action. Notre borne en ligne vous donne un tarif transparent en quatre clics, calculé à partir de votre situation réelle et de votre quartier — pas d'estimation au pifomètre, pas de mauvaises surprises à la facturation. Si votre situation sort du cadre standard, la borne vous oriente vers un devis personnalisé sans engagement. Notre équipe répond au standard 24h/7j et envoie un technicien sous une heure dans la majorité des cas.`,
+  },
+
+  // ============================================================
+  // LA SEYNE-SUR-MER — ancien chantier naval, mix balnéaire/popu
+  // ============================================================
+  'la-seyne-sur-mer': {
+    intro: `Deuxième ville du Var avec ses 65 000 habitants, La Seyne-sur-Mer présente une identité urbaine très différente de sa voisine toulonnaise. Construite autour de ce qui fut, jusqu'en 1989, le plus grand chantier naval de Méditerranée, la ville a vu son tissu se réorganiser après la fermeture des chantiers : reconversion partielle en zones d'habitation, requalification du port en marina résidentielle et de loisirs, développement des quartiers balnéaires de Tamaris et des Sablettes, qui n'ont longtemps été que des hameaux secondaires. Cette histoire industrielle laisse des traces concrètes dans le sous-sol seynois : certains réseaux d'évacuation des anciens lotissements ouvriers présentent encore des soudures héritées de l'époque où les chantiers fournissaient localement la fonte et les pièces. À l'opposé, les quartiers de Tamaris, avec leurs villas Belle Époque, ont leurs propres particularités — réseaux longs courant sous des terrains paysagers, contre-pentes héritées d'aménagements successifs. Notre activité couvre l'ensemble du territoire communal, du centre populaire à la presqu'île de Saint-Mandrier en passant par la côte balnéaire, et nous adaptons systématiquement notre approche au type de bâti rencontré.`,
+
+    habitat: `On peut découper La Seyne en trois grandes typologies d'habitat, chacune avec ses propres défis de plomberie. Le centre, autour de la place Bourradet, regroupe des immeubles populaires des années 1900-1960, souvent en copropriété simple avec une seule colonne par cage d'escalier. Les engorgements y sont fréquents, et la solidarité forcée entre logements amplifie chaque incident en problème collectif. Les anciens quartiers ouvriers — Berthe, Janas, Les Mouissèques — alignent des petits collectifs et des maisons mitoyennes des années 1950-1970, avec des canalisations en fonte ou en amiante-ciment qui arrivent en fin de vie technique. Enfin, la frange balnéaire de Tamaris à Mar Vivo enchaîne villas Belle Époque rénovées et constructions plus récentes, avec souvent des fosses septiques ou micro-stations parce que le tout-à-l'égout n'a pas suivi partout, et avec des pompes de relevage dans les parties basses ou en pied de falaise. Cette diversité a une conséquence directe : un dépanneur qui ne connaît qu'un type de bâti commet vite des erreurs ailleurs. Nous formons nos techniciens à reconnaître les indices visuels — type de regard, matériau apparent, configuration du compteur — qui permettent de cadrer le diagnostic avant même d'entrer dans le logement.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Bouchons WC récidivants dans les copropriétés de Berthe et des Mouissèques',
+        serviceSlug: 'debouchage',
+        texte: `Les copropriétés des années 1960 dans les quartiers de Berthe et des Mouissèques présentent une particularité technique : les colonnes d'eaux vannes étaient dimensionnées pour des WC à chasse d'eau de neuf litres, alors que les modèles récents en consomment trois à quatre fois moins. Conséquence : moins d'eau pour entraîner les matières, et plus de risques de dépôts persistants. Sur ces réseaux, un débouchage classique au furet règle le problème immédiat mais ne change pas la cause de fond. Nous proposons systématiquement un passage caméra de contrôle pour identifier les points de stagnation et conseillons aux syndics un curage hydrocureur tous les deux ans. C'est cette préventive qui réduit la facture des urgences à long terme.`,
+      },
+      {
+        titre: 'Inspection avant achat sur les villas Belle Époque de Tamaris',
+        serviceSlug: 'inspection-camera',
+        texte: `Tamaris concentre des villas Belle Époque construites à la fin du XIXᵉ siècle pour la villégiature. Beaucoup ont été remaniées plusieurs fois, parfois avec des extensions raccordées artisanalement au réseau d'origine. Avant achat ou avant gros travaux de rénovation, l'inspection caméra met en évidence ces piquages successifs, les zones de contre-pente, les segments en grès vernissé qui peuvent être brisés sans signe extérieur. Sur ces propriétés à forte valeur patrimoniale, le rapport vidéo est un document de référence qui sert à la fois pour la transaction immobilière et pour planifier intelligemment une réfection sans tout casser inutilement.`,
+      },
+      {
+        titre: 'Pompages de fosses dans les villas de Janas et de Mar Vivo',
+        serviceSlug: 'fosse-septique',
+        texte: `Plusieurs zones résidentielles de la commune restent en assainissement non collectif, notamment des secteurs des hauteurs de Janas, de Mar Vivo et certains lotissements isolés. Les fosses toutes eaux, micro-stations et bacs à graisses y sont fréquents, et la proximité de la nappe phréatique côtière impose une gestion particulièrement rigoureuse — une fosse qui déborde dans un terrain saturé, c'est une pollution de la baie. Nous travaillons avec un camion adapté aux accès en pente, et nous remettons systématiquement le bordereau de suivi des déchets imposé par la réglementation. Pour les biens en assainissement non collectif, nous conseillons de programmer la vidange tous les quatre ans plutôt que d'attendre les premiers signes.`,
+      },
+      {
+        titre: 'Pompes de relevage en panne sur le port et la marina',
+        serviceSlug: 'pompe-relevage',
+        texte: `La marina de La Seyne et certaines copropriétés en bord de port disposent de pompes de relevage qui doivent gérer simultanément les eaux usées et les eaux pluviales saumâtres infiltrées. Ce contexte agressif — sels marins, sable fin, occasionnellement des micro-organismes marins — abrège la durée de vie des pompes standard. Nous recommandons des modèles spécifiquement conçus pour les eaux saumâtres, avec turbines vortex ou hachoir, et nous gérons les remplacements en urgence depuis notre stock local. La maintenance annuelle préventive double la durée de vie utile — c'est un investissement très rentable comparé à un dépannage en urgence un dimanche férié.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture s'étend sur l'ensemble du territoire de La Seyne-sur-Mer, du centre au littoral en passant par les quartiers de coteau. Nous intervenons aussi sur la presqu'île de Saint-Mandrier toute proche, qui partage avec La Seyne plusieurs problématiques de bord de mer. Les délais varient légèrement selon la zone — plus rapides en cœur de ville, légèrement plus longs sur les chemins serrés des hauteurs ou sur Saint-Mandrier — mais nous restons systématiquement dans une fourchette d'intervention sous l'heure et demie, week-ends et jours fériés inclus.`,
+      liste: [
+        'Centre-ville et place Bourradet',
+        'Tamaris',
+        'Les Sablettes',
+        'Mar Vivo',
+        'Janas',
+        'Les Mouissèques',
+        'Berthe',
+        'Le Crouton',
+        'La Présentation',
+        'Saint-Mandrier (commune limitrophe)',
+      ],
+    },
+
+    conseilsLocaux: `La Seyne combine deux contraintes locales rarement traitées ensemble : la proximité immédiate de la mer sur sa façade balnéaire et l'héritage industriel de son centre populaire. Sur la côte, l'humidité salée corrode les pièces métalliques exposées — robinetteries extérieures, raccords de pompes en sous-sol, canalisations enterrées proches du littoral. Un rinçage à l'eau douce des installations exposées, deux fois par an, retarde significativement la corrosion. Dans le centre et les quartiers populaires, le risque dominant est plutôt collectif : les copropriétés anciennes ont des colonnes uniques qu'un seul logement peut suffire à boucher pour tout l'immeuble. Si vous habitez ce type de bâti, repérez en amont l'identité de votre syndic et vérifiez qu'un contrat d'entretien des parties communes existe — sinon, le jour où la cuisine de tout l'immeuble refoule, personne n'aura le bon contact. Ce simple repérage administratif fait gagner des heures précieuses en situation d'urgence réelle, et facilite la coordination avec nos équipes.`,
+
+    delais: `Nous sommes positionnés à la frontière entre Toulon et La Seyne, ce qui nous permet de maintenir un délai moyen d'intervention de cinquante à soixante-dix minutes sur l'ensemble de la commune en journée. Pour la presqu'île de Saint-Mandrier, comptez un peu plus selon le trafic du tunnel et de la corniche. Notre standard est joignable 24h/7j, et nous gardons une équipe d'astreinte le week-end avec véhicule équipé prêt à partir. Avant chaque déplacement, un échange téléphonique de cinq à dix minutes nous permet de cibler le matériel : ce travail de préparation transforme souvent une intervention de deux heures en une intervention d'une heure.`,
+
+    faq: [
+      {
+        question: 'Pourquoi les pompes de relevage tombent-elles plus souvent en panne sur la marina de La Seyne ?',
+        reponse: `Les eaux usées de la marina contiennent fréquemment des résidus saumâtres et des micro-particules sablonneuses qui usent les turbines standard. Une pompe spécifique aux eaux chargées avec turbine vortex ou hachoir résiste deux à trois fois mieux. Nous recommandons aussi une maintenance annuelle.`,
+      },
+      {
+        question: 'Ma fosse septique à Mar Vivo doit-elle être vidangée plus souvent à cause de la proximité de la mer ?',
+        reponse: `Pas plus souvent qu'ailleurs, mais avec plus de rigueur. La proximité de la nappe phréatique côtière impose une étanchéité parfaite. Nous vérifions à chaque vidange l'absence d'infiltrations latérales et l'état du préfiltre, qui se colmate plus vite en zone côtière.`,
+      },
+      {
+        question: `Combien coûte une inspection caméra avant achat sur une villa de Tamaris ?`,
+        reponse: `Le coût dépend de la longueur du réseau et du nombre de branchements à inspecter. Pour une villa standard avec un raccordement principal et deux antennes, une demi-journée suffit. La borne en ligne vous donne un tarif estimatif précis selon votre situation.`,
+      },
+      {
+        question: `J'habite une copropriété de Berthe, l'évacuation cuisine est lente. C'est à moi ou au syndic de payer ?`,
+        reponse: `Si le bouchon est avant la jonction avec la colonne commune, c'est à votre charge. S'il est sur la colonne elle-même, c'est aux parties communes. Notre passage caméra localise précisément la zone concernée, ce qui clarifie immédiatement la responsabilité.`,
+      },
+      {
+        question: `Vous intervenez aussi sur Saint-Mandrier ?`,
+        reponse: `Oui, Saint-Mandrier fait partie de notre périmètre standard. Nous y intervenons quotidiennement, particulièrement sur les pompes de relevage des résidences en pied de falaise et les fosses des quelques propriétés en assainissement non collectif.`,
+      },
+    ],
+
+    conclusion: `La Seyne-sur-Mer demande une plomberie qui sait conjuguer deux mondes : le centre populaire à canalisations héritées, et le littoral balnéaire à problématiques marines. Notre borne calcule en quatre clics un tarif adapté à votre quartier précis et à la nature de votre intervention, sans surprise à la facturation. Pour les situations sortant du standard, un devis personnalisé est proposé en complément. Notre équipe répond 24h/7j et intervient en moins d'une heure et demie sur l'ensemble du territoire communal et sur Saint-Mandrier.`,
+  },
+
+  // ============================================================
+  // HYÈRES — presqu'île, climat doux, vieille ville médiévale
+  // ============================================================
+  hyeres: {
+    intro: `Hyères, 57 000 habitants, occupe une position singulière sur le littoral varois. La ville s'étend depuis la vieille ville médiévale perchée sur les contreforts des Maurettes jusqu'aux Salins et à la presqu'île de Giens, en passant par la longue façade littorale qui regarde les îles d'Or. Cette extension géographique inhabituelle — quinze kilomètres de l'amont à l'aval — implique une grande variété de configurations de plomberie sur le territoire communal. Le climat hyérois, qui figure parmi les plus doux de France métropolitaine avec des hivers rarement sous les cinq degrés, a une conséquence technique souvent ignorée : les biofilms biologiques qui se forment dans les canalisations d'évacuation prospèrent toute l'année, sans la pause de gel qui freine leur croissance ailleurs. Cela signifie que les odeurs de canalisation et les écoulements lents apparaissent ici plus rapidement et plus souvent, surtout dans les habitations à occupation discontinue. La saisonnalité touristique — la population peut doubler en été — ajoute une charge soudaine sur les réseaux qui auraient mieux toléré un rythme plus régulier. Nous intervenons sur l'ensemble du périmètre communal, y compris la presqu'île de Giens et les hameaux de l'arrière-pays comme L'Ayguade ou La Capte.`,
+
+    habitat: `Le bâti hyérois se distribue en quatre familles très différentes. La vieille ville, autour de la collégiale Saint-Paul, aligne des immeubles médiévaux à structure étroite, avec des canalisations qui passent dans des murs anciens et des configurations parfois rocambolesques héritées des transformations successives. La ville moderne du XIXᵉ et du XXᵉ siècle, qui descend en plaine vers le littoral, est plus standard mais hérite parfois de réseaux d'évacuation dimensionnés pour des densités de population plus faibles que celles d'aujourd'hui. La frange littorale — La Capte, l'Ayguade, Hyères-Plage — concentre des résidences souvent secondaires, avec des installations qui dorment neuf mois et qui sont sollicitées intensément en juillet-août. Enfin, l'arrière-pays vers les Borrels et les hauteurs présente un habitat dispersé en assainissement non collectif, avec fosses toutes eaux et micro-stations. Cette diversité oblige à un savoir-faire varié : déboucher dans une ruelle de la vieille ville où le camion ne peut pas s'engager, c'est un autre métier que pomper une fosse dans les Borrels. Nous formons nos équipes à toutes ces configurations.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Engorgements lents et odeurs en résidences secondaires de La Capte',
+        serviceSlug: 'debouchage',
+        texte: `Les résidences secondaires de La Capte et de la presqu'île de Giens présentent un problème classique mais sous-diagnostiqué : la formation de biofilms et de bouchons biologiques dans les canalisations qui restent humides sans être rincées pendant les neuf mois d'inoccupation. Le climat doux d'Hyères favorise le maintien de cette flore, et le retour des occupants en été déclenche typiquement un écoulement lent, des odeurs de fermentation au niveau des siphons, et parfois des remontées de gaz sulfureux. Le débouchage curatif règle l'urgence, mais la vraie solution est préventive : un rinçage trimestriel de tous les siphons, une mise en eau propre des WC, et un curage léger en début de saison divisent par trois la fréquence de nos interventions estivales.`,
+      },
+      {
+        titre: 'Inspection caméra avant rénovation dans la vieille ville',
+        serviceSlug: 'inspection-camera',
+        texte: `Les rénovations dans le centre médiéval d'Hyères butent presque toujours sur la même question : où passent vraiment les évacuations ? Les plans d'origine ont disparu, les transformations successives ont créé des piquages improbables, et casser un mur de pierre sans avoir cartographié au préalable peut transformer un projet à trente mille euros en chantier à soixante. Notre inspection caméra avec localisateur en surface permet de tracer précisément le réseau existant et de repérer les segments à conserver, à doubler ou à abandonner. Le rapport vidéo et le tracé métré servent ensuite de pièce de référence pour le maître d'œuvre. Compter une journée pour une maison médiévale type avec deux à trois branchements.`,
+      },
+      {
+        titre: 'Vidanges de fosses dans les hameaux des Borrels et de Sauvebonne',
+        serviceSlug: 'fosse-septique',
+        texte: `L'arrière-pays hyérois — Borrels, Sauvebonne, certaines portions des hauteurs vers Carqueiranne — reste largement en assainissement individuel. Les fosses toutes eaux de 3 000 à 5 000 litres y sont la norme, avec des micro-stations plus récentes pour les constructions des années 2000. La saisonnalité a une conséquence directe : une fosse dimensionnée pour deux occupants permanents est souvent saturée par six personnes en juillet. Nous conseillons aux propriétaires de résidences secondaires une vidange systématique en septembre, juste après la saison, plutôt qu'attendre le printemps : cela évite de découvrir une fosse pleine au moment de la remise en service.`,
+      },
+      {
+        titre: 'Pompes de relevage exposées sur les villas du Port',
+        serviceSlug: 'pompe-relevage',
+        texte: `Le port d'Hyères et certaines villas en pied de digue ont leurs locaux techniques sous le niveau de la mer, avec des pompes de relevage qui gèrent à la fois les eaux usées et l'eau de mer infiltrée. Ces installations sont parmi les plus exigeantes que nous traitons : sels chlorurés, sable fin, occasionnellement des coquillages broyés. Les pompes standard tiennent rarement plus de trois ans dans ces conditions. Nous installons des modèles spécifiquement marinisés avec turbine vortex et bobinage protégé contre la corrosion, et nous mettons en place un contrat de maintenance bisannuel qui inclut le nettoyage du puits et le contrôle des flotteurs.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre activité couvre la totalité du périmètre communal hyérois, qui est vaste — du centre historique à la pointe de Giens, en passant par la frange littorale et l'arrière-pays. Les délais d'intervention varient légèrement selon la distance à notre base : nous sommes systématiquement sous l'heure pour le centre, la plaine et la frange littorale, et autour de quatre-vingt-dix minutes pour les hameaux les plus reculés des Borrels ou pour la pointe de Giens en pleine saison estivale (où le trafic peut s'allonger). Notre couverture inclut aussi Carqueiranne, commune limitrophe avec laquelle nous partageons plusieurs problématiques.`,
+      liste: [
+        'Vieille ville (collégiale Saint-Paul)',
+        'Centre moderne et avenue Gambetta',
+        'La Capte',
+        `L'Ayguade`,
+        'Hyères-Plage',
+        'Les Salins',
+        'La presqu\'île de Giens',
+        'Costebelle',
+        'Saint-Pierre-des-Horts',
+        'Les Borrels',
+        'Sauvebonne',
+      ],
+    },
+
+    conseilsLocaux: `Le climat doux d'Hyères a deux conséquences directes sur la plomberie domestique. D'abord, l'absence de vrais cycles de gel signifie que les biofilms biologiques prospèrent toute l'année dans les canalisations, ce qui se traduit par des odeurs et des ralentissements d'écoulement plus fréquents qu'ailleurs. Un rinçage mensuel à l'eau bien chaude (pas brûlante : 60 à 70 °C suffisent) de tous les siphons décape la majeure partie de ce biofilm. Ensuite, la saisonnalité touristique double la population en été et fait chuter l'activité hors saison. Cette discontinuité est l'ennemi des fosses septiques, qui fonctionnent par bactéries et préfèrent un débit régulier. Si vous fermez votre résidence secondaire en automne, ne videz pas la fosse — laissez-la avec son contenu pour que les bactéries hibernent. À la remise en service au printemps, ajoutez un activateur biologique pendant deux semaines pour relancer le cycle. Enfin, sur les pompes de relevage exposées au littoral, un rinçage à l'eau douce après les coups de mer prolonge sensiblement la durée de vie.`,
+
+    delais: `Nous sommes implantés dans l'aire toulonnaise et travaillons quotidiennement sur Hyères, où nous maintenons un délai moyen de soixante à quatre-vingt-dix minutes selon la zone et la saison. En été, le trafic sur la presqu'île de Giens et vers les plages peut allonger les déplacements, ce que nous anticipons en pré-positionnant un véhicule sur la commune les jours de pic. Notre standard répond 24h/7j, week-ends inclus, et nous gardons en stock les pompes de relevage les plus courantes pour permettre le remplacement le jour même dans la majorité des cas. Le diagnostic téléphonique préalable — cinq minutes en moyenne — permet de partir avec le bon matériel et raccourcit l'intervention sur place.`,
+
+    faq: [
+      {
+        question: `Pourquoi les évacuations sentent plus mauvais l'été à Hyères qu'ailleurs ?`,
+        reponse: `Le climat doux toute l'année favorise les biofilms biologiques qui se forment dans les siphons et les canalisations. La hausse des températures estivales accélère leur développement, ce qui produit les gaz responsables des odeurs. Un rinçage mensuel à l'eau chaude limite fortement le phénomène.`,
+      },
+      {
+        question: `Ma résidence secondaire à La Capte est fermée 9 mois par an. Faut-il faire quelque chose en plus ?`,
+        reponse: `Oui. Une fois par trimestre, faites passer quelques litres d'eau dans chaque siphon pour éviter qu'ils ne sèchent (un siphon sec laisse remonter les odeurs et les insectes). À la remise en service annuelle, prévoyez un curage léger préventif si la maison est occupée intensivement en été.`,
+      },
+      {
+        question: `Combien de temps pour vidanger une fosse aux Borrels ?`,
+        reponse: `Pour une fosse toutes eaux standard de 3 000 litres avec accès camion à moins de trente mètres, comptez environ quarante-cinq minutes sur place. L'éloignement de l'arrière-pays par rapport à notre base ajoute du temps de trajet, mais l'opération en elle-même reste rapide.`,
+      },
+      {
+        question: `Vous intervenez sur l'île de Porquerolles ou Port-Cros ?`,
+        reponse: `Non, les îles d'Or ont des contraintes logistiques propres et des prestataires locaux dédiés. Nous restons sur la partie continentale d'Hyères, qui couvre déjà la grande majorité des urgences de la commune.`,
+      },
+      {
+        question: `Ma pompe de relevage au Port d'Hyères tient deux ans maximum. C'est normal ?`,
+        reponse: `Pour une pompe standard exposée à l'eau saumâtre, oui, c'est cohérent avec la durée de vie observée. Une pompe spécifiquement marinisée avec bobinage protégé tient en moyenne cinq à sept ans dans le même contexte. Nous installons couramment ce type de modèle sur le port.`,
+      },
+    ],
+
+    conclusion: `Hyères demande une plomberie attentive aux particularités locales : climat doux qui favorise les biofilms, saisonnalité qui sollicite les fosses par à-coups, exposition marine qui use les pompes. Notre borne en ligne donne un tarif transparent en quatre clics, calculé à partir des spécificités de votre intervention et de votre quartier. Pour les cas particuliers — vieille ville inaccessible aux camions, presqu'île en haute saison, hameaux isolés — un devis personnalisé est disponible sur simple demande. Notre standard répond 24h/7j et nos équipes interviennent en moins d'une heure et demie sur tout le territoire communal.`,
+  },
+
+  // ============================================================
+  // FRÉJUS — ville romaine, base aérienne, balnéaire
+  // ============================================================
+  frejus: {
+    intro: `Fréjus, 55 000 habitants, est l'une des plus anciennes villes du Var. Fondée par Jules César en 49 avant notre ère sous le nom de Forum Julii, elle a conservé un patrimoine romain remarquable — arènes, aqueduc, thermes — qui structure encore aujourd'hui partiellement le tissu urbain du centre historique. Cette ancienneté a une conséquence concrète et souvent surprenante pour la plomberie moderne : certains tronçons de rue du centre ancien superposent quatre à cinq générations de canalisations, depuis des sections d'évacuations romaines en briques jusqu'aux PVC contemporains, en passant par la fonte du XIXᵉ siècle et les bétons de l'entre-deux-guerres. Au-delà de cette singularité historique, Fréjus a connu une expansion balnéaire importante avec Saint-Aygulf, Port-Fréjus et Caïs, et abrite la base aérienne de Saint-Raphaël qui marque l'urbanisme local. La saisonnalité touristique est forte mais étalée — les plages attirent toute l'année, pas seulement en été — ce qui modifie le rythme de sollicitation des réseaux par rapport à des stations strictement estivales. Notre activité couvre l'ensemble du territoire, du centre historique aux nouveaux lotissements de la plaine intérieure.`,
+
+    habitat: `On peut distinguer quatre grands types d'habitat à Fréjus, qui correspondent à autant de problématiques de plomberie. Le centre historique, avec ses ruelles parfois inaccessibles aux véhicules d'intervention, regroupe des immeubles bâtis sur des fondations romaines ou médiévales, avec des canalisations qui se réinventent à chaque rénovation. Saint-Aygulf, station balnéaire intégrée à la commune, aligne des pavillons des années 1960-1980 avec leurs propres réseaux et des résidences secondaires nombreuses. Port-Fréjus, créé ex nihilo dans les années 1990, présente un habitat moderne en copropriété avec des pompes de relevage souvent indispensables vu la proximité du plan d'eau. Enfin, l'arrière-pays — La Tour de Mare, Le Capitou, Caïs — alterne villas individuelles avec terrains parfois en assainissement non collectif et lotissements pavillonnaires. Cette diversité géographique implique que nos techniciens connaissent à la fois les techniques de débouchage en accès difficile, le diagnostic sur réseaux modernes mais saisonniers, l'entretien des pompes immergées, et la vidange de fosses en arrière-pays. C'est un savoir-faire pluriel, que nous entretenons par formation continue.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Bouchons sablonneux dans les évacuations de Saint-Aygulf',
+        serviceSlug: 'debouchage',
+        texte: `Les pavillons et résidences de Saint-Aygulf, Port-Fréjus et certains secteurs de la frange littorale présentent un problème spécifique aux zones balnéaires : l'apport régulier de sable fin par les baigneurs qui rincent leurs maillots, leurs équipements et leurs douches extérieures. Ce sable, fin et siliceux, ne pose pas de problème visible immédiatement, mais s'accumule progressivement dans les coudes des évacuations et dans les pots à siphon. Au bout de plusieurs saisons, l'écoulement se réduit puis se bloque. Le débouchage classique au furet ne suffit pas : il faut un curage hydrocureur pour évacuer le dépôt sablonneux. Nous conseillons aux propriétaires de Saint-Aygulf une intervention préventive tous les trois ans en automne, avant la baisse de la saison.`,
+      },
+      {
+        titre: 'Inspection caméra dans le centre romain',
+        serviceSlug: 'inspection-camera',
+        texte: `Les rénovations dans le centre historique de Fréjus exigent presque systématiquement un repérage préalable du réseau d'évacuation, parce que les plans d'origine n'existent pas et que les transformations successives ont créé des configurations imprévisibles. Nous avons rencontré dans certaines maisons du centre des sections d'évacuation millénaires encore fonctionnelles, ainsi que des piquages des années 1950 qui se branchent à angle droit sur des conduites du XVIIIᵉ siècle. L'inspection caméra avec localisateur permet de tracer le tout, d'identifier les segments à conserver et ceux à reprendre, et fournit au maître d'œuvre une cartographie complète. C'est un investissement modeste rapporté au coût d'une mauvaise surprise pendant les travaux.`,
+      },
+      {
+        titre: 'Vidanges saisonnières dans les villas du Capitou',
+        serviceSlug: 'fosse-septique',
+        texte: `L'arrière-pays fréjusien — Le Capitou, La Tour de Mare, certains secteurs vers Caïs — comprend des villas en assainissement non collectif. La particularité locale : la saisonnalité étale, avec une occupation quasi continue toute l'année et des pics d'occupation lors des périodes de vacances scolaires. Cela impose une vidange régulière, idéalement tous les trois à quatre ans, avec une attention particulière à l'état du préfiltre qui se colmate plus rapidement quand les usages varient. Nous remettons systématiquement le bordereau de suivi des déchets exigé par la réglementation, et nous contrôlons la pertinence du dimensionnement de la fosse par rapport aux usages réels — un sujet sur lequel beaucoup de propriétaires découvrent qu'ils sont sous-dimensionnés.`,
+      },
+      {
+        titre: 'Pompes de relevage saumâtres à Port-Fréjus',
+        serviceSlug: 'pompe-relevage',
+        texte: `Port-Fréjus, créé sur d'anciennes salines aménagées en port de plaisance, dispose d'un sous-sol dont la nappe phréatique est saumâtre et proche de la surface. Toutes les copropriétés de Port-Fréjus dépendent de pompes de relevage qui gèrent les eaux usées et, parfois, l'infiltration. Ces pompes travaillent dans des conditions agressives — chlorures, sable fin issu des plages, présence saisonnière de méduses ou d'algues entrant par le cordon littoral. Les modèles standard tiennent mal au-delà de trois ans. Nous installons des pompes spécifiquement marinisées, avec turbine adaptée aux eaux chargées et bobinage protégé, et nous proposons une maintenance annuelle qui double la durée de vie utile.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture sur Fréjus inclut le centre historique, les zones balnéaires et l'arrière-pays. Nous travaillons aussi sur Saint-Raphaël voisine, qui partage avec Fréjus une grande partie de la zone balnéaire. Les délais d'intervention sont calibrés pour rester sous l'heure et demie en toute saison, avec des délais plus courts en hiver et au printemps, et de légères majorations en juillet-août quand le trafic vers les plages s'intensifie. Notre standard centralise les demandes et oriente vers le véhicule le plus proche selon la nature de l'intervention.`,
+      liste: [
+        'Centre historique (cathédrale Saint-Léonce)',
+        'Saint-Aygulf',
+        'Port-Fréjus',
+        'Caïs',
+        'La Tour de Mare',
+        'Le Capitou',
+        'Saint-Jean-de-Cannes',
+        'Vieux-Salins',
+        'Saint-Antoine',
+      ],
+    },
+
+    conseilsLocaux: `Fréjus combine les contraintes d'une vieille ville historique et celles d'une station balnéaire active toute l'année. Pour les habitants du centre, la première recommandation est d'éviter de jeter dans les WC tout objet qui pourrait coincer dans une canalisation ancienne — y compris les lingettes prétendument biodégradables, qui ne le sont jamais assez vite pour des conduites qui peuvent avoir un siècle ou plus. Pour les résidents de la frange balnéaire, le rinçage régulier des évacuations à grande eau, particulièrement après une journée plage, limite l'accumulation de sable fin dans les siphons et les coudes. Pour les villas en assainissement non collectif, deux principes : ne jamais utiliser de produits déboucheurs chimiques agressifs (ils tuent la flore bactérienne de la fosse et la rendent inopérante pendant plusieurs semaines), et programmer la vidange régulière sans attendre les premiers signes de saturation. Enfin, pour les pompes de relevage à Port-Fréjus, un test mensuel de la commande manuelle prend trente secondes et permet de détecter les pannes électriques en cours plutôt que le jour où la pompe s'arrête vraiment.`,
+
+    delais: `Notre activité est positionnée pour couvrir l'est varois depuis l'aire toulonnaise, ce qui se traduit pour Fréjus par un délai moyen d'intervention compris entre soixante et quatre-vingt-dix minutes selon la zone et la saison. En haute saison estivale, le trafic sur l'autoroute et sur les axes côtiers peut prolonger les déplacements ; nous compensons en pré-positionnant un véhicule sur le secteur lors des journées de pic. Notre standard reçoit les appels 24h/7j, et nous gardons en stock les pompes de relevage les plus communes pour le secteur, notamment les modèles marinisés adaptés à Port-Fréjus. Le diagnostic téléphonique préalable accélère systématiquement l'intervention sur place.`,
+
+    faq: [
+      {
+        question: `Le réseau d'évacuation chez moi dans le centre date de quand ?`,
+        reponse: `Sans inspection, impossible de le dire avec certitude. Dans le centre historique, beaucoup de logements combinent des sections de plusieurs époques sur un même branchement. Une caméra sur trente mètres permet de cartographier l'ensemble et de chiffrer ce qui mérite d'être repris.`,
+      },
+      {
+        question: `Pourquoi les douches de mon pavillon de Saint-Aygulf s'évacuent-elles plus lentement chaque année ?`,
+        reponse: `Probablement à cause de l'accumulation progressive de sable fin et de cheveux dans les siphons et les coudes. Un curage hydrocureur en début d'automne, tous les trois ans, restaure le diamètre utile et prévient le bouchon complet.`,
+      },
+      {
+        question: `Combien de temps pour une vidange au Capitou ?`,
+        reponse: `Pour une fosse standard de 3 000 à 4 000 litres avec un accès direct, comptez environ quarante à cinquante minutes sur place, sans compter le trajet. Si l'accès demande de dérouler plus de trente mètres de flexible, ajoutez vingt minutes.`,
+      },
+      {
+        question: `Ma pompe à Port-Fréjus disjoncte. C'est grave ?`,
+        reponse: `Souvent c'est le signe d'une roue grippée par du sable ou des débris, ou d'un défaut d'étanchéité électrique. Coupez l'alimentation immédiatement et appelez-nous. Un diagnostic sur place dure trente minutes et oriente sur réparation ou remplacement.`,
+      },
+      {
+        question: `Vous intervenez aussi sur Saint-Raphaël ?`,
+        reponse: `Oui, Saint-Raphaël est dans notre couverture standard. Beaucoup de problématiques sont communes à Fréjus, notamment sur la frange littorale, ce qui nous permet d'intervenir efficacement de part et d'autre de la limite communale.`,
+      },
+    ],
+
+    conclusion: `Fréjus mêle l'ancien et le balnéaire, le romain et le moderne. Cette diversité demande une plomberie qui sait s'adapter, du curage caméra dans les ruelles à la maintenance des pompes marinisées de Port-Fréjus. Notre borne calcule en quatre clics un tarif transparent et adapté à la nature de votre intervention. Pour les configurations complexes — accès centre ancien, pompes spéciales, fosses surdimensionnées — un devis personnalisé est disponible. Notre standard 24h/7j et notre stock local de pièces courantes nous permettent de tenir des délais d'intervention sous l'heure et demie sur toute la commune.`,
+  },
+
+  // ============================================================
+  // DRAGUIGNAN — haut-Var, sols rocheux, fosses fréquentes
+  // ============================================================
+  draguignan: {
+    intro: `Sous-préfecture du Var avec 40 000 habitants, Draguignan offre un visage très différent de la côte. Située à une trentaine de kilomètres de la mer, en contrebas du plateau de Canjuers, la ville s'étire sur un terrain de moyenne montagne où les sols argileux alternent avec des affleurements rocheux calcaires. Cette géologie a une conséquence directe pour la plomberie : les terrassements pour les canalisations enterrées y sont plus difficiles qu'en plaine côtière, et les ruptures de pente sur les terrains pavillonnaires sont fréquentes. Le tissu urbain dragueignannais est lui aussi spécifique : un noyau historique resserré autour de la tour de l'Horloge, des extensions pavillonnaires des années 1960-2000, et un arrière-pays dispersé qui touche aux communes voisines de Trans-en-Provence, Flayosc et Ampus, avec un habitat rural largement en assainissement non collectif. La présence du camp militaire de Canjuers, immense base d'entraînement, structure aussi l'urbanisme local sans être directement notre périmètre d'intervention. Nous travaillons sur l'ensemble du bassin de Draguignan, en intégrant les particularités techniques du haut-Var : sols difficiles, racines puissantes des oliviers et des pins, et fréquence élevée des fosses individuelles.`,
+
+    habitat: `L'habitat draguignannais se concentre autour de trois ensembles. Le centre ancien, autour de la place du Marché et de la tour de l'Horloge, regroupe des immeubles compacts des XVIIIᵉ et XIXᵉ siècles, avec des canalisations qui ont été reprises plusieurs fois et qui présentent souvent des configurations héritées difficiles à diagnostiquer sans inspection. Les quartiers pavillonnaires des Faïsses, du Plan-de-la-Tour et de Saint-Hermentaire représentent l'essentiel du parc résidentiel : maisons individuelles des années 1960 à 2000, le plus souvent raccordées au tout-à-l'égout collectif, mais avec des branchements parfois longs et accidentés à cause du relief. Enfin, la périphérie rurale — Le Malmont, La Foux et les hameaux — alterne maisons en pierre traditionnelles, mas restaurés et constructions récentes, presque tous en assainissement individuel avec fosses toutes eaux ou micro-stations. Cette répartition explique que la part des interventions de pompage de fosse soit nettement plus élevée à Draguignan qu'à Toulon ou La Seyne — pour beaucoup d'habitants du bassin, la fosse n'est pas une exception, c'est l'installation standard.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Racines de pins dans les évacuations pavillonnaires',
+        serviceSlug: 'debouchage',
+        texte: `Les terrains du bassin draguignannais sont fréquemment plantés de pins parasols et d'oliviers, dont les systèmes racinaires recherchent activement l'humidité. Les canalisations d'évacuation enterrées, surtout les anciens tronçons en grès vernissé ou en fibrociment dont les joints se relâchent avec le temps, sont des cibles privilégiées. Une racine fine de quelques millimètres peut entrer par un joint défectueux, prospérer à l'intérieur de la conduite en absorbant les eaux usées riches en nutriments, et finir par former un tampon qui obstrue complètement le diamètre. Nous traitons ces cas avec une fraise rotative spécifique, qui sectionne les racines sans abîmer la conduite, suivie d'un passage caméra de contrôle. Pour les rechutes fréquentes, le seul remède définitif est le remplacement du tronçon défectueux.`,
+      },
+      {
+        titre: `Inspection caméra avant achat sur les mas de l'arrière-pays`,
+        serviceSlug: 'inspection-camera',
+        texte: `Les mas et les bastides de l'arrière-pays draguignannais sont parmi les biens les plus sensibles à inspecter avant achat. Ces propriétés ont souvent subi plusieurs générations d'extensions, avec des évacuations qui se sont ajoutées les unes aux autres au fil des décennies. Les contre-pentes héritées de remblais successifs, les piquages improvisés et les jonctions sur d'anciennes fosses désaffectées sont monnaie courante. L'inspection caméra avec localisateur en surface remonte précisément le réseau, identifie les zones à reprendre et fournit un rapport opposable. C'est un document qui sert systématiquement dans les négociations sur ces biens à fort caractère mais à plomberie capricieuse.`,
+      },
+      {
+        titre: 'Vidanges et entretien des fosses dans les hameaux',
+        serviceSlug: 'fosse-septique',
+        texte: `Une majorité des habitations du bassin draguignannais en dehors du centre dépend d'un assainissement individuel. Fosses toutes eaux, fosses septiques anciennes, micro-stations modernes coexistent selon les époques de construction. La spécificité locale tient au sol : les terrains argileux limitent la capacité d'épandage des eaux clarifiées, et les terrains rocheux interdisent parfois le creusement d'un drain classique. Nous intervenons sur la totalité des installations, avec un camion adapté aux accès difficiles. La fréquence recommandée de vidange est de quatre ans pour une fosse toutes eaux occupée à temps plein, plus rapprochée si plusieurs personnes y vivent. Le bordereau de suivi des déchets est remis systématiquement.`,
+      },
+      {
+        titre: 'Pompes de relevage dans les terrains à pente',
+        serviceSlug: 'pompe-relevage',
+        texte: `Le relief dragueignannais — pentes marquées, ruptures de niveau — multiplie les situations où une pompe de relevage devient indispensable. Caves, sous-sols et niveaux semi-enterrés en contrebas du tout-à-l'égout, ou en contrebas de la fosse, dépendent d'une pompe pour évacuer leurs eaux. Quand cette pompe lâche un week-end, les conséquences peuvent être graves, surtout si le local contient des biens stockés. Nous remplaçons en urgence les pompes communes (eaux usées domestiques, eaux vannes avec broyeur, eaux pluviales) depuis notre stock régional. Pour les installations neuves, nous dimensionnons en fonction du dénivelé réel et du débit de pointe, avec une marge pour absorber les pics d'orage cévenol.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture du bassin draguignannais inclut la commune et les communes immédiatement limitrophes (Trans-en-Provence, Flayosc, Les Arcs, Lorgues partiellement). Les délais sont calibrés pour rester sous deux heures, avec des intervals plus courts en cœur de ville et autour de quatre-vingt-dix minutes pour les hameaux. Nous gardons en stock dans notre véhicule les pièces standard les plus demandées sur ce secteur, notamment les fraises de coupe-racines et les pompes de relevage courantes.`,
+      liste: [
+        'Centre ancien (tour de l\'Horloge)',
+        'Saint-Hermentaire',
+        'Plan-de-la-Tour',
+        'Les Faïsses',
+        'La Foux',
+        'Le Malmont',
+        'Quartier Saint-Léger',
+        'Trans-en-Provence (limitrophe)',
+        'Flayosc (limitrophe)',
+      ],
+    },
+
+    conseilsLocaux: `Le climat continental de l'arrière-pays varois — étés très chauds et secs, automnes potentiellement violents avec des épisodes cévenols, hivers froids ponctués de gels — impose une vigilance saisonnière différente de celle de la côte. Pour les habitants en assainissement non collectif, la première recommandation est de planifier la vidange en automne, avant la saison des pluies intenses, plutôt qu'au printemps. Une fosse pleine fait déborder par les regards bas en cas d'apport pluvial massif, ce qui crée des dégâts évitables. La deuxième recommandation concerne les racines : si vous plantez ou laissez prospérer des pins ou des oliviers à moins de cinq mètres de canalisations enterrées, vous prenez un risque qui se concrétisera tôt ou tard. Le déracinement préventif des sujets trop proches est plus économique qu'une réfection complète de réseau dix ans plus tard. Enfin, sur les pompes de relevage en sous-sol, vérifiez chaque mois le bon fonctionnement du flotteur — un test manuel prend trente secondes et permet de détecter les défaillances avant qu'elles ne deviennent des urgences.`,
+
+    delais: `Notre équipe couvre le bassin draguignannais avec un délai moyen d'intervention de soixante à quatre-vingt-dix minutes en journée, qui peut s'allonger à deux heures sur les hameaux les plus reculés ou aux heures de pointe. Notre standard centralise les appels 24h/7j et oriente immédiatement vers le véhicule le plus proche. Pour les vidanges de fosses programmées, nous proposons des créneaux à la demi-journée pour optimiser les déplacements et limiter le coût. Les urgences sont traitées en priorité, avec un véhicule dédié au coupe-racines pour les bouchons sur réseau pavillonnaire et un autre pour les pompes de relevage et les pompages de fosse.`,
+
+    faq: [
+      {
+        question: `J'ai des racines qui rentrent dans mes canalisations à Saint-Hermentaire. C'est récidivant ?`,
+        reponse: `Oui, c'est récurrent si la conduite endommagée n'est pas remplacée. Une fraise élimine la racine actuelle, mais le joint défectueux qui l'a laissée entrer reste. Le seul remède définitif est de remplacer le tronçon concerné, identifié par caméra.`,
+      },
+      {
+        question: `Ma fosse au Malmont, je la vidange tous les combien ?`,
+        reponse: `Tous les quatre ans pour une fosse toutes eaux occupée à temps plein. Plus rapproché si vous êtes plus de quatre personnes ou si la vidange précédente avait beaucoup de boues. Une vidange préventive en automne évite les débordements lors des pluies intenses.`,
+      },
+      {
+        question: `Combien coûte une inspection caméra sur un mas ancien ?`,
+        reponse: `Cela dépend du nombre de branchements et de la longueur totale de réseau. Pour un mas standard avec deux à trois départs et trente mètres de canalisation, comptez une demi-journée. La borne en ligne donne un tarif estimatif précis selon votre situation.`,
+      },
+      {
+        question: `Vous intervenez aussi sur Trans-en-Provence et Flayosc ?`,
+        reponse: `Oui, ces communes limitrophes sont dans notre couverture standard. Nous y travaillons quasi quotidiennement, avec les mêmes délais qu'à Draguignan en moyenne.`,
+      },
+      {
+        question: `Quel produit puis-je mettre dans ma fosse pour la maintenir ?`,
+        reponse: `Aucun produit chimique déboucheur, c'est la règle absolue. Vous pouvez en revanche utiliser un activateur biologique en sachet une à deux fois par an pour relancer la flore bactérienne. C'est utile surtout après une période d'inoccupation prolongée.`,
+      },
+    ],
+
+    conclusion: `Draguignan et son bassin demandent une plomberie qui connaît le haut-Var : ses sols, ses pentes, ses arbres puissants, ses habitats dispersés en assainissement individuel. Notre borne calcule un tarif en quatre clics, adapté à votre situation et à votre quartier, sans surprise. Pour les configurations particulières — racines récurrentes, mas ancien, accès difficile — un devis personnalisé est proposé. Notre standard est joignable 24h/7j et nos équipes interviennent dans le bassin draguignannais en moins de deux heures dans la grande majorité des cas, week-ends et jours fériés inclus.`,
+  },
+
+  // ============================================================
+  // SAINT-RAPHAËL — station huppée, calanques, secondaires
+  // ============================================================
+  'saint-raphael': {
+    intro: `Saint-Raphaël, 36 000 habitants permanents, est une station balnéaire qui combine littoral varié et résidentiel haut de gamme. Adossée au massif de l'Estérel, la commune s'étend sur près de trente-six kilomètres de côte, depuis l'Esquinade jusqu'aux limites du Trayas, en passant par Boulouris, Agay, Anthéor et Le Dramont. Cette extension géographique inhabituelle — l'une des communes les plus longues du littoral varois — implique des situations très contrastées : à quelques kilomètres de distance, on passe d'un habitat de centre-ville à des villas isolées dans les calanques rouges, souvent accessibles par des chemins étroits et raides. La proportion de résidences secondaires est l'une des plus élevées du Var, avec des maisons fermées neuf mois par an et utilisées intensément en été. Cette discontinuité d'occupation est l'une des causes principales des particularités techniques de la plomberie locale : siphons qui sèchent, biofilms qui s'installent dans des canalisations peu sollicitées, pompes de relevage qui reposent trop longtemps puis se grippent à la remise en service. Notre activité couvre l'ensemble du linéaire raphaëlois, avec une présence renforcée pendant les périodes de transition saisonnière qui concentrent les remises en service.`,
+
+    habitat: `Saint-Raphaël aligne quatre grands types d'habitat. Le centre historique, autour de la basilique et du port, présente des immeubles compacts du XIXᵉ et début XXᵉ avec des canalisations héritées et des configurations souvent revues. Boulouris, prolongement résidentiel direct du centre, regroupe des villas du XXᵉ siècle, souvent rénovées, avec des terrains paysagers et des installations modernes. Valescure, plateau résidentiel haut de gamme, alterne villas individuelles et résidences golfiques avec des installations soignées et des contraintes de discrétion (les chantiers bruyants y sont mal vus). Enfin, la côte rocheuse au-delà d'Agay — Le Dramont, Anthéor, Le Trayas — concentre des villas isolées en calanques, souvent en pied de roches rouges, avec des accès véhicules limités et des installations techniques exposées aux embruns. Cette géographie a une conséquence : un débouchage à Boulouris demande un véhicule standard, mais une intervention au Trayas peut nécessiter un véhicule compact et des outils manuels portables. Nous formons nos techniciens à anticiper ces différences avant de partir.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Siphons secs et biofilms à la remise en service',
+        serviceSlug: 'debouchage',
+        texte: `Le problème numéro un sur les résidences secondaires raphaëloises, c'est la remise en service après plusieurs mois de fermeture. Les siphons s'évaporent, les canalisations développent des biofilms biologiques que personne n'a rincés, et la première semaine d'utilisation génère typiquement des odeurs, des écoulements lents et parfois des bouchons sur des matières que la flore stagnante ne dégrade plus correctement. Le débouchage curatif règle l'urgence du moment, mais nous proposons systématiquement un curage léger de prévention : un passage hydrocureur basse pression sur l'ensemble du réseau de la maison, qui évacue les dépôts accumulés et restaure la circulation libre. Cette intervention, programmée à la mi-juin idéalement, divise par trois la fréquence des urgences estivales sur les biens à occupation discontinue.`,
+      },
+      {
+        titre: `Inspection caméra des villas avant location saisonnière`,
+        serviceSlug: 'inspection-camera',
+        texte: `De plus en plus de propriétaires de Boulouris, Agay et Valescure mettent leur bien en location saisonnière haut de gamme. Les plateformes et les agences spécialisées exigent désormais des installations parfaitement fonctionnelles : un écoulement lent ou une odeur persistante peut générer des avis dévastateurs et impacter durablement la rentabilité. L'inspection caméra préalable, idéalement en mai, identifie les zones à risque avant la haute saison. Le rapport vidéo permet d'arbitrer entre intervention préventive et simple surveillance. Sur les villas équipées de pompes de relevage en sous-sol, l'inspection caméra s'accompagne d'un test fonctionnel de la pompe et d'un nettoyage du puits.`,
+      },
+      {
+        titre: 'Vidanges de fosses dans les calanques du Dramont',
+        serviceSlug: 'fosse-septique',
+        texte: `Plusieurs villas en bord de mer entre Le Dramont et Anthéor restent en assainissement non collectif, parce que le tout-à-l'égout n'a pas suivi sur tous les chemins escarpés des calanques. Les fosses toutes eaux ou micro-stations y sont fréquentes, dans des configurations parfois acrobatiques — fosse en surplomb, accès camion à plus de cinquante mètres, pente forte. Nous intervenons avec un véhicule adapté aux chemins étroits, et nous proposons systématiquement un examen visuel de l'épandage, dont l'état conditionne souvent plus que la fosse elle-même la fiabilité de l'ensemble. Le bordereau de suivi des déchets est remis systématiquement.`,
+      },
+      {
+        titre: 'Pompes de relevage en sous-sol de Valescure',
+        serviceSlug: 'pompe-relevage',
+        texte: `Le plateau de Valescure et certains secteurs de Boulouris ont un sous-sol qui rend les niveaux semi-enterrés ou les caves dépendants de pompes de relevage. Sur les résidences secondaires, ces pompes peuvent rester inactives plusieurs mois, ce qui pose un problème spécifique : les joints sèchent, les flotteurs collent, et la remise en service en début de saison peut révéler une pompe morte alors que tout fonctionnait à la fermeture. Nous proposons un test de remise en service au printemps, qui prend une demi-heure et qui évite les mauvaises surprises. Pour les remplacements, nous installons préférentiellement des modèles avec contrôle d'usage à distance, qui permettent au propriétaire de vérifier le bon fonctionnement même quand il n'est pas sur place.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture s'étend sur tout le linéaire de Saint-Raphaël, ce qui est une particularité propre à cette commune extrêmement étirée. Les délais varient sensiblement entre le centre — où nous tenons sous l'heure — et les calanques du Trayas où le simple trajet peut dépasser quarante minutes en saison. Notre standard centralise les appels 24h/7j et oriente vers le véhicule disponible le plus proche.`,
+      liste: [
+        'Centre-ville et port',
+        'Boulouris',
+        'Agay',
+        'Valescure',
+        'Le Dramont',
+        'Le Trayas',
+        'Anthéor',
+        `L'Esquinade`,
+        'Santa-Lucia',
+      ],
+    },
+
+    conseilsLocaux: `Saint-Raphaël concentre les problématiques propres aux résidences secondaires haut de gamme. La discontinuité d'occupation est l'ennemi numéro un de la plomberie locale : un bien fermé neuf mois par an cumule biofilms, siphons secs, pompes en repos prolongé, fosses sous-sollicitées. Trois gestes simples limitent fortement le risque. Premièrement, à la fermeture annuelle, faire couler quelques litres d'eau dans chaque siphon (lavabo, douche, WC, évier) — cela retarde l'évaporation. Deuxièmement, à la remise en service, prévoir une demi-journée de tests : faire fonctionner toutes les évacuations à plein débit pendant cinq à dix minutes chacune, vérifier visuellement les pompes de relevage, écouter les bruits anormaux. Troisièmement, programmer une visite préventive à la mi-juin tous les deux ou trois ans : nous contrôlons l'ensemble, traitons les zones à risque, et donnons un quitus pour la saison. Le coût modéré de cette préventive est sans commune mesure avec celui d'une urgence en pleine semaine d'occupation à six personnes. Pour les pompes de relevage marinisées exposées aux embruns à Anthéor ou au Trayas, un rinçage à l'eau douce après les tempêtes prolonge sensiblement la durée de vie.`,
+
+    delais: `Notre activité est calibrée pour répondre aux contraintes de Saint-Raphaël : commune longue, saisonnalité marquée, présence de villas isolées. Nous tenons un délai moyen de soixante à quatre-vingt-dix minutes pour le centre, Boulouris et Agay, et de quatre-vingt-dix à cent vingt minutes pour les calanques au-delà du Dramont. En haute saison estivale, les délais peuvent légèrement s'allonger en raison du trafic routier ; nous compensons en pré-positionnant un véhicule sur le secteur les jours de pic. Notre standard est joignable 24h/7j et nous gardons en stock les pompes de relevage les plus courantes pour le secteur, notamment les modèles compatibles avec les eaux saumâtres.`,
+
+    faq: [
+      {
+        question: `Ma résidence à Boulouris est fermée d'octobre à juin. Faut-il faire intervenir quelqu'un avant la remise en service ?`,
+        reponse: `Une visite préventive en mai-juin évite la majorité des urgences estivales. Test des pompes, contrôle des siphons, inspection visuelle des évacuations. C'est une demi-journée qui sécurise plusieurs mois d'occupation à pleine capacité.`,
+      },
+      {
+        question: `Je loue ma villa de Valescure en location saisonnière. Comment éviter les avis négatifs liés à la plomberie ?`,
+        reponse: `Inspection caméra préventive en mai, contrôle des pompes de relevage, vidange préventive si fosse, et instructions claires pour les locataires sur ce qui ne doit pas aller dans les WC. Cette préparation réduit considérablement le risque d'incident en saison.`,
+      },
+      {
+        question: `Pourquoi ma pompe de relevage à Boulouris est-elle morte alors qu'elle fonctionnait avant la fermeture ?`,
+        reponse: `Plusieurs causes possibles : flotteur grippé par dépôt sec, joints durcis, condensation dans le boîtier électrique. Ces défaillances apparaissent typiquement après plusieurs mois d'inactivité. Un test manuel mensuel à distance, si l'installation le permet, prévient le problème.`,
+      },
+      {
+        question: `Ma villa au Trayas est très isolée. Vous intervenez quand même ?`,
+        reponse: `Oui, mais avec un préavis si possible. Le trajet seul peut dépasser une heure depuis notre base, donc nous préférons coordonner l'intervention pour optimiser le temps sur place. Pour les vraies urgences, nous partons immédiatement.`,
+      },
+      {
+        question: `Faut-il un activateur biologique pour ma fosse au Dramont ?`,
+        reponse: `Pour une résidence secondaire, oui : à la remise en service au printemps, un sachet d'activateur relance la flore bactérienne après une période de basse activité. Un seul apport suffit en général, avant l'arrivée des occupants estivaux.`,
+      },
+    ],
+
+    conclusion: `Saint-Raphaël demande une plomberie qui sait gérer la discontinuité saisonnière propre aux résidences secondaires haut de gamme. Notre borne calcule en quatre clics un tarif transparent, adapté à votre quartier et à votre situation. Pour les configurations particulières — calanques isolées, location saisonnière, installations marinisées — un devis personnalisé est proposé. Notre standard 24h/7j et notre stock local permettent une intervention rapide sur l'ensemble du linéaire raphaëlois, du centre aux calanques, week-ends et jours fériés inclus.`,
+  },
+
+  // ============================================================
+  // SIX-FOURS-LES-PLAGES — littoral exposé, vents salins
+  // ============================================================
+  'six-fours-les-plages': {
+    intro: `Six-Fours-les-Plages, 34 000 habitants, est une commune côtière située entre Toulon et Bandol, qui présente une exposition au vent et à la mer parmi les plus fortes du littoral varois. Le mistral et le vent d'est y soufflent fréquemment avec puissance, et les embruns salins atteignent des installations situées parfois à plusieurs centaines de mètres du rivage. Cette caractéristique a une conséquence directe pour la plomberie locale : les pièces métalliques exposées — robinetteries extérieures, raccords de pompes, canalisations enterrées proches du sol — vieillissent significativement plus vite qu'à l'intérieur des terres. Le territoire communal s'étend du Brusc, ancien port de pêche au sud, jusqu'au Cap Sicié et aux plages de la Coudoulière, en passant par le quartier résidentiel de Reynier et le centre. Cette diversité, combinée à une saisonnalité touristique intense, fait de Six-Fours une commune où nous intervenons quotidiennement sur des typologies très variées : villas balnéaires, copropriétés modernes, ports résidentiels, hameaux de l'arrière-littoral. Notre approche s'adapte à chaque configuration, avec une attention particulière aux problématiques marines qui distinguent ce secteur.`,
+
+    habitat: `Six-Fours présente quatre grands types d'habitat aux contraintes plombieres différentes. Le Brusc, ancien port de pêche, conserve un noyau de maisons traditionnelles à plomberie souvent remaniée, avec des canalisations qui combinent matériaux et époques. Le centre et Reynier alignent des copropriétés des années 1970-2000 et des pavillons individuels, avec des installations standard mais exposées au vent. La frange littorale autour de la Coudoulière, plage très fréquentée en été, regroupe résidences saisonnières et villas de bord de mer où le sable et le sel sont les principaux ennemis des évacuations. Enfin, l'arrière-pays vers Reynier-Haut et les hauteurs du Cap Sicié comprend des villas isolées, parfois en assainissement non collectif. Cette diversité explique que nos interventions à Six-Fours soient particulièrement variées : nous y traitons en proportion plus de pompes de relevage et de problèmes liés à la corrosion qu'ailleurs sur le littoral varois, simplement parce que l'exposition aux éléments y est plus marquée.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Sable et sel dans les évacuations de la Coudoulière',
+        serviceSlug: 'debouchage',
+        texte: `La plage de la Coudoulière et ses alentours immédiats connaissent un trafic estival intense, et les villas, locations saisonnières et copropriétés du secteur subissent un apport régulier de sable fin via les douches extérieures, les lavages d'équipements de plage et les rinçages d'enfants. Ce sable, combiné aux résidus salins qui cristallisent dans les coudes, finit par former des dépôts compacts qui réduisent progressivement le diamètre utile des canalisations. Le débouchage classique est inefficace sur ces dépôts : seul un curage hydrocureur à pression moyenne, qui fragmente puis évacue le sable, restaure la circulation. Nous conseillons aux propriétaires une intervention préventive en septembre, juste après la saison, qui évite que les dépôts ne s'accumulent saison après saison.`,
+      },
+      {
+        titre: 'Inspection caméra des villas exposées au vent',
+        serviceSlug: 'inspection-camera',
+        texte: `Les villas du secteur Cap Sicié et les hauteurs de Reynier sont exposées à un vent d'est et un mistral particulièrement forts, qui sollicitent mécaniquement les canalisations enterrées proches de la surface, surtout sur des terrains pentus où la végétation peine à stabiliser le sol. Avec les années, les jonctions se relâchent, des contre-pentes apparaissent, et l'inspection caméra met en évidence ces dégradations avant qu'elles ne deviennent des fuites ou des bouchons. Nous travaillons aussi sur les évacuations en pied de piscine, fréquemment problématiques après plusieurs saisons d'utilisation, où les algues et le calcaire combinent leurs effets.`,
+      },
+      {
+        titre: `Vidanges et entretien des fosses dans l'arrière-littoral`,
+        serviceSlug: 'fosse-septique',
+        texte: `Une partie des villas de Six-Fours, notamment vers Reynier-Haut et certains hameaux des hauteurs, reste en assainissement non collectif. Les fosses toutes eaux et micro-stations y subissent une particularité maritime : la nappe phréatique salée à proximité côtière peut perturber le fonctionnement bactérien si l'étanchéité de la fosse n'est pas parfaite. Nous contrôlons systématiquement à chaque vidange l'absence d'infiltrations latérales, et nous remplaçons les préfiltres qui se colmatent plus rapidement en zone côtière qu'à l'intérieur des terres. Bordereau de suivi des déchets remis à chaque intervention.`,
+      },
+      {
+        titre: 'Pompes de relevage corrodées par le sel marin',
+        serviceSlug: 'pompe-relevage',
+        texte: `C'est probablement le problème le plus fréquent à Six-Fours. Les pompes de relevage standard, conçues pour un usage en intérieur dans des conditions stables, ont une durée de vie sensiblement réduite quand elles sont exposées à l'air salin du littoral. Les bobinages se dégradent, les joints durcissent, les flotteurs en plastique vieillissent prématurément. Nous installons systématiquement des modèles spécifiquement marinisés sur les sites exposés, avec un surcoût modéré à l'achat mais une durée de vie multipliée par deux ou trois. La maintenance annuelle, avec démontage et nettoyage du puits, prolonge encore la durée utile et permet d'anticiper les remplacements plutôt que de les subir en urgence.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture sur Six-Fours-les-Plages inclut l'ensemble du territoire communal, du Brusc au Cap Sicié en passant par le centre et la frange littorale. Nous travaillons aussi sur les communes limitrophes — Sanary-sur-Mer, Bandol partiellement, La Seyne — avec des problématiques marines comparables. Les délais sont calibrés pour rester sous quatre-vingt-dix minutes en moyenne, avec des intervals plus courts pour le centre et la côte facilement accessible.`,
+      liste: [
+        'Le Brusc',
+        'Centre-ville',
+        'La Coudoulière',
+        'Reynier',
+        'Reynier-Haut',
+        'Cap Sicié',
+        'Six-Fours plage',
+        'Les Lônes',
+        `L'Aigle`,
+      ],
+    },
+
+    conseilsLocaux: `Le climat très exposé de Six-Fours impose des gestes spécifiques pour préserver les installations. Le rinçage à l'eau douce des pièces métalliques exposées (robinetteries extérieures, raccords de pompes accessibles) deux fois par an, idéalement après les épisodes de mistral et après les coups de mer importants, retarde significativement la corrosion saline. Pour les habitants en bord de plage, le rinçage systématique des évacuations à grande eau après chaque journée à forte affluence (douche, équipement, enfants) limite l'accumulation de sable. Pour les copropriétés et résidences en sous-sol équipées de pompes de relevage, un test mensuel manuel de la commande prend trente secondes et permet de détecter une défaillance électrique avant qu'elle ne devienne une panne complète. Pour les villas en assainissement non collectif des hauteurs, la vidange préventive doit être programmée en automne, avant la saison des pluies cévenol qui peut saturer les fosses, et en respectant la fréquence quadriennale standard. Enfin, sur les pompes marinisées exposées, un changement préventif des joints tous les trois ans, à coût modéré, allonge la durée de vie utile de plusieurs années.`,
+
+    delais: `Nous tenons un délai d'intervention moyen de soixante à quatre-vingt-dix minutes sur Six-Fours en journée. La proximité de notre base toulonnaise nous permet d'intervenir rapidement même en haute saison, avec un véhicule pré-positionné les jours de pic estival. Notre standard est joignable 24h/7j, et nous gardons en stock les pompes de relevage marinisées les plus courantes pour le secteur, ce qui permet de remplacer le jour même dans la majorité des cas. Pour les vidanges programmées et les inspections caméra, nous proposons des créneaux à la demi-journée pour optimiser les déplacements et limiter le coût d'intervention.`,
+
+    faq: [
+      {
+        question: `Ma pompe de relevage n'a pas tenu trois ans à La Coudoulière. C'est normal ?`,
+        reponse: `Pour une pompe standard sans protection contre l'air salin, oui, c'est cohérent avec la durée de vie observée. Une pompe marinisée tient en moyenne deux à trois fois plus longtemps dans le même contexte. Nous installons couramment ce type de modèle.`,
+      },
+      {
+        question: `Faut-il un produit spécial pour les évacuations qui prennent du sable ?`,
+        reponse: `Non, aucun produit chimique n'est efficace sur du sable. Seul un curage hydrocureur à pression adaptée fragmente et évacue le dépôt. Les produits chimiques agressifs risquent d'abîmer les canalisations sans résoudre le problème.`,
+      },
+      {
+        question: `Combien coûte une vidange de fosse vers Reynier-Haut ?`,
+        reponse: `Le tarif dépend du volume et de la distance d'accès du camion. Pour une fosse standard de 3 000 litres avec accès direct, comptez environ une heure sur place. La borne en ligne donne un tarif estimatif précis selon votre situation.`,
+      },
+      {
+        question: `Est-ce que vous intervenez sur le port du Brusc ?`,
+        reponse: `Oui, le port du Brusc et ses copropriétés sont dans notre couverture standard. Les pompes de relevage portuaires sont une de nos spécialités locales, avec un stock de pièces marinisées prêt à l'usage.`,
+      },
+      {
+        question: `Mon évacuation cuisine sent quand le vent vient de la mer. Pourquoi ?`,
+        reponse: `Le vent de mer crée parfois une dépression atmosphérique qui aspire les gaz du tout-à-l'égout via les évents et les évacuations. Une vérification du clapet anti-retour et du siphon résout généralement le problème ; sinon, un passage caméra identifie une éventuelle anomalie.`,
+      },
+    ],
+
+    conclusion: `Six-Fours-les-Plages demande une plomberie qui sait composer avec le sel, le vent, le sable et la saisonnalité. Notre borne calcule en quatre clics un tarif adapté à votre intervention, en intégrant les particularités côtières. Pour les configurations spécifiques — pompes marinisées, fosses près de nappe salée, accès difficiles — un devis personnalisé est proposé. Notre standard 24h/7j et notre stock local de pompes adaptées permettent une intervention rapide sur l'ensemble de la commune et sur les communes côtières limitrophes.`,
+  },
+
+  // ============================================================
+  // LA GARDE — banlieue est de Toulon, université, copros
+  // ============================================================
+  'la-garde': {
+    intro: `La Garde, 25 000 habitants, est une commune de la première couronne toulonnaise, située directement à l'est de Toulon. Son urbanisme a été profondément marqué par deux dynamiques : l'implantation de l'université de Toulon, dont les bâtiments principaux se trouvent sur le territoire communal au quartier de La Bouilla, et le développement de la technopole varoise sur le plateau Sainte-Marguerite. Cette double vocation universitaire et technologique a attiré une population active et étudiante, et a généré un parc immobilier marqué par les copropriétés modernes des années 1980-2010, à la fois résidences principales et logements étudiants. La Garde n'est pas une commune balnéaire — elle est légèrement en retrait du littoral, avec une façade maritime via la côte des Salins-d'Hyères mais en partie éloignée du cœur urbain. Cette position de banlieue interne a une conséquence pour la plomberie : le territoire est presque intégralement raccordé au tout-à-l'égout collectif, et les problématiques dominantes concernent les copropriétés et les installations modernes plutôt que les fosses individuelles ou les pompes marinisées. Notre activité y porte essentiellement sur les copropriétés universitaires, les pavillons résidentiels et les commerces.`,
+
+    habitat: `Trois grands ensembles structurent l'habitat gardéen. Le centre ancien, autour de la place de la République et de l'église Saint-Maur, regroupe des immeubles plus anciens, parfois des XVIIIᵉ et XIXᵉ siècles, dans un tissu compact et parfois difficile d'accès. Le quartier Sainte-Marguerite, à proximité immédiate de l'université, concentre des copropriétés des années 1990-2010, souvent à forte densité étudiante, avec des logements partagés et des sollicitations de plomberie sensiblement supérieures à la moyenne. Les pavillons individuels du Plan, du Touar et de La Pauline forment un troisième ensemble, plus calme et avec des installations plus standard. Cette typologie particulière a une conséquence directe : à La Garde, la majorité de nos interventions concerne des copropriétés en gestion collective, ce qui implique des relations régulières avec les syndics locaux et une connaissance fine des contrats d'entretien. Nous travaillons systématiquement sur la base d'un diagnostic posé qui permet de répartir clairement les responsabilités entre les parties privatives et les parties communes.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Engorgements répétés dans les copropriétés universitaires',
+        serviceSlug: 'debouchage',
+        texte: `Les copropriétés à forte concentration étudiante autour de Sainte-Marguerite et de La Bouilla connaissent un taux de bouchons supérieur à la moyenne, principalement parce que les comportements de jeunes locataires diffèrent des occupants permanents : produits cosmétiques jetés dans les éviers, lingettes prétendument biodégradables dans les WC, cheveux non filtrés dans les douches. Le débouchage classique règle l'urgence du moment mais n'élimine pas la cause. Nous travaillons régulièrement avec les syndics locaux sur deux axes : un contrat d'entretien annuel des colonnes principales, et l'affichage en parties communes de bonnes pratiques simples. Cette combinaison réduit significativement la fréquence des urgences sans investissement majeur.`,
+      },
+      {
+        titre: 'Inspection caméra des copropriétés des années 1990',
+        serviceSlug: 'inspection-camera',
+        texte: `Les copropriétés construites dans les années 1990 à La Garde, particulièrement celles des secteurs résidentiels denses, arrivent à un âge où leurs canalisations en PVC d'origine commencent à montrer les premiers signes de vieillissement : ovalisations, contre-pentes mineures, joints qui se relâchent. L'inspection caméra périodique — typiquement tous les dix à quinze ans — permet de planifier intelligemment les rénovations partielles avant qu'un incident majeur ne survienne. Nous travaillons souvent en partenariat avec les syndics qui souhaitent budgétiser ces opérations dans leurs plans pluriannuels de travaux. Le rapport vidéo et la cartographie servent de pièces de référence pour les copropriétaires.`,
+      },
+      {
+        titre: 'Bacs à graisses dans les commerces et restaurants',
+        serviceSlug: 'fosse-septique',
+        texte: `La Garde, malgré sa vocation principalement résidentielle, abrite plusieurs commerces de bouche, restaurants universitaires et établissements de restauration rapide à proximité de la fac. Tous sont équipés réglementairement de bacs à graisses qui doivent être vidangés régulièrement, en moyenne tous les six mois pour un usage soutenu, plus rapproché pour les forts producteurs. Nous travaillons avec un camion adapté à ces opérations spécifiques, avec un protocole de nettoyage qui inclut le rinçage haute pression du bac et le contrôle visuel de l'état général. Le bordereau de suivi des déchets est obligatoire pour les exploitants commerciaux, et nous le fournissons systématiquement.`,
+      },
+      {
+        titre: 'Pompes de relevage en sous-sols de copropriétés',
+        serviceSlug: 'pompe-relevage',
+        texte: `Plusieurs copropriétés gardéennes, particulièrement celles construites sur des terrains en pente ou avec des sous-sols partiellement enterrés, dépendent de pompes de relevage collectives pour évacuer les eaux usées du parking sous-sol et des locaux techniques. Ces installations sont sous responsabilité du syndic, et leur défaillance peut générer des sinistres en chaîne dans les caves et les emplacements de stationnement. Nous proposons des contrats de maintenance bisannuels qui incluent le test fonctionnel, le nettoyage du puits, le contrôle des flotteurs et la vérification électrique. Cette préventive coûte significativement moins cher qu'un sinistre dégât des eaux multi-lots, qui mobilise expert d'assurance, sinistre, etc.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture sur La Garde inclut l'ensemble du territoire communal et les communes immédiatement limitrophes, particulièrement Le Pradet et La Crau qui partagent plusieurs problématiques. Nous travaillons régulièrement avec les syndics locaux qui connaissent nos équipes, ce qui simplifie la coordination des interventions sur les parties communes. Les délais d'intervention sont calibrés pour rester sous une heure dans la majorité des cas, week-ends et soirées inclus.`,
+      liste: [
+        'Centre-ville (place de la République)',
+        'Sainte-Marguerite',
+        'La Bouilla (université)',
+        'Le Plan',
+        'La Pauline',
+        'Le Touar',
+        'Romain Rolland',
+        'Le Pradet (commune limitrophe)',
+        'La Crau (commune limitrophe)',
+      ],
+    },
+
+    conseilsLocaux: `La Garde est une commune où la dimension collective domine la plomberie : la plupart des résidents vivent en copropriété, et beaucoup de problèmes sont d'origine collective. Trois conseils s'imposent. Premièrement, pour les copropriétaires ou syndics, la souscription d'un contrat d'entretien annuel des colonnes principales — cuisine, salle de bain, WC — divise par deux à trois la fréquence des urgences. Cet entretien, qui inclut typiquement un curage hydrocureur léger, coûte modérément quand il est lissé sur l'année, mais évite les dépannages d'urgence à répétition. Deuxièmement, pour les locataires étudiants, l'installation systématique de filtres à cheveux sur les douches et de bouchons-tamis sur les éviers prévient l'essentiel des bouchons individuels. Ces accessoires coûtent quelques euros et durent des années. Troisièmement, pour les commerces de bouche, le respect strict de la fréquence de vidange des bacs à graisses, jamais inférieure à six mois pour un restaurant en activité, est une obligation réglementaire mais aussi une protection contre les bouchons en cascade qui peuvent contaminer le réseau de toute une rue. Notre équipe accompagne aussi les exploitants dans la documentation administrative requise.`,
+
+    delais: `La proximité immédiate avec Toulon nous permet de tenir un délai d'intervention moyen de quarante-cinq à soixante-quinze minutes sur l'ensemble de La Garde, en journée comme en soirée. Le standard est joignable 24h/7j, et nous gardons en stock les pièces standard les plus demandées par les copropriétés du secteur. Pour les interventions programmées avec syndics, nous proposons des créneaux flexibles permettant de coordonner avec les locataires et les gardiens. Pour les urgences, le diagnostic téléphonique préalable, qui dure en moyenne cinq à dix minutes, permet de partir avec le matériel adéquat — un curage hydrocureur ne demande pas le même véhicule qu'un dépannage de pompe.`,
+
+    faq: [
+      {
+        question: `Mon immeuble à Sainte-Marguerite a des bouchons réguliers. C'est ma faute ou celle des voisins ?`,
+        reponse: `Si le bouchon est sur la colonne commune, ce n'est pas une question de "faute" individuelle mais une responsabilité collective de la copropriété. Notre passage caméra localise précisément le bouchon et détermine s'il est privatif ou commun, ce qui clarifie immédiatement la prise en charge.`,
+      },
+      {
+        question: `Combien coûte un contrat d'entretien annuel pour ma copropriété au Plan ?`,
+        reponse: `Cela dépend du nombre de logements et de la longueur des colonnes à entretenir. Pour une copropriété standard de vingt à trente logements, le coût annuel reste modéré, et il est généralement amorti dès la première urgence évitée. Devis personnalisé sur demande.`,
+      },
+      {
+        question: `Mon restaurant doit avoir un bac à graisses ? C'est obligatoire ?`,
+        reponse: `Oui, c'est une obligation réglementaire pour tous les établissements de restauration. La fréquence de vidange dépend de l'activité, mais ne peut généralement pas être inférieure à six mois. Nous fournissons systématiquement le bordereau de suivi requis.`,
+      },
+      {
+        question: `Combien de temps pour une vidange de bac à graisses ?`,
+        reponse: `Pour un bac standard de 250 à 500 litres avec accès direct, comptez environ trente à quarante-cinq minutes. L'opération inclut le pompage, le rinçage haute pression et le contrôle visuel. Nous proposons des créneaux en dehors des heures d'ouverture pour limiter la gêne.`,
+      },
+      {
+        question: `Vous travaillez aussi avec les syndics du Pradet ?`,
+        reponse: `Oui, plusieurs syndics du Pradet et de La Crau font appel à nos équipes régulièrement. Les problématiques de copropriétés modernes sont communes à toute la première couronne toulonnaise, et nous adaptons nos interventions à chaque contexte.`,
+      },
+    ],
+
+    conclusion: `La Garde est une commune où la plomberie collective domine, avec des copropriétés modernes à entretenir intelligemment et des commerces à accompagner réglementairement. Notre borne calcule en quatre clics un tarif adapté à votre intervention. Pour les contrats d'entretien et les chantiers récurrents avec syndics, un devis personnalisé est proposé. Notre standard 24h/7j et notre proximité immédiate avec le territoire communal permettent une intervention rapide, sous l'heure dans la grande majorité des cas, week-ends et jours fériés inclus.`,
+  },
+
+  // ============================================================
+  // LA VALETTE-DU-VAR — zone commerciale, restaurants, bacs
+  // ============================================================
+  'la-valette-du-var': {
+    intro: `La Valette-du-Var, 24 000 habitants, occupe une position singulière dans l'agglomération toulonnaise : c'est l'une des principales zones d'activité commerciale du Var, structurée autour du centre commercial Avenue 83 et de plusieurs grandes surfaces qui rayonnent sur tout l'est du département. Cette vocation commerciale a une conséquence directe pour la plomberie locale : la commune compte une concentration exceptionnellement élevée d'établissements de restauration, de commerces alimentaires et de services à la personne, qui tous ont des besoins spécifiques en matière d'évacuation et d'entretien. Aux côtés de cette dimension commerciale, La Valette conserve un cœur résidentiel ancien, des quartiers pavillonnaires des années 1960-1990, et des extensions plus récentes vers La Coupiane et La Crau. Notre activité ici est très différente de celle d'une commune purement résidentielle : nous y intervenons quotidiennement sur des bacs à graisses, des évacuations professionnelles, des séparateurs hydrocarbures et des installations sanitaires fortement sollicitées par le passage public. Cette pratique régulière nous a donné une expertise spécifique des règlementations applicables aux établissements recevant du public, que nous mettons au service des exploitants.`,
+
+    habitat: `On peut distinguer cinq grandes typologies à La Valette, qui correspondent à des problématiques de plomberie nettement différentes. Le centre ancien, autour de l'église Saint-Jean, abrite un habitat compact aux installations remaniées plusieurs fois. Le secteur résidentiel autour du Thouars, des Sauvans et de La Coupiane regroupe des pavillons et des copropriétés modernes, avec des problématiques classiques de débouchage et d'entretien. La zone commerciale Avenue 83 et ses environs concentrent une densité exceptionnelle de restaurants et de commerces de bouche, tous équipés de bacs à graisses et d'installations spécifiques. Les zones d'activité de La Bigue et des Sauvans accueillent des entreprises industrielles et artisanales qui peuvent générer des effluents particuliers nécessitant des séparateurs hydrocarbures ou des prétraitements. Enfin, les hauteurs vers La Crau et certains secteurs limitrophes comprennent encore des villas en assainissement non collectif avec fosses individuelles. Cette diversité fait de La Valette l'une des communes du Var où nous traitons la plus grande variété de cas en une journée d'intervention type.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Engorgements en restauration et commerces de bouche',
+        serviceSlug: 'debouchage',
+        texte: `La concentration de restaurants autour d'Avenue 83 et dans les autres zones commerciales génère un volume d'interventions très spécifique. Les évacuations de cuisines professionnelles subissent des charges en graisse, en débris alimentaires et en produits de nettoyage incomparablement plus élevées qu'en résidentiel. Le bouchon typique en restauration apparaît au pire moment, généralement en plein service, et peut paralyser l'activité jusqu'au dépannage. Nous avons développé un protocole d'intervention rapide en zones commerciales : véhicule pré-positionné en heures de pointe les jours de forte affluence, intervention en cuisine sans interrompre le service quand c'est techniquement possible, curage haute pression adapté aux configurations de restauration. Nous travaillons aussi avec plusieurs exploitants sur des contrats de prévention qui réduisent fortement le risque d'incident en plein service.`,
+      },
+      {
+        titre: `Inspection caméra des séparateurs et installations spéciales`,
+        serviceSlug: 'inspection-camera',
+        texte: `Les zones d'activité de La Valette accueillent des entreprises (garages, stations-service, ateliers, blanchisseries) dont les rejets nécessitent des séparateurs hydrocarbures, des débourbeurs ou des dispositifs de prétraitement. Ces installations ont leurs propres règles d'entretien, et leur état doit être documenté pour respecter les obligations réglementaires de l'exploitant. L'inspection caméra avec rapport vidéo, complétée d'un examen visuel des séparateurs, fournit la traçabilité demandée par les services municipaux et les éventuels contrôles environnementaux. Nous intervenons sur ces équipements spécialisés régulièrement, avec une connaissance des règles applicables.`,
+      },
+      {
+        titre: 'Vidanges de bacs à graisses des restaurants',
+        serviceSlug: 'fosse-septique',
+        texte: `C'est probablement notre intervention la plus fréquente sur La Valette. Tout établissement de restauration doit obligatoirement disposer d'un bac à graisses dimensionné selon son activité, et le faire vidanger régulièrement — typiquement tous les six mois pour un restaurant standard, plus rapproché pour les forts producteurs (pizzerias, fast-foods, restauration de groupe). Nous proposons un calendrier d'intervention récurrent avec créneaux planifiés à l'avance, ce qui simplifie la gestion administrative pour l'exploitant et garantit le respect des obligations. Le bordereau de suivi des déchets, obligatoire pour la responsabilité de l'établissement, est remis systématiquement.`,
+      },
+      {
+        titre: 'Pompes de relevage en zones commerciales',
+        serviceSlug: 'pompe-relevage',
+        texte: `Plusieurs zones commerciales de La Valette, particulièrement celles construites en remblai sur d'anciens terrains agricoles, dépendent de pompes de relevage pour évacuer leurs eaux usées vers le tout-à-l'égout principal. Ces pompes, dimensionnées pour des débits importants liés à l'activité commerciale, demandent une maintenance plus régulière que les pompes domestiques. Nous proposons des contrats trimestriels qui incluent test fonctionnel, nettoyage du puits, contrôle des flotteurs et vérification électrique. Cette préventive est cruciale pour les exploitants : une pompe en panne dans un centre commercial, c'est un risque sanitaire et un risque d'image qui peut fermer temporairement l'établissement.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture sur La Valette inclut l'ensemble du territoire communal et les zones commerciales associées qui débordent légèrement sur les communes voisines. Nous travaillons régulièrement avec les exploitants commerciaux et les syndics professionnels, qui apprécient notre disponibilité et notre connaissance des règlementations applicables. Les délais d'intervention sont calibrés pour rester sous l'heure en zone urbaine, avec un véhicule pré-positionné en heure de pointe sur les zones commerciales les plus actives.`,
+      liste: [
+        'Centre ancien (église Saint-Jean)',
+        'La Coupiane',
+        'Avenue 83 (centre commercial)',
+        'Le Thouars',
+        'La Bigue (zone d\'activité)',
+        'Les Sauvans',
+        'La Crau (commune limitrophe)',
+        'Hauts de La Valette',
+      ],
+    },
+
+    conseilsLocaux: `Pour les exploitants commerciaux, qui constituent le cœur de notre activité à La Valette, trois recommandations sont essentielles. Premièrement, anticiper le calendrier réglementaire des vidanges de bacs à graisses : un retard de quelques mois peut entraîner des contrôles défavorables et des coûts ultérieurs sensiblement majorés (un bac surchargé est plus difficile et plus long à vidanger). Notre planning récurrent évite cet écueil. Deuxièmement, sensibiliser le personnel aux bonnes pratiques en cuisine : pas de versement direct d'huiles usagées dans les éviers, utilisation systématique des bacs de récupération, et maintenance quotidienne des préfiltres. Ces gestes simples réduisent la charge sur les bacs et espacent les vidanges. Troisièmement, pour les exploitants disposant de pompes de relevage, le contrat de maintenance trimestrielle est un investissement modéré qui protège contre les sinistres en zone commerciale, où la responsabilité civile peut être engagée envers les clients et les autres commerces. Pour les résidents particuliers, les conseils sont plus classiques : entretien régulier des canalisations privées, sensibilisation aux bonnes pratiques, et appel rapide aux premiers signes pour éviter l'aggravation.`,
+
+    delais: `La proximité de La Valette avec Toulon et notre base nous permet de tenir un délai d'intervention moyen de quarante-cinq minutes à une heure sur l'ensemble du territoire communal. Sur les zones commerciales en heure de pointe, nous pouvons mobiliser un véhicule pré-positionné qui réduit ce délai à vingt à trente minutes pour les urgences en cuisine professionnelle. Notre standard est joignable 24h/7j, et nous gardons en stock les pièces spécifiques aux installations commerciales : pompes de relevage gros débit, joints pour bacs à graisses, raccords pour séparateurs. Pour les interventions programmées (vidanges récurrentes, inspections périodiques), nous proposons des créneaux flexibles compatibles avec les contraintes d'exploitation.`,
+
+    faq: [
+      {
+        question: `À quelle fréquence dois-je faire vidanger le bac à graisses de mon restaurant ?`,
+        reponse: `La règle générale est tous les six mois, mais cela peut être rapproché à trois ou quatre mois pour les restaurants à forte production de graisses (friture, pizzeria, restauration de groupe). Le bac doit être à moins de 75% de saturation pour rester conforme. Notre planning récurrent simplifie le suivi.`,
+      },
+      {
+        question: `Mon évier de cuisine pro s'évacue lentement. Faut-il vider le bac ou y a-t-il autre chose ?`,
+        reponse: `Vérifiez d'abord la date de la dernière vidange du bac : si elle est ancienne, la saturation est probable. Si le bac est récent, le problème est en aval, sur la canalisation après bac. Un débouchage curatif règle l'urgence, et un passage caméra identifie la cause durable.`,
+      },
+      {
+        question: `Le bordereau de suivi des déchets, c'est vraiment obligatoire ?`,
+        reponse: `Oui, pour tout établissement professionnel, le bordereau est obligatoire et doit être conservé en cas de contrôle. Sans bordereau, l'exploitant ne peut pas prouver le traitement réglementaire de ses déchets. Nous le remettons systématiquement à chaque intervention.`,
+      },
+      {
+        question: `Vous intervenez aussi sur les centres commerciaux ?`,
+        reponse: `Oui, nous travaillons régulièrement avec plusieurs centres commerciaux du secteur, soit directement avec les exploitants des cellules commerciales, soit via le syndic général sur les parties communes. Notre disponibilité est cruciale pour ces sites où une panne peut fermer l'activité.`,
+      },
+      {
+        question: `Combien coûte un contrat trimestriel pour une pompe de relevage commerciale ?`,
+        reponse: `Cela dépend de la taille de la pompe, de la complexité de l'installation et du contexte. Pour une pompe standard en zone commerciale, le coût annuel reste modéré et largement inférieur au coût d'une intervention d'urgence en cas de panne. Devis personnalisé sur demande.`,
+      },
+    ],
+
+    conclusion: `La Valette-du-Var est avant tout une commune commerciale, où nos interventions concernent autant les exploitants professionnels que les résidents particuliers. Notre borne calcule en quatre clics un tarif adapté à votre situation. Pour les contrats récurrents (vidanges programmées, maintenance pompes commerciales), un devis personnalisé est systématiquement proposé. Notre standard 24h/7j et notre véhicule pré-positionné en heure de pointe permettent une intervention rapide sur les zones commerciales et résidentielles, week-ends et jours fériés inclus.`,
+  },
+
+  // ============================================================
+  // SANARY-SUR-MER — port pittoresque, bastides, vieille plomb.
+  // ============================================================
+  'sanary-sur-mer': {
+    intro: `Sanary-sur-Mer, 17 000 habitants, est un port de pêche pittoresque devenu station balnéaire prisée, situé entre Six-Fours-les-Plages et Bandol. Régulièrement classé parmi les plus beaux marchés de France, le centre conserve un charme méditerranéen authentique avec ses bastides, ses pointus de pêche et ses ruelles qui descendent vers le port. Cette identité patrimoniale forte a une conséquence pour la plomberie locale : une partie significative du parc immobilier est constituée de bâtisses anciennes, parfois centenaires, dont les installations ont été remaniées à plusieurs reprises. Sur ces propriétés, on trouve encore couramment des canalisations en plomb sur les premiers mètres avant raccordement à la fonte ou au PVC, et des configurations héritées de générations successives de propriétaires. À côté de ce noyau ancien, Sanary a connu une expansion résidentielle importante avec des villas modernes vers La Gorguette, Beaucours et La Vernette, qui présentent des installations plus standard mais restent exposées aux contraintes marines du littoral varois. Notre activité couvre l'ensemble du territoire communal, avec une attention particulière aux problématiques propres aux bâtisses anciennes du centre, et aux pompes de relevage des résidences en pied de falaise.`,
+
+    habitat: `Sanary se lit en trois cercles concentriques. Au centre, autour du port et de la place du Marché, le bâti ancien se compose de bastides, de maisons de pêcheurs et d'immeubles de villégiature des XIXᵉ et début XXᵉ siècle, avec des canalisations qui combinent plusieurs époques et matériaux. Les ruelles qui descendent vers le port sont parfois inaccessibles aux véhicules d'intervention de gabarit standard, ce qui impose un véhicule compact ou un travail au matériel portable. Le premier anneau résidentiel autour du centre — Les Picotières, Portissol, La Vernette — alterne villas du milieu du XXᵉ siècle et propriétés plus récentes, avec des installations généralement saines mais soumises à l'usure normale. Enfin, les zones d'extension de Beaucours et La Gorguette regroupent des villas modernes et des résidences plus récentes, parfois en assainissement non collectif sur les parties les plus excentrées. Cette diversité bâtie demande des compétences variées : connaître les canalisations anciennes en plomb et en fonte, savoir adapter une intervention quand le camion ne peut pas accéder, maîtriser les pompes de relevage marinisées, et gérer les fosses individuelles. C'est une plomberie de proximité qui demande de la polyvalence.`,
+
+    problemesFrequents: [
+      {
+        titre: 'Évacuations en plomb dans les bastides du centre',
+        serviceSlug: 'debouchage',
+        texte: `Une particularité sanaryenne tient à la présence relativement fréquente de canalisations d'évacuation en plomb sur les premiers mètres dans les bastides anciennes du centre. Ces conduites, très progressives à dégrader contrairement à ce que l'on pense parfois, se prêtent mal aux outils mécaniques agressifs : un furet utilisé sans précaution peut percer la paroi vieillie, créant une fuite difficile à réparer. Notre approche sur les évacuations en plomb privilégie les méthodes douces — eau chaude sous basse pression, hérisson souple, agents biologiques en cas de bouchon biologique — réservant le furet aux configurations vraiment incontournables et avec un opérateur expérimenté. Nous recommandons aussi à long terme le remplacement progressif de ces tronçons en plomb par du PVC ou du multicouche moderne, opération qui se fait par tronçons accessibles sans tout casser.`,
+      },
+      {
+        titre: `Inspection caméra des bastides avant rénovation`,
+        serviceSlug: 'inspection-camera',
+        texte: `Les rénovations dans les bastides sanaryennes butent presque toujours sur la même question : où passent vraiment les évacuations, et dans quel état sont-elles ? Les plans d'origine ont disparu, et les transformations successives ont créé des configurations imprévisibles. Notre inspection caméra avec localisateur en surface permet de tracer le réseau, d'identifier les segments en plomb, en fonte et en PVC, et de cartographier les contre-pentes et les piquages improbables. Le rapport vidéo et le plan métré servent de référence au maître d'œuvre pour budgétiser intelligemment la rénovation et éviter les mauvaises surprises pendant les travaux. Sur les bastides à fort caractère patrimonial, c'est un investissement essentiel.`,
+      },
+      {
+        titre: 'Vidanges de fosses dans les villas excentrées',
+        serviceSlug: 'fosse-septique',
+        texte: `Une partie des villas des hauteurs sanaryennes — secteur Beaucours, certaines portions de La Vernette excentrées — reste en assainissement non collectif. Les fosses toutes eaux y subissent les contraintes habituelles du littoral varois (proximité de la nappe, sols variés), avec une particularité supplémentaire : l'occupation parfois irrégulière de ces propriétés (résidence principale, secondaire, location saisonnière) sollicite les fosses par à-coups peu favorables au cycle bactérien. Nous conseillons des vidanges régulières à fréquence quadriennale, avec contrôle systématique du préfiltre et de l'épandage. Le bordereau de suivi des déchets est remis à chaque intervention.`,
+      },
+      {
+        titre: `Pompes de relevage des résidences en pied de falaise`,
+        serviceSlug: 'pompe-relevage',
+        texte: `La géographie sanaryenne — bord de mer, ruptures de pente, parcelles parfois en surplomb du niveau de la mer — multiplie les configurations où une pompe de relevage devient indispensable. Caves, sous-sols semi-enterrés, niveaux situés en pied de falaise dépendent fréquemment d'une pompe pour évacuer leurs eaux. La proximité immédiate de la mer ajoute la contrainte des embruns salins qui corrodent prématurément les pompes standard. Nous installons des modèles spécifiquement marinisés sur les sites exposés, avec joints adaptés et bobinage protégé. La maintenance bisannuelle, qui inclut un rinçage complet à l'eau douce et le contrôle des éléments électriques, prolonge sensiblement la durée utile.`,
+      },
+    ],
+
+    quartiers: {
+      intro: `Notre couverture sur Sanary-sur-Mer inclut l'ensemble du territoire communal, du port aux quartiers résidentiels excentrés. Nous travaillons aussi sur les communes limitrophes immédiates, particulièrement Six-Fours-les-Plages et Bandol qui partagent plusieurs problématiques marines. Les délais d'intervention sont calibrés pour rester sous l'heure et demie, avec une attention particulière aux ruelles d'accès difficile du centre où nous mobilisons un véhicule compact quand nécessaire.`,
+      liste: [
+        'Le Port et place du Marché',
+        'La Gorguette',
+        'Beaucours',
+        'Portissol',
+        'La Vernette',
+        'Les Picotières',
+        'Le Levant',
+        'Bandol (commune limitrophe)',
+      ],
+    },
+
+    conseilsLocaux: `Sanary impose une vigilance particulière aux propriétaires de bastides et de bâtiments anciens du centre, où les canalisations en plomb encore présentes sur certaines installations demandent des précautions spécifiques. Trois recommandations s'imposent. Premièrement, pour les bastides du centre, ne jamais utiliser de produits déboucheurs chimiques agressifs, qui dégradent rapidement le plomb et peuvent générer des fuites. En cas d'engorgement, faire appel à un professionnel équipé d'outils doux plutôt que tenter un dépannage forcé. Deuxièmement, pour les propriétaires en assainissement non collectif des hauteurs, programmer la vidange en automne avant la saison des pluies cévenol, qui peut saturer les fosses, et respecter la fréquence quadriennale standard sans attendre les premiers signes. Troisièmement, pour les pompes de relevage exposées au littoral, prévoir un rinçage à l'eau douce annuel et une maintenance bisannuelle qui contrôle les joints et le bobinage. Enfin, plus généralement, sur les bâtisses anciennes avec installations partielles en plomb, planifier à long terme leur remplacement progressif par des matériaux modernes, opération qui peut être faite sans tout casser sur des chantiers ciblés.`,
+
+    delais: `Notre proximité avec l'aire toulonnaise nous permet de tenir un délai moyen d'intervention de soixante à quatre-vingt-dix minutes sur Sanary-sur-Mer en journée. En haute saison estivale, le trafic sur le littoral peut allonger légèrement les déplacements, ce que nous compensons en pré-positionnant un véhicule sur le secteur les jours de pic. Notre standard est joignable 24h/7j, et nous gardons en stock les pompes marinisées les plus courantes pour les sites exposés du littoral, ainsi que les pièces nécessaires aux interventions sur installations anciennes. Pour les ruelles inaccessibles aux véhicules standard, nous mobilisons un véhicule compact qui permet d'accéder à la majorité des bastides du centre.`,
+
+    faq: [
+      {
+        question: `Mes canalisations dans la bastide du centre sont en plomb. Faut-il les remplacer immédiatement ?`,
+        reponse: `Pas nécessairement immédiatement, mais à planifier à moyen terme. Le plomb se dégrade lentement et peut continuer à fonctionner plusieurs années. La planification permet de remplacer par tronçons sans tout casser, en intégrant l'opération à d'autres travaux de rénovation.`,
+      },
+      {
+        question: `Pourquoi utiliser un déboucheur chimique est-il déconseillé sur installations anciennes ?`,
+        reponse: `Les produits chimiques agressifs corrodent rapidement le plomb, le grès vernissé et certains joints anciens. Sur des installations centenaires, ils peuvent transformer un bouchon mineur en fuite majeure. Mieux vaut une intervention professionnelle avec outils doux.`,
+      },
+      {
+        question: `Combien coûte une inspection caméra avant rénovation d'une bastide ?`,
+        reponse: `Cela dépend du nombre de branchements et de la complexité du réseau. Pour une bastide standard avec deux à trois départs et trente à quarante mètres de canalisation totale, comptez une demi-journée. La borne en ligne donne un tarif estimatif précis selon votre situation.`,
+      },
+      {
+        question: `Combien de temps tient une pompe de relevage à Beaucours en bord de mer ?`,
+        reponse: `Une pompe standard non marinisée tient typiquement deux à trois ans en bord de mer. Une pompe marinisée avec maintenance bisannuelle tient cinq à sept ans dans les mêmes conditions. Le surcoût initial du modèle marinisé est largement amorti par la durée de vie supplémentaire.`,
+      },
+      {
+        question: `Vous intervenez aussi à Bandol ?`,
+        reponse: `Oui, Bandol fait partie de notre couverture standard. Plusieurs problématiques sont communes à Sanary, notamment sur la frange portuaire et les bastides anciennes. Nous y intervenons avec les mêmes délais et les mêmes équipements qu'à Sanary.`,
+      },
+    ],
+
+    conclusion: `Sanary-sur-Mer demande une plomberie qui sait conjuguer respect du patrimoine bâti ancien et maîtrise des problématiques marines modernes. Notre borne calcule en quatre clics un tarif adapté à votre situation, en intégrant les particularités de votre quartier et de votre type d'installation. Pour les configurations sensibles — bastides à canalisations anciennes, pompes en bord de mer, accès difficile — un devis personnalisé est proposé. Notre standard 24h/7j et notre véhicule compact pour les ruelles permettent une intervention rapide sur l'ensemble du territoire communal, week-ends et jours fériés inclus.`,
+  },
+};
