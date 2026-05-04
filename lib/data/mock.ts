@@ -71,7 +71,7 @@ export type RealisationData = {
 // PARAMÈTRES
 // ============================================================
 export const PARAMETRES: Record<string, string> = {
-  TEL_PRINCIPAL: '04 28 29 60 69',
+  TEL_PRINCIPAL: '04 78 60 69 60',
   EMAIL_CONTACT: 'contact@plombierdeboucheur69.fr',
   NOM_ENTREPRISE: 'Plombier Déboucheur 69',
   SIRET: '—',
