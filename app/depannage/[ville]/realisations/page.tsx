@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ville) return {};
   const url = `${SITE_URL}/depannage/${ville.slug}/realisations`;
   return {
-    title: `Réalisations dépannage à ${ville.nom} — Photos & avis clients`,
-    description: `Galerie complète des chantiers dépannage à ${ville.nom} : photos avant/après, avis vérifiés, durées d'intervention.`,
+    title: `Réalisations plombier déboucheur à ${ville.nom} (${ville.codePostal}) — Photos & avis clients`,
+    description: `Galerie complète des chantiers plomberie à ${ville.nom} (${ville.codePostal}) : débouchage canalisation, inspection caméra, fosse septique, pompe de relevage. Photos avant/après, avis vérifiés, durées d'intervention par notre équipe locale du Rhône (69).`,
     alternates: { canonical: url },
   };
 }

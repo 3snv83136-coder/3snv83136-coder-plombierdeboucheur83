@@ -5,7 +5,7 @@ import { SITE_NAME } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
-  description: 'Mentions légales du site Plombier Déboucheur 83.',
+  description: 'Mentions légales du site Plombier Déboucheur 69 — plombier dépanneur déboucheur 24h/7j à Lyon et dans tout le Rhône (69).',
 };
 
 export default async function MentionsLegales() {

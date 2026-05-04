@@ -81,7 +81,9 @@ export async function BoutonAppel({
         </span>
         <span className="flex flex-col items-start leading-tight">
           <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider opacity-90">
-            {villeNom ? `Toulon · Var · ${villeNom}` : 'Disponible 24h/7j'}
+            {villeNom
+              ? `Plombier déboucheur ${villeNom} · Lyon · Rhône (69)`
+              : 'Plombier déboucheur Lyon · 24h/7j'}
           </span>
           <span>{telFormate}</span>
         </span>

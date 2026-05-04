@@ -30,8 +30,11 @@ export async function Footer() {
             <span className="text-base font-black text-white">{SITE_NAME}</span>
           </div>
           <p className="mt-3 text-sm">
-            Borne dépannage Var (83) — débouchage, inspection caméra, fosse
-            septique, pompe de relevage. 24h/7j, intervention sous 1h.
+            Borne dépannage Rhône (69) — plombier déboucheur dépanneur :
+            débouchage canalisation, hydrocureur, inspection caméra HD,
+            vidange fosse septique, pompe de relevage, urgence plomberie
+            24h/7j. Tarif transparent, intervention sous 1h à Lyon et dans
+            toute la Métropole.
           </p>
           <a
             href={telephoneVersHref(tel)}
@@ -114,7 +117,7 @@ export async function Footer() {
             <li>
               <span className="inline-flex items-center gap-2">
                 <MapPin className="h-3.5 w-3.5" />
-                Var (83) — France
+                Rhône (69) — France
               </span>
             </li>
           </ul>

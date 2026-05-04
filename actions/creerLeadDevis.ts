@@ -92,7 +92,7 @@ export async function creerLeadDevis(
         </div>
       `;
       await resend.emails.send({
-        from: `${SITE_NAME} <noreply@plombierdeboucheur83.fr>`,
+        from: `${SITE_NAME} <noreply@plombierdeboucheur69.fr>`,
         to: dest,
         subject: `🔔 Devis — ${v.service} — ${v.villeSlug}`,
         html,

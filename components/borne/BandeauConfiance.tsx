@@ -4,7 +4,7 @@ const ITEMS = [
   {
     icone: Clock,
     titre: 'Intervention < 1h',
-    sousTitre: '24h/7j sur tout le Var',
+    sousTitre: '24h/7j sur tout le Rhône',
   },
   {
     icone: FileText,

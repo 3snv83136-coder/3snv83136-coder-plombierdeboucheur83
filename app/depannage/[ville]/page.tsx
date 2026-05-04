@@ -33,10 +33,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ville) return {};
   const url = `${SITE_URL}/depannage/${ville.slug}`;
   return {
-    title: `Dépannage canalisation à ${ville.nom} (${ville.codePostal}) — 24h/7j`,
-    description: `Plombier déboucheur à ${ville.nom} : débouchage, inspection caméra, fosse septique, pompe de relevage. Tarif transparent en 4 clics. Intervention sous 1h.`,
+    title: `Plombier déboucheur ${ville.nom} (${ville.codePostal}) — Tarif transparent 24h/7j`,
+    description: `Plombier urgence et dépanneur à ${ville.nom} (${ville.codePostal}) : débouchage canalisation, inspection caméra HD, vidange fosse septique, pompe de relevage. Tarif annoncé en 4 clics, devis gratuit, intervention sous 1h 24h/7j sur tout le Rhône (69).`,
     alternates: { canonical: url },
-    openGraph: { url, title: `Dépannage à ${ville.nom} 24h/7j` },
+    openGraph: {
+      url,
+      title: `Plombier déboucheur ${ville.nom} (${ville.codePostal}) — 24h/7j tarif transparent`,
+      description: `Dépannage plomberie à ${ville.nom} : débouchage canalisation, hydrocureur, inspection caméra, fosse septique, pompe de relevage. Devis gratuit, intervention sous 1h.`,
+    },
   };
 }
 

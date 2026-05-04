@@ -12,7 +12,7 @@ import { formatPrixEuros } from '@/lib/utils';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Plombier Déboucheur 83 — service par ville';
+export const alt = 'Plombier Déboucheur 69 — service par ville dans le Rhône';
 
 /**
  * Couleurs validées pour chaque service. Hardcodées (et non lues
@@ -61,7 +61,7 @@ export default async function ServiceOpengraphImage({
     getServiceBySlug(params.service),
   ]);
 
-  const nomVille = ville?.nom ?? 'Var (83)';
+  const nomVille = ville?.nom ?? 'Rhône (69)';
   const nomService = service?.nom ?? 'Plomberie';
   const aPartirDe = service ? formatPrixEuros(service.prixMin) : '';
   const tag = tagForService(service?.slug ?? '');
@@ -101,7 +101,7 @@ export default async function ServiceOpengraphImage({
               textTransform: 'uppercase',
             }}
           >
-            Plombier Déboucheur 83 — 24h/7j
+            Plombier Déboucheur 69 — 24h/7j
           </div>
           <div
             style={{
@@ -113,7 +113,7 @@ export default async function ServiceOpengraphImage({
               background: 'rgba(255,255,255,0.18)',
             }}
           >
-            {ville?.codePostal ?? '83'}
+            {ville?.codePostal ?? '69'}
           </div>
         </div>
 

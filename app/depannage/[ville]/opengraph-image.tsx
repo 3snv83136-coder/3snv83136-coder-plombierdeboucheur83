@@ -13,7 +13,7 @@ import { formaterTelephone } from '@/lib/utils';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Plombier Déboucheur 83 — dépannage par ville';
+export const alt = 'Plombier Déboucheur 69 — dépannage par ville dans le Rhône';
 
 const SERVICES_PILLS: { nom: string; bg: string }[] = [
   { nom: 'Débouchage', bg: '#0e7490' },
@@ -29,7 +29,7 @@ export default async function VilleOpengraphImage({
 }) {
   const ville = await getVilleBySlug(params.ville);
   const tel = await getParametre('TEL_PRINCIPAL');
-  const nomVille = ville?.nom ?? 'Var (83)';
+  const nomVille = ville?.nom ?? 'Rhône (69)';
   const telFormate = tel ? formaterTelephone(tel) : '';
 
   return new ImageResponse(
@@ -57,7 +57,7 @@ export default async function VilleOpengraphImage({
               textTransform: 'uppercase',
             }}
           >
-            Plombier Déboucheur 83 — 24h/7j
+            Plombier Déboucheur 69 — 24h/7j
           </div>
           <div
             style={{

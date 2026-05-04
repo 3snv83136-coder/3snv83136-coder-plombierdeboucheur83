@@ -36,10 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
   const url = `${SITE_URL}/depannage/${ville.slug}/${service.slug}`;
   return {
-    title: `${service.nom} ${ville.nom} — À partir de ${prixIndic} € — 24h/7j`,
-    description: `${service.nom} à ${ville.nom} (${ville.codePostal}). Tarif transparent : à partir de ${prixIndic} €. Intervention sous 1h, 24h/7j. Lancez la borne en 4 clics.`,
+    title: `${service.nom} ${ville.nom} (${ville.codePostal}) — Tarif dès ${prixIndic} € · 24h/7j`,
+    description: `${service.nom} à ${ville.nom} (${ville.codePostal}) par plombier dépanneur 24h/7j. Tarif transparent dès ${prixIndic} €, devis gratuit annoncé avant intervention, équipe locale sur tout le Rhône (69). Lancez la borne en 4 clics.`,
     alternates: { canonical: url },
-    openGraph: { url, title: `${service.nom} ${ville.nom} — ${prixIndic} €` },
+    openGraph: {
+      url,
+      title: `${service.nom} ${ville.nom} dès ${prixIndic} € — Plombier 24h/7j Rhône (69)`,
+      description: `${service.nom} à ${ville.nom} : tarif transparent dès ${prixIndic} €, intervention sous 1h, devis gratuit annoncé avant.`,
+    },
   };
 }
 

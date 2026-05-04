@@ -4,7 +4,7 @@ import { getParametre } from '@/lib/parametres';
 
 export const metadata: Metadata = {
   title: 'Politique de confidentialité',
-  description: 'Politique de confidentialité et RGPD — Plombier Déboucheur 83.',
+  description: 'Politique de confidentialité et RGPD — Plombier Déboucheur 69 · plombier dépanneur déboucheur 24h/7j à Lyon et dans tout le Rhône (69).',
 };
 
 export default async function PolitiqueConfidentialite() {
