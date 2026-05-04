@@ -10,9 +10,9 @@ import { getServiceBySlug } from '@/lib/services';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Dépannage canalisation Var (83) — Choisissez votre ville',
+  title: 'Dépannage plombier déboucheur Rhône (69) — Choisissez votre ville',
   description:
-    'Sélectionnez votre ville du Var pour lancer la borne dépannage : tarif transparent en 4 clics et appel direct au plombier.',
+    'Sélectionnez votre ville du Rhône (Lyon, Villeurbanne, Vénissieux, Saint-Priest, Bron…) pour lancer la borne dépannage plombier : tarif transparent en 4 clics, intervention sous 1h 24h/7j, débouchage canalisation, inspection caméra, fosse septique, pompe de relevage.',
   alternates: { canonical: '/depannage' },
 };
 
@@ -47,7 +47,7 @@ export default async function DepannageIndex({ searchParams }: Props) {
         </section>
       ) : (
         <Borne
-          surtitre="Borne dépannage Var · 24h/7j"
+          surtitre="Borne dépannage Rhône · 24h/7j"
           titre="Quel est votre problème ?"
         />
       )}
@@ -56,7 +56,7 @@ export default async function DepannageIndex({ searchParams }: Props) {
         surtitre={
           servicePreselectionne
             ? `Choisissez votre ville pour ${servicePreselectionne.nom.toLowerCase()}`
-            : 'Top 10 du Var'
+            : 'Top 10 du Rhône'
         }
         titre="Sélectionnez votre ville"
         servicePreselectionne={servicePreselectionne?.slug}

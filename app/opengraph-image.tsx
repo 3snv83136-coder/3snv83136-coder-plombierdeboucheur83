@@ -10,7 +10,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
-export const alt = 'Plombier Déboucheur 83 — Borne dépannage Var (83), 24h/7j';
+export const alt = 'Plombier Déboucheur 69 — Borne dépannage Rhône (69), 24h/7j';
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -38,7 +38,7 @@ export default function OpengraphImage() {
               textTransform: 'uppercase',
             }}
           >
-            Borne dépannage Var (83)
+            Borne dépannage Rhône (69)
           </div>
           <div
             style={{
@@ -49,7 +49,7 @@ export default function OpengraphImage() {
               letterSpacing: -2,
             }}
           >
-            Plombier Déboucheur 83
+            Plombier Déboucheur 69
           </div>
           <div
             style={{

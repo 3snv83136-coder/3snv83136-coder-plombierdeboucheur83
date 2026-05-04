@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ville) return {};
   const url = `${SITE_URL}/depannage/${ville.slug}/devis`;
   return {
-    title: `Devis dépannage gratuit à ${ville.nom} — Rappel sous 30 min`,
-    description: `Demandez un devis gratuit pour votre dépannage à ${ville.nom}. Réponse sous 30 minutes par un technicien local.`,
+    title: `Devis plombier déboucheur gratuit à ${ville.nom} (${ville.codePostal}) — Rappel sous 30 min`,
+    description: `Demandez un devis gratuit, sans engagement et sans frais cachés pour votre dépannage plomberie à ${ville.nom} (${ville.codePostal}) : débouchage canalisation, inspection caméra, fosse septique, pompe de relevage. Réponse sous 30 minutes par un plombier local du Rhône (69), 24h/7j.`,
     alternates: { canonical: url },
   };
 }

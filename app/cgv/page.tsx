@@ -5,7 +5,7 @@ import { SITE_NAME } from '@/lib/utils';
 
 export const metadata: Metadata = {
   title: 'Conditions générales de vente',
-  description: 'Conditions générales de vente — Plombier Déboucheur 83.',
+  description: 'Conditions générales de vente — Plombier Déboucheur 69 · plombier dépanneur déboucheur 24h/7j à Lyon et dans tout le Rhône (69).',
 };
 
 export default async function CGV() {
@@ -24,7 +24,7 @@ export default async function CGV() {
         <p>
           Débouchage de canalisation, inspection caméra, pompage de fosse
           septique, intervention sur pompe de relevage, dans le département du
-          Var (83).
+          Rhône (69) et la Métropole de Lyon.
         </p>
 
         <h2>2. Tarifs</h2>
@@ -46,8 +46,9 @@ export default async function CGV() {
         <h2>4. Délais d'intervention</h2>
         <p>
           Nous nous engageons à intervenir sous 1 heure en zone urbaine du
-          Var, sous réserve de disponibilité technicien. Cet engagement est
-          tenu sur plus de 95 % des interventions.
+          Rhône et de la Métropole de Lyon, sous réserve de disponibilité
+          technicien. Cet engagement est tenu sur plus de 95 % des
+          interventions.
         </p>
 
         <h2>5. Garantie</h2>
@@ -67,7 +68,7 @@ export default async function CGV() {
         <h2>7. Litiges</h2>
         <p>
           En cas de litige, médiation gratuite via le Médiateur de la
-          consommation compétent. À défaut, tribunaux de Toulon compétents.
+          consommation compétent. À défaut, tribunaux de Lyon compétents.
         </p>
       </article>
     </>

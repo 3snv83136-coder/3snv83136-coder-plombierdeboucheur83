@@ -15,7 +15,7 @@ export async function SectionPhotoPlombier() {
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-slate-100 shadow-borne">
           <Image
             src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=80"
-            alt="Plombier professionnel intervenant sur une canalisation à Toulon"
+            alt="Plombier déboucheur professionnel intervenant sur une canalisation à Lyon (Rhône, 69)"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
@@ -31,7 +31,7 @@ export async function SectionPhotoPlombier() {
                 Intervention sous 1 heure
               </p>
               <p className="text-xs text-borne-gris">
-                Var (83) — 24h/7j, week-ends inclus
+                Rhône (69) — 24h/7j, week-ends inclus
               </p>
             </div>
           </div>
@@ -39,16 +39,19 @@ export async function SectionPhotoPlombier() {
 
         <div>
           <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-borne-bleu">
-            Plombier Var · 24h/7j
+            Plombier Rhône · 24h/7j
           </p>
           <h2 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-borne-encre leading-tight">
             Une équipe de proximité,<br />des techniciens diplômés
           </h2>
           <p className="mt-4 text-base sm:text-lg text-borne-gris leading-relaxed">
-            Nous intervenons sur tout le Var depuis plus de 10 ans :
-            débouchage, inspection caméra HD, vidange de fosses et
-            installation de pompes de relevage. Camions hydrocureurs et
-            matériel professionnel, devis annoncé avant intervention.
+            Plombier urgence et dépanneur sur tout le Rhône (69) depuis plus
+            de 10 ans : débouchage canalisation, hydrocureur, inspection
+            caméra HD, recherche de fuite, pompage de fosse septique, vidange
+            fosse toutes eaux, bac à graisses, micro-station, installation et
+            remplacement de pompes de relevage. Camions hydrocureurs et
+            matériel professionnel, devis gratuit annoncé avant intervention,
+            tarif transparent sans surprise.
           </p>
 
           <ul className="mt-6 grid gap-3">

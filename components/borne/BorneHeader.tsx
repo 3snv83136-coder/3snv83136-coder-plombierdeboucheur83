@@ -27,7 +27,7 @@ export function BorneHeader({ ville }: Props) {
               <MapPin className="h-3 w-3" />
               {ville
                 ? `Intervention rapide à ${ville.nom} ${ville.codePostal}`
-                : 'Var (83) — 24h/7j sous 1h'}
+                : 'Rhône (69) — 24h/7j sous 1h'}
             </span>
           </span>
         </Link>

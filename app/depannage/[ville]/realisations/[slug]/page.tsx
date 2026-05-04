@@ -29,12 +29,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!r) return {};
   const url = `${SITE_URL}/depannage/${r.ville.slug}/realisations/${r.slug}`;
   return {
-    title: `${r.titre} — ${r.ville.nom}`,
-    description: r.description,
+    title: `${r.titre} — Plombier déboucheur à ${r.ville.nom} (${r.ville.codePostal})`,
+    description: `${r.description} · Chantier réalisé à ${r.ville.nom} (${r.ville.codePostal}) par notre plombier dépanneur 24h/7j sur tout le Rhône (69) — tarif transparent annoncé avant intervention.`,
     alternates: { canonical: url },
     openGraph: {
       url,
-      title: r.titre,
+      title: `${r.titre} — ${r.ville.nom} (${r.ville.codePostal})`,
+      description: r.description,
       images: r.photoApres[0] ? [{ url: r.photoApres[0] }] : undefined,
     },
   };

@@ -23,7 +23,7 @@ export async function BorneSelecteurVille({
           {surtitre ?? 'Sélectionnez votre ville'}
         </p>
         <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-borne-encre">
-          {titre ?? 'Top 10 des villes du Var (83)'}
+          {titre ?? 'Top 10 des villes du Rhône (69)'}
         </h2>
       </div>
 
