@@ -85,7 +85,7 @@ export function buildLocalBusinessJsonLd(
     input;
   const tel = parametres.TEL_PRINCIPAL ?? '';
   const email = parametres.EMAIL_CONTACT ?? '';
-  const adresse = parametres.ADRESSE_SIEGE ?? 'Var (83), France';
+  const adresse = parametres.ADRESSE_SIEGE ?? 'Rhône (69), France';
 
   const areaServed: JsonLdValue = ville
     ? {
@@ -95,7 +95,7 @@ export function buildLocalBusinessJsonLd(
           '@type': 'PostalAddress',
           addressLocality: ville.nom,
           postalCode: ville.codePostal,
-          addressRegion: 'Provence-Alpes-Côte d’Azur',
+          addressRegion: 'Auvergne-Rhône-Alpes',
           addressCountry: 'FR',
         },
       }
@@ -106,7 +106,7 @@ export function buildLocalBusinessJsonLd(
           '@type': 'PostalAddress',
           addressLocality: v.nom,
           postalCode: v.codePostal,
-          addressRegion: 'Provence-Alpes-Côte d’Azur',
+          addressRegion: 'Auvergne-Rhône-Alpes',
           addressCountry: 'FR',
         },
       }));
@@ -132,9 +132,9 @@ export function buildLocalBusinessJsonLd(
     address: {
       '@type': 'PostalAddress',
       streetAddress: adresse,
-      addressLocality: ville?.nom ?? 'Toulon',
-      postalCode: ville?.codePostal ?? '83000',
-      addressRegion: 'Provence-Alpes-Côte d’Azur',
+      addressLocality: ville?.nom ?? 'Lyon',
+      postalCode: ville?.codePostal ?? '69000',
+      addressRegion: 'Auvergne-Rhône-Alpes',
       addressCountry: 'FR',
     },
     areaServed,
