@@ -16,11 +16,12 @@
 // ============================================================
 
 import type { RealisationData } from '../mock';
+import { BATCH as W19 } from './2026-W19';
 
 // === Batches hebdomadaires (à enrichir chaque semaine) ===
 // Format : import { BATCH as W18 } from './2026-W18';
 //          puis ajouter ...W18 dans le tableau ci-dessous.
 
 export const BATCHES_HEBDO: RealisationData[] = [
-  // L'agent récurrent ajoute ici ses batches.
+  ...W19,
 ];
