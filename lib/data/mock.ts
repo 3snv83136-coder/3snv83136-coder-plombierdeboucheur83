@@ -409,7 +409,8 @@ const PHOTOS_APRES = [
   '1581235720704-06d3acfcb36f', // clean install
 ];
 
-const TEMPLATES_PAR_SERVICE: Record<
+// TEMPLATES_PAR_SERVICE remplacé par VARIANTES_PAR_VILLE ci-dessous
+const _UNUSED_TEMPLATES: Record<
   string,
   { titre: (v: string) => string; ctx: string; sol: string; res: string; descCourte: string }
 > = {
@@ -443,50 +444,127 @@ const TEMPLATES_PAR_SERVICE: Record<
   },
 };
 
-const PRENOMS = ['Marc D.', 'Sophie L.', 'Karim B.', 'Christine M.', 'Julien P.', 'Aïcha R.', 'Patrick V.', 'Émilie F.', 'Thomas N.', 'Nadia K.'];
+/**
+ * VARIANTES_PAR_VILLE — Chaque ville a 3 réalisations uniques avec
+ * contexte, solution et résultat individualisés selon le quartier.
+ */
+const VARIANTES_PAR_VILLE: Record<string, Array<{
+  service: string;
+  titre: string;
+  descCourte: string;
+  contexte: string;
+  solution: string;
+  resultat: string;
+}>> = {
+  lyon: [
+    { service: 'debouchage', titre: "Débouchage colonne haussmannienne Presqu'île à Lyon", descCourte: 'Débouchage colonne fonte en Presqu\'île, hydrocurage complet.', contexte: "Immeuble haussmannien du 2ᵉ arrondissement : refoulement dans plusieurs appartements en partie basse. Colonne en fonte grise partiellement obstruée par des dépôts calcaires accumulés sur plusieurs décennies.", solution: "Hydrocurage haute pression sur toute la hauteur de la colonne (4 étages), curage des dépôts calcaires, contrôle caméra après nettoyage pour vérifier l'absence de fissure sur la fonte centenaire.", resultat: "Colonne intégralement nettoyée, débit d'évacuation nominal. Rapport caméra transmis au syndic." },
+    { service: 'inspection-camera', titre: 'Inspection caméra réseau enterré Vieux-Lyon', descCourte: "Diagnostic caméra complet d'un réseau Renaissance dans le Vieux-Lyon.", contexte: "Propriétaire d'un immeuble du Vieux-Lyon (5ᵉ) : écoulements lents et odeurs suspectes dans la cour. Réseau enterré en grès d'origine, configuration inconnue.", solution: 'Inspection caméra motorisée sur 28 mètres de réseau enterré, localisation des piquages, mesure de pente et repérage précis de toutes les anomalies. Rapport vidéo horodaté.', resultat: 'Deux fissures localisées et une contre-pente confirmée. Le propriétaire a engagé des travaux ciblés sur la base du rapport, évitant une tranchée complète.' },
+    { service: 'pompe-relevage', titre: 'Remplacement pompe relevage Confluence à Lyon', descCourte: 'Remplacement pompe de relevage en urgence parking Confluence.', contexte: "Résidence neuve quartier Confluence : pompe du parking souterrain en défaut, alarme déclenchée, risque d'inondation du niveau -2. Intervention urgente un dimanche soir.", solution: "Diagnostic sur place : moteur grillé suite à une surtension. Remplacement par pompe neuve de même puissance, installation parafoudre, tests de cycle et remise en service en 2h30.", resultat: 'Parking assaini, alarme éteinte. Garantie 2 ans sur la pompe.' },
+  ],
+  villeurbanne: [
+    { service: 'debouchage', titre: 'Débouchage colonne Gratte-Ciel à Villeurbanne', descCourte: 'Hydrocurage colonne fonte Gratte-Ciel, 4 étages traités.', contexte: "Immeuble classé des Gratte-Ciel : colonne commune bouchée au 1er étage, eaux usées refoulant au rez-de-chaussée. Contraintes d'intervention en bâtiment protégé.", solution: "Accès par le regard en cave, hydrocurage bas vers haut sur 12 mètres de colonne fonte. Extraction du bouchon (lingettes + calcaire) en préservant les éléments architecturaux.", resultat: 'Évacuation rétablie en 1h30. Rapport transmis au syndic avec recommandation de sensibilisation des résidents.' },
+    { service: 'inspection-camera', titre: 'Inspection caméra copropriété Tonkin à Villeurbanne', descCourte: 'Inspection caméra réseau enterré copropriété quartier Tonkin.', contexte: "Copropriété dense du Tonkin : infiltrations en cave après chaque forte pluie. Soupçon de fissure sur le réseau d'eaux pluviales enterré.", solution: "Inspection caméra sur 35 mètres. Détection d'un emboîtement déboîté avec racine de platane pénétrant la jonction à 12 mètres du regard principal.", resultat: 'Anomalie localisée avec précision, devis de réparation remis. Le syndic a pu voter les travaux sans tranchée exploratoire.' },
+    { service: 'fosse-septique', titre: 'Vidange micro-station Carré de Soie à Villeurbanne', descCourte: 'Vidange et entretien micro-station quartier Carré de Soie.', contexte: "Maison contemporaine Carré de Soie, micro-station d'épuration, première vidange après 3 ans. Propriétaire anticipant le contrôle SPANC.", solution: 'Vidange complète des boues, nettoyage du préfiltre, contrôle du surpresseur. Vérification visuelle, prélèvement pour analyse rapide du rejet.', resultat: 'Installation en parfait état, prochaine vidange dans 2-3 ans. Bordereau remis pour le dossier SPANC.' },
+  ],
+  venissieux: [
+    { service: 'debouchage', titre: 'Débouchage canalisation Minguettes à Vénissieux', descCourte: 'Débouchage colonne fonte grand ensemble Les Minguettes.', contexte: "Barre des Minguettes : refoulement généralisé dans 3 appartements aux étages inférieurs. Colonne fonte des années 60 obstruée par amalgame de graisse et dépôts.", solution: "Hydrocurage à contre-courant depuis le pied d'immeuble, curage complet sur 16 mètres. Contrôle caméra post-intervention.", resultat: "Écoulement nominal rétabli dans tous les appartements. Préconisation d'entretien préventif tous les 2 ans." },
+    { service: 'pompe-relevage', titre: 'Installation pompe relevage zone Parilly à Vénissieux', descCourte: 'Installation pompe relevage pour restaurant zone Parilly.', contexte: "Restaurant zone d'activité Parilly : nouvelle installation nécessitant une pompe de relevage pour eaux usées de cuisine, réseau 1,2 m au-dessus du sol.", solution: 'Station de relevage avec pompe broyeuse adaptée aux eaux grasses, clapet anti-retour, panier de filtration, alarme sonore. Tests de cycle.', resultat: 'Installation fonctionnelle et conforme, validée par le bureau de contrôle. Garantie 2 ans.' },
+    { service: 'inspection-camera', titre: 'Inspection caméra pavillon Vénissieux', descCourte: 'Inspection caméra réseau enterré pavillon années 70 à Vénissieux.', contexte: "Pavillon proche centre-ville : odeurs d'égout dans le jardin, refoulements ponctuels en salle de bains. Réseau enterré fonte estimé à 50 ans, aucun plan.", solution: "Inspection caméra depuis le regard de façade sur 20 mètres. Détection d'une fissure longitudinale avec intrusion de terre et racines sous la terrasse.", resultat: 'Anomalie localisée précisément, devis de chemisage partiel remis. Réparation programmée sans toucher à la terrasse.' },
+  ],
+  'vaulx-en-velin': [
+    { service: 'debouchage', titre: 'Débouchage colonne Mas du Taureau à Vaulx-en-Velin', descCourte: 'Déboucheur colonne fonte Mas du Taureau, 6 étages traités.', contexte: "Immeuble Mas du Taureau : évier bouché au 4ᵉ avec refoulement dans l'appartement du dessous. Colonne fonte obstruée par dépôts alimentaires et calcaire.", solution: "Furet électrique depuis l'évacuation de l'évier, puis hydrocurage de la colonne sur 3 étages. Contrôle caméra pour confirmer l'absence de résidu.", resultat: "Écoulement rétabli en 45 minutes. Sensibilisation du locataire sur l'usage de crépines." },
+    { service: 'inspection-camera', titre: 'Inspection caméra résidence neuve Vaulx-en-Velin', descCourte: 'Inspection caméra de conformité résidence neuve Vaulx-en-Velin.', contexte: "Résidence neuve proche centre-ville : inspection caméra de réception pour vérifier la conformité des réseaux avant fin de garantie de parfait achèvement.", solution: "Inspection complète réseaux eaux usées et pluviales, vérification des pentes, repérage des piquages, comparaison avec les plans d'exécution.", resultat: 'Deux regards mal positionnés signalés au promoteur. Reprise effectuée dans le cadre de la garantie.' },
+    { service: 'fosse-septique', titre: 'Vidange fosse septique pavillon Vaulx-en-Velin', descCourte: 'Vidange fosse toutes eaux 4000L en zone pavillonnaire.', contexte: "Pavillon quartier résidentiel : fosse toutes eaux 4000 L non vidangée depuis 6 ans. Odeurs dans le jardin, écoulements très lents, contrôle SPANC imminent.", solution: 'Vidange complète au camion hydrocureur 11 m³, nettoyage haute pression du préfiltre colmaté. Bordereau de suivi remis.', resultat: "Fosse vidangée et fonctionnelle, écoulements normaux. Propriétaire informé du calendrier d'entretien." },
+  ],
+  'saint-priest': [
+    { service: 'debouchage', titre: 'Débouchage WC pavillon Saint-Priest', descCourte: 'Débouchage WC + hydrocurage réseau enterré pavillon années 80.', contexte: 'Pavillon années 80 : WC bouché depuis 48h, tentatives maison échouées. Suspicion de bouchon profond dans le réseau enterré.', solution: "Passage caméra pour localiser le bouchon à 8 mètres, hydrocurage avec buse adaptée. Test d'écoulement et contrôle caméra post-intervention.", resultat: 'Bouchon (jouet + lingettes) totalement éliminé. Réseau inspecté, aucune autre anomalie.' },
+    { service: 'pompe-relevage', titre: 'Remplacement pompe relevage Mi-Plaine à Saint-Priest', descCourte: 'Remplacement pompe relevage zone industrielle Mi-Plaine.', contexte: 'Bâtiment tertiaire Mi-Plaine : pompe de relevage en panne, sanitaires du sous-sol inutilisables pour 40 employés.', solution: 'Remplacement de la pompe défaillante (moteur HS après 12 ans) par modèle équivalent, alarme GSM, tests de cycle.', resultat: 'Sanitaires rétablis en 2h30. Contrat de maintenance souscrit par le gestionnaire.' },
+    { service: 'fosse-septique', titre: 'Vidange bac à graisses restaurant Saint-Priest', descCourte: 'Vidange bac à graisses restaurant Porte des Alpes Saint-Priest.', contexte: 'Restaurant Porte des Alpes : bac à graisses 500 L plein, odeurs en cuisine, risque sanitaire. Intervention avant le service du midi.', solution: 'Pompage intégral, nettoyage haute pression du panier dégrilleur. Évacuation en centre agréé, bordereau fourni.', resultat: "Bac opérationnel pour le service. Planning d'entretien trimestriel mis en place." },
+  ],
+  'caluire-et-cuire': [
+    { service: 'debouchage', titre: 'Débouchage canalisation villa Caluire-et-Cuire', descCourte: 'Débouchage réseau enterré villa en pente, racines de platane.', contexte: 'Villa des collines de Caluire : refoulements en buanderie. Réseau enterré en pente vers la Saône, probablement obstrué par racines de platanes centenaires.', solution: 'Hydrocurage avec buse à racines, curage complet sur 25 mètres de canalisation en grès. Contrôle caméra post-intervention.', resultat: 'Réseau débouché, écoulement nominal. Traitement préventif anti-racines appliqué.' },
+    { service: 'pompe-relevage', titre: 'Installation pompe relevage villa Caluire-et-Cuire', descCourte: 'Installation pompe de relevage pour salle de bains en sous-sol.', contexte: "Villa en rénovation : création d'une salle de bains en sous-sol, 1,8 m sous le réseau collecteur.", solution: 'Station de relevage compacte avec pompe broyeuse, clapet anti-retour, ventilation. Insonorisation du caisson, tests de fonctionnement.', resultat: 'Installation conforme et silencieuse. Garantie 2 ans.' },
+    { service: 'inspection-camera', titre: 'Inspection caméra réseau pluvial Caluire-et-Cuire', descCourte: 'Inspection caméra descente pluviale villa Caluire après orage.', contexte: "Villa bord de Saône : infiltrations dans le garage après orages. Soupçon de fissure sur descente pluviale enterrée.", solution: "Inspection caméra sur 15 mètres. Détection d'une fissure avec intrusion de terre à 4 mètres sous la terrasse.", resultat: 'Anomalie localisée avec précision, chemisage effectué la semaine suivante sans ouvrir la terrasse.' },
+  ],
+  bron: [
+    { service: 'debouchage', titre: 'Débouchage colonne Parilly à Bron', descCourte: 'Hydrocurage colonne fonte copropriété Parilly Bron.', contexte: "Copropriété Parilly : colonne d'eaux usées bouchée, refoulements au RDC et 1er. Immeuble 1968, colonne fonte jamais rénovée.", solution: "Hydrocurage haute pression sur 3 étages, curage complet des dépôts. Contrôle caméra : colonne en bon état malgré son âge.", resultat: "Évacuation rétablie. Entretien préventif tous les 3 ans recommandé." },
+    { service: 'pompe-relevage', titre: 'Dépannage pompe relevage Terraillon à Bron', descCourte: 'Dépannage pompe relevage parking immeuble Terraillon.', contexte: 'Immeuble Terraillon : pompe parking sous-sol en panne après un orage. Eau montant rapidement, risque pour les véhicules.', solution: 'Remplacement en urgence (moteur court-circuité) par modèle étanche IP68. Alarme de niveau, pompage de l\'eau résiduelle.', resultat: 'Parking assaini en 3h. Garantie 2 ans sur la nouvelle pompe.' },
+    { service: 'fosse-septique', titre: 'Vidange fosse septique pavillon Bron', descCourte: 'Vidange fosse toutes eaux maison individuelle Bron centre.', contexte: 'Pavillon proche centre de Bron : fosse toutes eaux 3000 L, vidange de routine tous les 4 ans avant période de contrôle SPANC.', solution: "Vidange complète, nettoyage haute pression du préfiltre, vérification du niveau des boues. Contrôle visuel de l'état général.", resultat: 'Fosse en bon état, aucun défaut. Bordereau de suivi remis pour le dossier SPANC.' },
+  ],
+  meyzieu: [
+    { service: 'debouchage', titre: 'Débouchage canalisation pavillon Meyzieu', descCourte: 'Débouchage réseau PVC récent pavillon ZAC du Carreau à Meyzieu.', contexte: 'Pavillon récent ZAC du Carreau : douche et lavabo bouchés simultanément. Construction de moins de 5 ans, réseau PVC. Suspicion de résidu de chantier.', solution: "Débouchage au furet électrique, extraction d'un bouchon de plâtre et gravillons coincés dans un coude. Contrôle caméra.", resultat: 'Écoulement rétabli en 30 minutes. Réseau inspecté, aucun autre corps étranger.' },
+    { service: 'inspection-camera', titre: 'Inspection caméra maison ancienne Meyzieu centre', descCourte: 'Diagnostic caméra réseau fonte maison années 50 centre Meyzieu.', contexte: "Maison ancienne centre de Meyzieu : projet d'extension avec salle d'eau supplémentaire. Besoin de vérifier l'état du réseau existant avant travaux.", solution: "Inspection caméra du réseau fonte sur 18 mètres. Vérification diamètre, pente et état intérieur. Rapport avec préconisations.", resultat: "Réseau en bon état, pente suffisante. L'architecte a validé le projet sur la base du rapport." },
+    { service: 'pompe-relevage', titre: 'Remplacement pompe relevage pavillon Meyzieu', descCourte: 'Remplacement pompe relevage cave aménagée pavillon Meyzieu.', contexte: 'Pavillon résidentiel : pompe de relevage cave aménagée en salle de jeux qui ne démarre plus. Flotteur probablement bloqué ou moteur défaillant.', solution: 'Diagnostic : flotteur entartré et moteur fatigué. Remplacement complet par pompe neuve silencieuse, nettoyage de la fosse.', resultat: 'Pompe fonctionnelle, débit nominal. Garantie 2 ans.' },
+  ],
+  'rillieux-la-pape': [
+    { service: 'debouchage', titre: 'Débouchage colonne technique Rillieux-la-Pape', descCourte: "Débouchage colonne technique encastrée immeuble années 70 Rillieux.", contexte: "Immeuble ville nouvelle : refoulement dans 2 appartements contigus. Colonne technique encastrée difficile d'accès, probablement obstruée au coude de pied de colonne.", solution: "Hydrocurage depuis le regard en cave avec buse orientable pour le coude à 90°. Nettoyage sur 3 étages, contrôle caméra.", resultat: "Colonne nettoyée, écoulement rétabli. Préconisation d'entretien préventif tous les 2 ans." },
+    { service: 'inspection-camera', titre: 'Inspection caméra copropriété Rillieux-la-Pape', descCourte: 'Inspection caméra préventive copropriété verticale Rillieux.', contexte: "Copropriété d'habitat vertical : le syndic souhaite un état des lieux des colonnes d'évacuation avant campagne de rénovation des salles de bains.", solution: 'Inspection caméra systématique des 4 colonnes, mesure de pente, repérage des anomalies. Rapport détaillé avec recommandations.', resultat: "Deux colonnes nécessitent un curage préventif, une a un léger déboîtement à surveiller. Plan d'entretien sur 5 ans proposé." },
+    { service: 'pompe-relevage', titre: 'Dépannage pompe relevage parking Rillieux-la-Pape', descCourte: 'Dépannage urgence pompe relevage parking souterrain Rillieux.', contexte: 'Parking souterrain : pompe de relevage eaux pluviales a disjoncté après orage violent. 40 cm d\'eau au point bas, véhicules menacés.', solution: "Remplacement urgence (moteur noyé), pompe de secours temporaire. Installation anti-surtension.", resultat: 'Parking assaini en 4h. Garantie 1 an, contrat de maintenance souscrit.' },
+  ],
+  'decines-charpieu': [
+    { service: 'debouchage', titre: 'Débouchage douche pavillon Décines-Charpieu', descCourte: "Débouchage douche + évacuation lente pavillon années 90 Décines.", contexte: "Pavillon années 90 : douche qui s'évacue très lentement depuis plusieurs jours. Suspicion de bouchon de cheveux et savon dans la bonde ou le siphon.", solution: "Débouchage mécanique au furet de petit diamètre, extraction d'un amalgame de cheveux et résidus savonneux. Nettoyage du siphon.", resultat: "Évacuation fluide retrouvée. Conseil d'entretien : crépine et nettoyage mensuel du siphon." },
+    { service: 'pompe-relevage', titre: 'Installation pompe relevage cave Décines-Charpieu', descCourte: 'Installation pompe de relevage pour buanderie en sous-sol Décines.', contexte: "Pavillon récent : aménagement d'une buanderie en sous-sol nécessitant une pompe de relevage pour machine à laver, 1,5 m sous le réseau.", solution: 'Pompe de relevage eaux usées avec clapet anti-retour et panier de filtration. Raccordement électrique dédié, tests de vidange.', resultat: 'Buanderie opérationnelle, aucun bruit excessif. Garantie 2 ans.' },
+    { service: 'inspection-camera', titre: 'Inspection caméra petit collectif Décines-Charpieu', descCourte: 'Inspection caméra réseau pluvial collectif récent proche stade Décines.', contexte: 'Petit collectif récent proche Groupama Stadium : infiltrations dans le local poubelles après les pluies. Soupçon de dysfonctionnement du réseau pluvial enterré.', solution: "Inspection caméra sur 30 mètres. Détection d'un affaissement créant une contre-pente, probablement dû à un tassement différentiel.", resultat: 'Anomalie localisée et documentée. Devis de reprise transmis au gestionnaire.' },
+  ],
+};
+
+const PRENOMS_PAR_VILLE: Record<string, string[]> = {
+  lyon: ['Marc D.', 'Sophie L.', 'Karim B.'],
+  villeurbanne: ['Christine M.', 'Julien P.', 'Aïcha R.'],
+  venissieux: ['Patrick V.', 'Émilie F.', 'Thomas N.'],
+  'vaulx-en-velin': ['Nadia K.', 'Laurent B.', 'Céline J.'],
+  'saint-priest': ['David R.', 'Fatima H.', 'Jean-Marc T.'],
+  'caluire-et-cuire': ['Isabelle P.', 'Mehdi S.', 'Anne-Laure G.'],
+  bron: ['Rachid M.', 'Claire D.', 'Yannick F.'],
+  meyzieu: ['Laura V.', 'Stéphane W.', 'Myriam C.'],
+  'rillieux-la-pape': ['Antoine P.', 'Samira B.', 'Grégory L.'],
+  'decines-charpieu': ['Valérie N.', 'Hugo M.', 'Catherine Z.'],
+};
+
 const AVIS = [
-  'Intervention rapide, propre et efficace. Tarif respecté à l\'euro près.',
-  'Très professionnel, a expliqué le problème clairement. Je recommande.',
-  'Sont arrivés en 45 minutes un dimanche soir. Sauvé !',
-  'Travail soigné, équipe sympa, devis clair avant intervention.',
-  'Rien à dire, exactement le prix annoncé sur le site, parfait.',
+  "Intervention rapide, propre et efficace. Tarif respecté à l'euro près.",
+  "Très professionnel, a expliqué le problème clairement. Je recommande.",
+  "Sont arrivés en 45 minutes un dimanche soir. Sauvé !",
+  "Travail soigné, équipe sympa, devis clair avant intervention.",
+  "Rien à dire, exactement le prix annoncé sur le site, parfait.",
 ];
 
 function genererRealisations(): RealisationData[] {
   const out: RealisationData[] = [];
-  const services = ['debouchage', 'inspection-camera', 'fosse-septique', 'pompe-relevage'];
   const baseDate = new Date('2026-04-01');
+  const villesList = Object.keys(VARIANTES_PAR_VILLE);
 
-  VILLES.forEach((ville, vIdx) => {
-    for (let i = 0; i < 3; i++) {
-      const serviceSlug = services[(vIdx + i) % services.length];
-      const tpl = TEMPLATES_PAR_SERVICE[serviceSlug];
+  for (let vIdx = 0; vIdx < villesList.length; vIdx++) {
+    const villeSlug = villesList[vIdx];
+    const variantes = VARIANTES_PAR_VILLE[villeSlug];
+    const prenoms = PRENOMS_PAR_VILLE[villeSlug] ?? ['Client'];
+
+    for (let i = 0; i < variantes.length; i++) {
+      const v = variantes[i];
       const date = new Date(baseDate);
       date.setDate(date.getDate() - (vIdx * 7 + i * 11));
+      const photoIdx = (vIdx + i) % PHOTOS_AVANT.length;
+
       out.push({
-        slug: `${serviceSlug}-${ville.slug}-${i + 1}`,
-        villeSlug: ville.slug,
-        serviceSlug,
-        titre: tpl.titre(ville.nom),
-        description: tpl.descCourte,
-        contexte: tpl.ctx,
-        solution: tpl.sol,
-        resultat: tpl.res,
-        photoAvant: [
-          photoSrc(PHOTOS_AVANT[(vIdx + i) % PHOTOS_AVANT.length], i + 1),
-        ],
-        photoApres: [
-          photoSrc(PHOTOS_APRES[(vIdx + i) % PHOTOS_APRES.length], i + 1),
-        ],
+        slug: `${v.service}-${villeSlug}-${i + 1}`,
+        villeSlug,
+        serviceSlug: v.service,
+        titre: v.titre,
+        description: v.descCourte,
+        contexte: v.contexte,
+        solution: v.solution,
+        resultat: v.resultat,
+        photoAvant: [photoSrc(PHOTOS_AVANT[photoIdx], i + 1)],
+        photoApres: [photoSrc(PHOTOS_APRES[(photoIdx + 1) % PHOTOS_APRES.length], i + 1)],
         dateRealisation: date.toISOString(),
-        dureeIntervention: 60 + ((vIdx + i) % 4) * 30,
-        noteClient: i % 4 === 0 ? 4 : 5,
-        avisClient: AVIS[(vIdx + i) % AVIS.length],
-        prenomClient: PRENOMS[(vIdx + i) % PRENOMS.length],
+        dureeIntervention: 60 + ((vIdx + i) % 5) * 30,
+        noteClient: i === 0 ? 5 : (i === 1 ? 4 : 5),
+        avisClient: AVIS[i % AVIS.length],
+        prenomClient: prenoms[i % prenoms.length],
         publie: true,
       });
     }
-  });
+  }
   return out;
 }
 

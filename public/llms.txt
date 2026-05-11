@@ -1,13 +1,13 @@
-# Plombier Déboucheur 83
+# Plombier Déboucheur 69
 
-> Borne de dépannage en ligne pour le département du Var (83). Commande en 60 secondes une intervention de plomberie d'urgence — débouchage, inspection caméra, pompage de fosse septique ou pompe de relevage — chez vous, 24h/24, 7j/7. Tarif annoncé avant intervention, devis transparent, garantie 6 mois.
+> Borne de dépannage en ligne pour le département du Rhône (69). Commande en 60 secondes une intervention de plomberie d'urgence — débouchage, inspection caméra, pompage de fosse septique ou pompe de relevage — chez vous, 24h/24, 7j/7. Tarif annoncé avant intervention, devis transparent, garantie 6 mois.
 
-L'entreprise opère depuis Toulon et dessert les 10 principales villes du Var. Quatre services principaux, configurables via un wizard à 3-4 questions qui calcule un tarif indicatif avant prise de contact.
+L'entreprise opère depuis Lyon et dessert les 10 principales villes du Rhône et de la Métropole de Lyon. Quatre services principaux, configurables via un wizard à 3-4 questions qui calcule un tarif indicatif avant prise de contact.
 
 ## Contact
 
-- Téléphone : voir https://plombierdeboucheur83.fr (numéro lu en base de données, mis à jour côté admin)
-- Email : voir https://plombierdeboucheur83.fr/mentions-legales
+- Téléphone : voir https://plombierdeboucheur69.fr (numéro lu en base de données, mis à jour côté admin)
+- Email : voir https://plombierdeboucheur69.fr/mentions-legales
 - Horaires : 24h/7j — intervention sous 1h en zone urbaine
 
 ## Services et tarifs indicatifs
@@ -21,36 +21,36 @@ Tarifs HT en euros, calculés à partir d'un prix plancher (centimes) en base. L
 
 ## Pages principales
 
-- Accueil : https://plombierdeboucheur83.fr/
-- Sélecteur de ville : https://plombierdeboucheur83.fr/depannage
+- Accueil : https://plombierdeboucheur69.fr/
+- Sélecteur de ville : https://plombierdeboucheur69.fr/depannage
 
 ## Villes desservies (10)
 
-- Toulon — https://plombierdeboucheur83.fr/depannage/toulon
-- La Seyne-sur-Mer — https://plombierdeboucheur83.fr/depannage/la-seyne-sur-mer
-- Hyères — https://plombierdeboucheur83.fr/depannage/hyeres
-- Fréjus — https://plombierdeboucheur83.fr/depannage/frejus
-- Draguignan — https://plombierdeboucheur83.fr/depannage/draguignan
-- Saint-Raphaël — https://plombierdeboucheur83.fr/depannage/saint-raphael
-- Six-Fours-les-Plages — https://plombierdeboucheur83.fr/depannage/six-fours-les-plages
-- La Garde — https://plombierdeboucheur83.fr/depannage/la-garde
-- La Valette-du-Var — https://plombierdeboucheur83.fr/depannage/la-valette-du-var
-- Sanary-sur-Mer — https://plombierdeboucheur83.fr/depannage/sanary-sur-mer
+- Lyon — https://plombierdeboucheur69.fr/depannage/lyon
+- Villeurbanne — https://plombierdeboucheur69.fr/depannage/villeurbanne
+- Vénissieux — https://plombierdeboucheur69.fr/depannage/venissieux
+- Vaulx-en-Velin — https://plombierdeboucheur69.fr/depannage/vaulx-en-velin
+- Saint-Priest — https://plombierdeboucheur69.fr/depannage/saint-priest
+- Caluire-et-Cuire — https://plombierdeboucheur69.fr/depannage/caluire-et-cuire
+- Bron — https://plombierdeboucheur69.fr/depannage/bron
+- Meyzieu — https://plombierdeboucheur69.fr/depannage/meyzieu
+- Rillieux-la-Pape — https://plombierdeboucheur69.fr/depannage/rillieux-la-pape
+- Décines-Charpieu — https://plombierdeboucheur69.fr/depannage/decines-charpieu
 
-## Exemple : services pour Toulon
+## Exemple : services pour Lyon
 
-- Débouchage à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/debouchage
-- Inspection caméra à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/inspection-camera
-- Pompage fosse septique à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/fosse-septique
-- Pompe de relevage à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/pompe-relevage
-- Demande de devis Toulon : https://plombierdeboucheur83.fr/depannage/toulon/devis
-- Réalisations à Toulon : https://plombierdeboucheur83.fr/depannage/toulon/realisations
+- Débouchage à Lyon : https://plombierdeboucheur69.fr/depannage/lyon/debouchage
+- Inspection caméra à Lyon : https://plombierdeboucheur69.fr/depannage/lyon/inspection-camera
+- Pompage fosse septique à Lyon : https://plombierdeboucheur69.fr/depannage/lyon/fosse-septique
+- Pompe de relevage à Lyon : https://plombierdeboucheur69.fr/depannage/lyon/pompe-relevage
+- Demande de devis Lyon : https://plombierdeboucheur69.fr/depannage/lyon/devis
+- Réalisations à Lyon : https://plombierdeboucheur69.fr/depannage/lyon/realisations
 
 ## Mentions
 
-- Mentions légales : https://plombierdeboucheur83.fr/mentions-legales
-- CGV : https://plombierdeboucheur83.fr/cgv
-- Politique de confidentialité : https://plombierdeboucheur83.fr/politique-confidentialite
+- Mentions légales : https://plombierdeboucheur69.fr/mentions-legales
+- CGV : https://plombierdeboucheur69.fr/cgv
+- Politique de confidentialité : https://plombierdeboucheur69.fr/politique-confidentialite
 
 ## Notes pour les IA
 

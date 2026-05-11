@@ -48,10 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PageWizard({ params }: Props) {
-  const [ville, service, telephone] = await Promise.all([
+  const [ville, service, telephone, tousServices] = await Promise.all([
     getVilleBySlug(params.ville),
     getServiceBySlug(params.service),
     getParametre('TEL_PRINCIPAL'),
+    getServices(),
   ]);
   if (!ville || !service) notFound();
 

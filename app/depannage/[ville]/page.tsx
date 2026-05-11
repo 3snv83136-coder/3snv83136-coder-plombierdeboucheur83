@@ -11,7 +11,8 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { ContenuSeoVille } from '@/components/sections/ContenuSeoVille';
 import { SectionAvis } from '@/components/sections/SectionAvis';
 import { SectionAssurance } from '@/components/sections/SectionAssurance';
-import { getVilleBySlug } from '@/lib/villes';
+import { VillesProches } from '@/components/sections/VillesProches';
+import { getVilleBySlug, getVilles } from '@/lib/villes';
 import { getRealisationsParVille } from '@/lib/realisations';
 import { getServices } from '@/lib/services';
 import { getParametres } from '@/lib/parametres';
@@ -47,12 +48,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PageVille({ params }: Props) {
   const ville = await getVilleBySlug(params.ville);
   if (!ville) notFound();
-  const [realisationsToutes, realisationsTop, services, parametres] =
+  const [realisationsToutes, realisationsTop, services, parametres, villes] =
     await Promise.all([
       getRealisationsParVille(ville.slug),
       getRealisationsParVille(ville.slug, 6),
       getServices(),
       getParametres(),
+      getVilles(),
     ]);
 
   const aggregate = buildAggregateRatingJsonLd({
@@ -146,6 +148,11 @@ export default async function PageVille({ params }: Props) {
       {/* AVIS + ASSURANCE pour cohérence avec home */}
       <SectionAvis />
       <SectionAssurance />
+
+      <VillesProches
+        villeActuelle={{ slug: ville.slug, nom: ville.nom, codePostal: ville.codePostal }}
+        villes={villes.map((v) => ({ slug: v.slug, nom: v.nom, codePostal: v.codePostal }))}
+      />
     </>
   );
 }
