@@ -35,15 +35,54 @@ export const PHOTOS_REALISATIONS: PhotoRealisation[] = [
   // },
 ];
 
-// --- Photos génériques avant / après (fallback pour mock data) ---
+// --- Photos chantier réelles (cyclées sur les réalisations) ---
+// 41 photos uniques prises sur chantier. Split en deux pools pour
+// que `photoAvant[0]` et `photoApres[0]` d'une même réalisation ne
+// pointent jamais sur le même fichier.
+
 export const PHOTOS_AVANT_PAR_DEFAUT = [
-  '/images/realisations/avant-canalisation-bouchee.jpg',
-  '/images/realisations/avant-salle-de-bain.jpg',
-  '/images/realisations/avant-evacuation.jpg',
+  '/images/realisations/IMG_0670.jpeg',
+  '/images/realisations/IMG_0899.jpeg',
+  '/images/realisations/IMG_0902.jpeg',
+  '/images/realisations/IMG_0920.jpg',
+  '/images/realisations/IMG_0995.jpeg',
+  '/images/realisations/IMG_1028.jpeg',
+  '/images/realisations/IMG_1087.jpeg',
+  '/images/realisations/IMG_1089.jpeg',
+  '/images/realisations/IMG_1098.jpeg',
+  '/images/realisations/IMG_1102.jpeg',
+  '/images/realisations/IMG_1104.jpeg',
+  '/images/realisations/IMG_1146.jpeg',
+  '/images/realisations/IMG_1210.jpeg',
+  '/images/realisations/IMG_1247.jpeg',
+  '/images/realisations/IMG_1284.jpeg',
+  '/images/realisations/IMG_1304.jpeg',
+  '/images/realisations/IMG_1350.jpeg',
+  '/images/realisations/IMG_1397.jpeg',
+  '/images/realisations/IMG_1456.jpeg',
+  '/images/realisations/IMG_1482.jpeg',
+  '/images/realisations/IMG_1498.jpeg',
 ];
 
 export const PHOTOS_APRES_PAR_DEFAUT = [
-  '/images/realisations/apres-cuisine-propre.jpg',
-  '/images/realisations/apres-salle-de-bain.jpg',
-  '/images/realisations/apres-canalisation.jpg',
+  '/images/realisations/IMG_0897.jpeg',
+  '/images/realisations/IMG_0900.jpeg',
+  '/images/realisations/IMG_0903.jpeg',
+  '/images/realisations/IMG_0987.jpeg',
+  '/images/realisations/IMG_1024.jpeg',
+  '/images/realisations/IMG_1081.jpeg',
+  '/images/realisations/IMG_1088.jpeg',
+  '/images/realisations/IMG_1097.jpeg',
+  '/images/realisations/IMG_1101.jpeg',
+  '/images/realisations/IMG_1103.jpeg',
+  '/images/realisations/IMG_1145.jpeg',
+  '/images/realisations/IMG_1202.jpeg',
+  '/images/realisations/IMG_1231.jpeg',
+  '/images/realisations/IMG_1274.jpeg',
+  '/images/realisations/IMG_1300.jpg',
+  '/images/realisations/IMG_1307.jpeg',
+  '/images/realisations/IMG_1394.jpg',
+  '/images/realisations/IMG_1415.jpeg',
+  '/images/realisations/IMG_1463.jpeg',
+  '/images/realisations/IMG_1495.jpeg',
 ];
