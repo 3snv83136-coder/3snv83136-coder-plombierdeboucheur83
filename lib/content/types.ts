@@ -40,3 +40,14 @@ export type ContenuSeoVille = {
   /** Conclusion / CTA contextualisé, ~100 mots */
   conclusion: string;
 };
+
+export type ContenuServiceVille = {
+  /** Présentation du service dans le contexte de la ville, ~80 mots */
+  intro: string;
+  /** Détails techniques et particularités locales, ~120 mots */
+  details: string;
+  /** Transparence tarifaire, facteurs, ~60 mots */
+  tarifs: string;
+  /** CTA contextualisé, ~40 mots */
+  conclusion: string;
+};
