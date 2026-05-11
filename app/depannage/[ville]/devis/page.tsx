@@ -5,7 +5,6 @@ import { FilAriane } from '@/components/shared/Breadcrumb';
 import { FormulaireDevis } from '@/components/devis/FormulaireDevis';
 import { getVilleBySlug } from '@/lib/villes';
 import { getServices } from '@/lib/services';
-import { getParametre } from '@/lib/parametres';
 import { SITE_URL } from '@/lib/utils';
 
 export const revalidate = 3600;
@@ -27,10 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PageDevis({ params, searchParams }: Props) {
-  const [ville, services, telephone] = await Promise.all([
+  const [ville, services] = await Promise.all([
     getVilleBySlug(params.ville),
     getServices(),
-    getParametre('TEL_PRINCIPAL'),
   ]);
   if (!ville) notFound();
 
@@ -57,7 +55,6 @@ export default async function PageDevis({ params, searchParams }: Props) {
           couleur: s.couleur,
         }))}
         serviceParDefaut={searchParams.service}
-        telephone={telephone}
       />
     </>
   );

@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { SITE_NAME, SITE_URL } from '@/lib/utils';
 import { Footer } from '@/components/shared/Footer';
-import { BoutonAppel } from '@/components/shared/BoutonAppel';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -105,7 +105,7 @@ export default function RootLayout({
       <body className="min-h-dvh font-sans flex flex-col">
         <main className="flex-1">{children}</main>
         <Footer />
-        <BoutonAppel variante="sticky" />
+        <BoutonRappel variante="sticky" />
       </body>
     </html>
   );

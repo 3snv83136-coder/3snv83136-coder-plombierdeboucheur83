@@ -8,8 +8,6 @@
 
 import { ImageResponse } from 'next/og';
 import { getVilleBySlug } from '@/lib/villes';
-import { getParametre } from '@/lib/parametres';
-import { formaterTelephone } from '@/lib/utils';
 
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
@@ -28,9 +26,7 @@ export default async function VilleOpengraphImage({
   params: { ville: string };
 }) {
   const ville = await getVilleBySlug(params.ville);
-  const tel = await getParametre('TEL_PRINCIPAL');
   const nomVille = ville?.nom ?? 'Rhône (69)';
-  const telFormate = tel ? formaterTelephone(tel) : '';
 
   return new ImageResponse(
     (
@@ -110,25 +106,23 @@ export default async function VilleOpengraphImage({
               </div>
             ))}
           </div>
-          {telFormate ? (
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-end',
-                background: 'rgba(255,255,255,0.18)',
-                padding: '16px 24px',
-                borderRadius: 14,
-              }}
-            >
-              <div style={{ fontSize: 18, opacity: 0.85, fontWeight: 500 }}>
-                Appel direct
-              </div>
-              <div style={{ fontSize: 32, fontWeight: 800 }}>
-                {telFormate}
-              </div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-end',
+              background: 'rgba(255,255,255,0.18)',
+              padding: '16px 24px',
+              borderRadius: 14,
+            }}
+          >
+            <div style={{ fontSize: 18, opacity: 0.85, fontWeight: 500 }}>
+              Rappel gratuit
             </div>
-          ) : null}
+            <div style={{ fontSize: 32, fontWeight: 800 }}>
+              Sous 30 min · 24h/7j
+            </div>
+          </div>
         </div>
       </div>
     ),

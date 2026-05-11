@@ -1,18 +1,14 @@
 import Link from 'next/link';
-import { Wrench, Phone, MapPin, Mail } from 'lucide-react';
+import { Wrench, MapPin, Mail } from 'lucide-react';
 import { getParametre } from '@/lib/parametres';
 import { getVilles } from '@/lib/villes';
 import { getServices } from '@/lib/services';
 import { Icone } from '@/components/shared/Icone';
-import {
-  formaterTelephone,
-  telephoneVersHref,
-  SITE_NAME,
-} from '@/lib/utils';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { SITE_NAME } from '@/lib/utils';
 
 export async function Footer() {
-  const [tel, email, siret, services, villes] = await Promise.all([
-    getParametre('TEL_PRINCIPAL'),
+  const [email, siret, services, villes] = await Promise.all([
     getParametre('EMAIL_CONTACT'),
     getParametre('SIRET'),
     getServices(),
@@ -36,13 +32,9 @@ export async function Footer() {
             24h/7j. Tarif transparent, intervention sous 1h à Lyon et dans
             toute la Métropole.
           </p>
-          <a
-            href={telephoneVersHref(tel)}
-            className="mt-4 inline-flex items-center gap-2 rounded-lg bg-borne-vert px-4 py-2 font-bold text-white hover:bg-borne-vert-fonce"
-          >
-            <Phone className="h-4 w-4" />
-            {formaterTelephone(tel)}
-          </a>
+          <div className="mt-4">
+            <BoutonRappel variante="header" className="bg-borne-vert hover:bg-borne-vert-fonce" />
+          </div>
         </div>
 
         <div>

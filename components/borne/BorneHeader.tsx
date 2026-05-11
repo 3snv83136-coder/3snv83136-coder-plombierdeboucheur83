@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Wrench, MapPin } from 'lucide-react';
-import { BoutonAppel } from '@/components/shared/BoutonAppel';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
 import { SITE_NAME } from '@/lib/utils';
 
 type Props = {
@@ -31,7 +31,7 @@ export function BorneHeader({ ville }: Props) {
             </span>
           </span>
         </Link>
-        <BoutonAppel variante="header" />
+        <BoutonRappel variante="header" villeNom={ville?.nom} />
       </div>
     </header>
   );

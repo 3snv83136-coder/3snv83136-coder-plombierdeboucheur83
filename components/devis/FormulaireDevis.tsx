@@ -2,10 +2,11 @@
 
 import { useState, useTransition } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, AlertCircle, Send, ArrowLeft, Phone } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Send, ArrowLeft } from 'lucide-react';
 import { creerLeadDevis, type EtatFormulaire } from '@/actions/creerLeadDevis';
 import { Icone } from '@/components/shared/Icone';
-import { cn, formaterTelephone, telephoneVersHref } from '@/lib/utils';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { cn } from '@/lib/utils';
 
 type ServiceLite = { slug: string; nom: string; icone: string; couleur: string };
 
@@ -13,12 +14,9 @@ type Props = {
   ville: { slug: string; nom: string; codePostal: string };
   services: ServiceLite[];
   serviceParDefaut?: string;
-  telephone: string;
 };
 
-export function FormulaireDevis({ ville, services, serviceParDefaut, telephone }: Props) {
-  const telHref = telephoneVersHref(telephone);
-  const telLabel = formaterTelephone(telephone);
+export function FormulaireDevis({ ville, services, serviceParDefaut }: Props) {
   const [etat, setEtat] = useState<EtatFormulaire | null>(null);
   const [pending, startTransition] = useTransition();
   const [serviceSelectionne, setServiceSelectionne] = useState(
@@ -49,12 +47,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut, telephone }
           </h2>
           <p className="mt-2 text-borne-gris">{etat.message}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <a
-              href={telHref}
-              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-borne-vert px-6 py-6 text-2xl font-black text-white shadow-cta hover:bg-borne-vert-fonce effet-pression"
-            >
-              <Phone className="h-6 w-6" /> Appeler {telLabel}
-            </a>
+            <BoutonRappel variante="inline" label="On vous rappelle" villeNom={ville.nom} />
             <Link
               href={`/depannage/${ville.slug}`}
               className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-borne-bleu bg-white px-6 py-6 font-black text-borne-bleu hover:bg-borne-bleu hover:text-white transition-colors"
@@ -79,17 +72,8 @@ export function FormulaireDevis({ ville, services, serviceParDefaut, telephone }
             Devis personnalisé à {ville.nom}
           </h1>
           <p className="mt-2 sous-titre-borne">
-            Rappel sous 30 minutes par un technicien. Préférez-vous appeler tout
-            de suite ?
+            Rappel sous 30 minutes par un technicien.
           </p>
-          <div className="mt-4">
-            <a
-              href={telHref}
-              className="inline-flex items-center gap-3 rounded-2xl bg-borne-vert px-6 py-4 text-lg font-black text-white shadow-cta hover:bg-borne-vert-fonce effet-pression"
-            >
-              <Phone className="h-5 w-5" /> Appeler {telLabel}
-            </a>
-          </div>
         </div>
 
         <form

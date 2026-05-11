@@ -40,7 +40,6 @@ type Ville = {
 type Props = {
   service: Service;
   ville: Ville;
-  telephone: string;
 };
 
 type ChoixHistorique = {
@@ -49,7 +48,7 @@ type ChoixHistorique = {
   reponse: Reponse;
 };
 
-export function Wizard({ service, ville, telephone }: Props) {
+export function Wizard({ service, ville }: Props) {
   const [step, setStep] = useState(0);
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [choix, setChoix] = useState<ChoixHistorique[]>([]);
@@ -115,7 +114,6 @@ export function Wizard({ service, ville, telephone }: Props) {
         serviceNom={service.nom}
         serviceIcone={service.icone}
         couleur={service.couleur}
-        telephone={telephone}
       />
     );
   }

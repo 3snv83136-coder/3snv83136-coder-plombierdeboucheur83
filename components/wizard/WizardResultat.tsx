@@ -1,10 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
-import { Phone, FileText, CheckCircle2, AlertTriangle, Shield } from 'lucide-react';
+import { FileText, CheckCircle2, AlertTriangle, Shield } from 'lucide-react';
 import { calculerTarifSync, formaterPrix } from '@/lib/calcul-tarif';
-import { telephoneVersHref, formaterTelephone } from '@/lib/utils';
 import { Icone } from '@/components/shared/Icone';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
 
 type Recap = {
   questionLibelle: string;
@@ -25,7 +26,6 @@ type Props = {
   serviceNom: string;
   serviceIcone: string;
   couleur: string;
-  telephone: string;
 };
 
 export function WizardResultat(props: Props) {
@@ -39,23 +39,18 @@ export function WizardResultat(props: Props) {
 
   const tarifAffiche = tarif.mode === 'prix' ? tarif.prixMin : 0;
 
-  const handleCall = async () => {
-    try {
-      await fetch('/api/tracking-appel', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          villeSlug: props.villeSlug,
-          service: props.serviceSlug,
-          tarifAffiche: tarifAffiche * 100,
-          reponses: props.recap.map((r) => r.reponseLibelle),
-        }),
-      });
-    } catch {
-      // tracking best-effort
-    }
-    window.location.href = telephoneVersHref(props.telephone);
-  };
+  useEffect(() => {
+    fetch('/api/tracking-appel', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        villeSlug: props.villeSlug,
+        service: props.serviceSlug,
+        tarifAffiche: tarifAffiche * 100,
+        reponses: props.recap.map((r) => r.reponseLibelle),
+      }),
+    }).catch(() => {});
+  }, [props.villeSlug, props.serviceSlug, tarifAffiche, props.recap]);
 
   return (
     <div className="container-borne animate-fade-in-up py-6 sm:py-10">
@@ -111,15 +106,14 @@ export function WizardResultat(props: Props) {
             <p className="mt-2 text-sm sm:text-base opacity-90">
               Prix annoncé respecté à l'intervention. Paiement après travaux.
             </p>
-            <button
-              type="button"
-              onClick={handleCall}
-              className="mt-6 flex w-full items-center justify-center gap-3 rounded-2xl bg-white px-6 py-5 sm:py-6 text-2xl sm:text-3xl font-black shadow-cta animate-pulse-cta active:scale-[0.98] effet-pression"
-              style={{ color: props.couleur }}
-            >
-              <Phone className="h-7 w-7" strokeWidth={2.5} />
-              Appeler {formaterTelephone(props.telephone)}
-            </button>
+            <div className="mt-6">
+              <BoutonRappel
+                variante="inline"
+                label="On vous rappelle"
+                villeNom={props.villeNom}
+                className="bg-white shadow-cta animate-pulse-cta hover:bg-white/95"
+              />
+            </div>
             <Link
               href={`/depannage/${props.villeSlug}/devis?service=${props.serviceSlug}`}
               className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold underline-offset-4 hover:underline opacity-90"
@@ -149,14 +143,14 @@ export function WizardResultat(props: Props) {
               <FileText className="h-6 w-6" strokeWidth={2.5} />
               Demander mon devis gratuit
             </Link>
-            <button
-              type="button"
-              onClick={handleCall}
-              className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-borne-vert px-6 py-4 font-bold text-white shadow-cta hover:bg-borne-vert-fonce"
-            >
-              <Phone className="h-5 w-5" />
-              Appeler quand même : {formaterTelephone(props.telephone)}
-            </button>
+            <div className="mt-3">
+              <BoutonRappel
+                variante="inline"
+                label="On vous rappelle"
+                villeNom={props.villeNom}
+                className="text-lg py-4"
+              />
+            </div>
           </div>
         )}
 

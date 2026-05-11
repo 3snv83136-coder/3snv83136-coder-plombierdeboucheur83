@@ -1,15 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Phone, Clock, MapPin } from 'lucide-react';
-import { getParametre } from '@/lib/parametres';
-import { formaterTelephone, telephoneVersHref } from '@/lib/utils';
+import { ArrowRight, Clock, MapPin } from 'lucide-react';
+import { BoutonRappel } from '@/components/shared/BoutonRappel';
 import { PHOTO_PLOMBIER } from '@/lib/data/photos';
 
-export async function SectionPhotoPlombier() {
-  const tel = await getParametre('TEL_PRINCIPAL');
-  const href = telephoneVersHref(tel);
-  const telLabel = formaterTelephone(tel);
-
+export function SectionPhotoPlombier() {
   return (
     <section className="container-borne py-10 sm:py-16">
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
@@ -94,13 +89,7 @@ export async function SectionPhotoPlombier() {
           </ul>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <a
-              href={href}
-              className="inline-flex items-center gap-2 rounded-2xl bg-borne-appel px-5 py-3.5 font-bold text-white shadow-cta hover:bg-borne-appel-fonce transition-colors"
-            >
-              <Phone className="h-5 w-5" />
-              {telLabel}
-            </a>
+            <BoutonRappel variante="inline" className="w-auto px-5 py-3.5 text-base" />
             <Link
               href="/depannage"
               className="inline-flex items-center gap-1 rounded-2xl border-2 border-borne-bleu bg-white px-5 py-3.5 font-bold text-borne-bleu hover:bg-borne-bleu hover:text-white transition-colors"

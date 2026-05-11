@@ -25,8 +25,6 @@ export default async function MentionsLegales() {
           Adresse : {p.ADRESSE_SIEGE}
           <br />
           Email : {p.EMAIL_CONTACT}
-          <br />
-          Téléphone : {p.TEL_PRINCIPAL}
         </p>
 
         <h2>Directeur de la publication</h2>

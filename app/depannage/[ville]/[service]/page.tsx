@@ -6,7 +6,6 @@ import { FilAriane } from '@/components/shared/Breadcrumb';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getVilleBySlug, getVilles } from '@/lib/villes';
 import { getServiceBySlug, getServices } from '@/lib/services';
-import { getParametre } from '@/lib/parametres';
 import {
   buildServiceJsonLd,
   buildFAQPageJsonLd,
@@ -48,11 +47,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PageWizard({ params }: Props) {
-  const [ville, service, telephone, tousServices] = await Promise.all([
+  const [ville, service] = await Promise.all([
     getVilleBySlug(params.ville),
     getServiceBySlug(params.service),
-    getParametre('TEL_PRINCIPAL'),
-    getServices(),
   ]);
   if (!ville || !service) notFound();
 
@@ -127,7 +124,6 @@ export default async function PageWizard({ params }: Props) {
           nom: ville.nom,
           facteurTarif: ville.facteurTarif,
         }}
-        telephone={telephone}
       />
     </>
   );
