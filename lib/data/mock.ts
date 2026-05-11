@@ -8,6 +8,8 @@
 // tentent d'abord la DB et tombent sur ce fallback.
 // ============================================================
 
+import { PHOTOS_AVANT_PAR_DEFAUT, PHOTOS_APRES_PAR_DEFAUT } from './photos';
+
 export type VilleData = {
   slug: string;
   nom: string;
@@ -393,21 +395,8 @@ export const SERVICES: ServiceData[] = [
 // ============================================================
 // RÉALISATIONS (3 par ville × 10 villes = 30)
 // ============================================================
-const photoSrc = (kw: string, n: number) =>
-  `https://images.unsplash.com/photo-${kw}?auto=format&fit=crop&w=1200&q=80&v=${n}`;
-
-const PHOTOS_AVANT = [
-  '1591035897819-f4bdf739f446', // pipe
-  '1581094288338-2314dddb7ece', // bathroom
-  '1558618666-fcd25c85cd64', // tools
-  '1581244277943-fe4a9c777189', // wrench
-];
-const PHOTOS_APRES = [
-  '1556228453-efd6c1ff04f6', // clean kitchen
-  '1556909114-f6e7ad7d3136', // clean bathroom
-  '1604014237800-1c9102c219da', // shiny pipes
-  '1581235720704-06d3acfcb36f', // clean install
-];
+// Les photos sont stockées localement dans public/images/realisations/
+// Références centralisées dans lib/data/photos.ts
 
 // TEMPLATES_PAR_SERVICE remplacé par VARIANTES_PAR_VILLE ci-dessous
 const _UNUSED_TEMPLATES: Record<
@@ -543,7 +532,7 @@ function genererRealisations(): RealisationData[] {
       const v = variantes[i];
       const date = new Date(baseDate);
       date.setDate(date.getDate() - (vIdx * 7 + i * 11));
-      const photoIdx = (vIdx + i) % PHOTOS_AVANT.length;
+      const photoIdx = (vIdx + i) % PHOTOS_AVANT_PAR_DEFAUT.length;
 
       out.push({
         slug: `${v.service}-${villeSlug}-${i + 1}`,
@@ -554,8 +543,12 @@ function genererRealisations(): RealisationData[] {
         contexte: v.contexte,
         solution: v.solution,
         resultat: v.resultat,
-        photoAvant: [photoSrc(PHOTOS_AVANT[photoIdx], i + 1)],
-        photoApres: [photoSrc(PHOTOS_APRES[(photoIdx + 1) % PHOTOS_APRES.length], i + 1)],
+        photoAvant: [
+          PHOTOS_AVANT_PAR_DEFAUT[photoIdx % PHOTOS_AVANT_PAR_DEFAUT.length],
+        ],
+        photoApres: [
+          PHOTOS_APRES_PAR_DEFAUT[(photoIdx + 1) % PHOTOS_APRES_PAR_DEFAUT.length],
+        ],
         dateRealisation: date.toISOString(),
         dureeIntervention: 60 + ((vIdx + i) % 5) * 30,
         noteClient: i === 0 ? 5 : (i === 1 ? 4 : 5),

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ShieldCheck, FileCheck2, Award, Lock, Clock4 } from 'lucide-react';
 import { getParametre } from '@/lib/parametres';
+import { PHOTO_ASSURANCE } from '@/lib/data/photos';
 
 export async function SectionAssurance() {
   const [siret, assurance] = await Promise.all([
@@ -13,8 +14,8 @@ export async function SectionAssurance() {
       <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr] items-center">
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-slate-100 shadow-borne">
           <Image
-            src="https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=1200&q=80"
-            alt="Outils professionnels de plombier — clés, manomètre, équipement de débouchage"
+            src={PHOTO_ASSURANCE.src}
+            alt={PHOTO_ASSURANCE.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 45vw"
             className="object-cover"

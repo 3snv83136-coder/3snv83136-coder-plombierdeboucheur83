@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Phone, Clock, MapPin } from 'lucide-react';
 import { getParametre } from '@/lib/parametres';
 import { formaterTelephone, telephoneVersHref } from '@/lib/utils';
+import { PHOTO_PLOMBIER } from '@/lib/data/photos';
 
 export async function SectionPhotoPlombier() {
   const tel = await getParametre('TEL_PRINCIPAL');
@@ -14,8 +15,8 @@ export async function SectionPhotoPlombier() {
       <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
         <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-slate-100 shadow-borne">
           <Image
-            src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=80"
-            alt="Plombier déboucheur professionnel intervenant sur une canalisation à Lyon (Rhône, 69)"
+            src={PHOTO_PLOMBIER.src}
+            alt={PHOTO_PLOMBIER.alt}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover"
