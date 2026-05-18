@@ -18,6 +18,7 @@
 import type { RealisationData } from '../mock';
 import { BATCH as W19 } from './2026-W19';
 import { BATCH as W20 } from './2026-W20';
+import { BATCH as W21 } from './2026-W21';
 
 // === Batches hebdomadaires (à enrichir chaque semaine) ===
 // Format : import { BATCH as W18 } from './2026-W18';
@@ -26,4 +27,5 @@ import { BATCH as W20 } from './2026-W20';
 export const BATCHES_HEBDO: RealisationData[] = [
   ...W19,
   ...W20,
+  ...W21,
 ];
