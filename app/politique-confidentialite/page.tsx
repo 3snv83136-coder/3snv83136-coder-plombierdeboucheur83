@@ -28,8 +28,9 @@ export default async function PolitiqueConfidentialite() {
 
         <h2>Finalité</h2>
         <p>
-          Vous rappeler dans les 30 minutes pour vous proposer un rendez-vous,
-          mesurer le bon fonctionnement de la borne, améliorer le service.
+          Traiter votre demande de devis, vous recontacter pour planifier une
+          intervention, mesurer le bon fonctionnement de la borne, améliorer le
+          service.
         </p>
 
         <h2>Base légale</h2>

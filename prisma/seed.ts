@@ -1,5 +1,10 @@
 import { PrismaClient } from '@prisma/client';
-import { PARAMETRES, VILLES, SERVICES, REALISATIONS } from '../lib/data/mock';
+import {
+  PARAMETRES,
+  VILLES,
+  SERVICES,
+  REALISATIONS,
+} from '../lib/data/mock';
 
 const db = new PrismaClient();
 
@@ -13,7 +18,7 @@ async function main() {
     });
   }
 
-  console.log('▶ Seed villes (10)...');
+  console.log(`▶ Seed villes (${VILLES.length})...`);
   const villesById = new Map<string, string>();
   for (const v of VILLES) {
     const r = await db.ville.upsert({
@@ -43,7 +48,9 @@ async function main() {
     villesById.set(v.slug, r.id);
   }
 
-  console.log('▶ Seed services + tarifs + questions + réponses...');
+  console.log(
+    `▶ Seed services + tarifs + questions + réponses (${SERVICES.length})...`
+  );
   const servicesById = new Map<string, string>();
   for (const s of SERVICES) {
     const service = await db.service.upsert({

@@ -8,7 +8,7 @@
 // --- Photo du plombier (page d'accueil, SectionPhotoPlombier) ---
 export const PHOTO_PLOMBIER = {
   src: '/images/plombier-intervention.jpg',
-  alt: 'Plombier professionnel intervenant sur une canalisation à Toulon',
+  alt: 'Plombier professionnel intervenant sur une canalisation à Lyon',
 };
 
 // --- Photo de la Section Assurance ---

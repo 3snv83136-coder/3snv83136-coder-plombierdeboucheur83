@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FileText, CheckCircle2, AlertTriangle, Shield } from 'lucide-react';
 import { calculerTarifSync, formaterPrix } from '@/lib/calcul-tarif';
 import { Icone } from '@/components/shared/Icone';
-import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { BoutonAppel } from '@/components/shared/BoutonAppel';
 
 type Recap = {
   questionLibelle: string;
@@ -107,11 +107,10 @@ export function WizardResultat(props: Props) {
               Prix annoncé respecté à l'intervention. Paiement après travaux.
             </p>
             <div className="mt-6">
-              <BoutonRappel
+              <BoutonAppel
                 variante="inline"
-                label="On vous rappelle"
                 villeNom={props.villeNom}
-                className="bg-white shadow-cta animate-pulse-cta hover:bg-white/95"
+                className="bg-white text-borne-encre shadow-cta animate-pulse-cta hover:bg-white/95"
               />
             </div>
             <Link
@@ -132,9 +131,9 @@ export function WizardResultat(props: Props) {
               Votre situation nécessite une étude au cas par cas
             </h3>
             <p className="mt-2 text-sm sm:text-base text-borne-gris">
-              Pour vous proposer le juste prix sans surprise, un de nos
-              techniciens vous rappelle dans les 30 minutes pour établir un
-              devis gratuit adapté à votre intervention à {props.villeNom}.
+              Pour vous proposer le juste prix sans surprise, appelez-nous ou
+              demandez un devis gratuit adapté à votre intervention à{' '}
+              {props.villeNom}.
             </p>
             <Link
               href={`/depannage/${props.villeSlug}/devis?service=${props.serviceSlug}`}
@@ -144,9 +143,8 @@ export function WizardResultat(props: Props) {
               Demander mon devis gratuit
             </Link>
             <div className="mt-3">
-              <BoutonRappel
+              <BoutonAppel
                 variante="inline"
-                label="On vous rappelle"
                 villeNom={props.villeNom}
                 className="text-lg py-4"
               />

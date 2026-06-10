@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { CheckCircle2, AlertCircle, Send, ArrowLeft } from 'lucide-react';
 import { creerLeadDevis, type EtatFormulaire } from '@/actions/creerLeadDevis';
 import { Icone } from '@/components/shared/Icone';
-import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { BoutonAppel } from '@/components/shared/BoutonAppel';
 import { cn } from '@/lib/utils';
 
 type ServiceLite = { slug: string; nom: string; icone: string; couleur: string };
@@ -47,7 +47,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut }: Props) {
           </h2>
           <p className="mt-2 text-borne-gris">{etat.message}</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <BoutonRappel variante="inline" label="On vous rappelle" villeNom={ville.nom} />
+            <BoutonAppel variante="inline" villeNom={ville.nom} />
             <Link
               href={`/depannage/${ville.slug}`}
               className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-borne-bleu bg-white px-6 py-6 font-black text-borne-bleu hover:bg-borne-bleu hover:text-white transition-colors"
@@ -72,7 +72,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut }: Props) {
             Devis personnalisé à {ville.nom}
           </h1>
           <p className="mt-2 sous-titre-borne">
-            Rappel sous 30 minutes par un technicien.
+            Réponse rapide par téléphone ou email.
           </p>
         </div>
 
@@ -128,7 +128,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut }: Props) {
               required
               error={etat?.errors?.telephone}
               pattern="(\+33|0)[1-9]( ?\d{2}){4}"
-              hint="Pour le rappel sous 30 min"
+              hint="Pour vous recontacter rapidement"
             />
             <Champ
               name="email"
@@ -163,7 +163,7 @@ export function FormulaireDevis({ ville, services, serviceParDefaut }: Props) {
           </button>
 
           <p className="mt-3 text-xs text-borne-gris text-center">
-            Vos données sont uniquement utilisées pour vous rappeler. RGPD
+            Vos données sont uniquement utilisées pour traiter votre demande. RGPD
             respecté.
           </p>
         </form>

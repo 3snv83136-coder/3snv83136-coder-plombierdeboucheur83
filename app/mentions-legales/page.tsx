@@ -24,6 +24,8 @@ export default async function MentionsLegales() {
           <br />
           Adresse : {p.ADRESSE_SIEGE}
           <br />
+          Téléphone : {p.TEL_PRINCIPAL}
+          <br />
           Email : {p.EMAIL_CONTACT}
         </p>
 

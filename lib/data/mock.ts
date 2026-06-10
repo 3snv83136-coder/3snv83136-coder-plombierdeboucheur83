@@ -8,7 +8,14 @@
 // tentent d'abord la DB et tombent sur ce fallback.
 // ============================================================
 
+import {
+  ADRESSE_SIEGE,
+  EMAIL_CONTACT,
+  TEL_PRINCIPAL,
+} from '../contact';
 import { PHOTOS_AVANT_PAR_DEFAUT, PHOTOS_APRES_PAR_DEFAUT } from './photos';
+import { VILLES_RHONE_69_EXTENSION } from './villes-rhone-69-extension';
+import { SERVICES_PROGRAMMATIQUES } from './services-programmatic';
 
 export type VilleData = {
   slug: string;
@@ -73,19 +80,19 @@ export type RealisationData = {
 // PARAMÈTRES
 // ============================================================
 export const PARAMETRES: Record<string, string> = {
-  TEL_PRINCIPAL: '04 78 60 69 60',
-  EMAIL_CONTACT: 'contact@plombierdeboucheur69.fr',
+  TEL_PRINCIPAL,
+  EMAIL_CONTACT,
   NOM_ENTREPRISE: 'Plombier Déboucheur 69',
   SIRET: '—',
-  ADRESSE_SIEGE: 'Lyon, Rhône (69)',
+  ADRESSE_SIEGE,
   HORAIRES: '24h/7j — Intervention sous 1h',
   ASSURANCE_RC_PRO: 'Assurance RC Pro souscrite',
 };
 
 // ============================================================
-// VILLES — Top 10 du Rhône (69) / Métropole de Lyon
+// VILLES — Métropole + communes du Rhône (69) — SEO programmatique
 // ============================================================
-export const VILLES: VilleData[] = [
+const VILLES_METROPOLE: VilleData[] = [
   {
     slug: 'lyon',
     nom: 'Lyon',
@@ -208,10 +215,15 @@ export const VILLES: VilleData[] = [
   },
 ];
 
+export const VILLES: VilleData[] = [
+  ...VILLES_METROPOLE,
+  ...VILLES_RHONE_69_EXTENSION,
+];
+
 // ============================================================
 // SERVICES + QUESTIONS
 // ============================================================
-export const SERVICES: ServiceData[] = [
+const SERVICES_HISTORIQUES: ServiceData[] = [
   {
     slug: 'debouchage',
     nom: 'Débouchage canalisation',
@@ -390,6 +402,11 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
+];
+
+export const SERVICES: ServiceData[] = [
+  ...SERVICES_HISTORIQUES,
+  ...SERVICES_PROGRAMMATIQUES,
 ];
 
 // ============================================================

@@ -117,10 +117,10 @@ export default async function VilleOpengraphImage({
             }}
           >
             <div style={{ fontSize: 18, opacity: 0.85, fontWeight: 500 }}>
-              Rappel gratuit
+              Appelez-nous
             </div>
             <div style={{ fontSize: 32, fontWeight: 800 }}>
-              Sous 30 min · 24h/7j
+              04 78 35 50 60 · 24h/7j
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Clock, MapPin } from 'lucide-react';
-import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { BoutonAppel } from '@/components/shared/BoutonAppel';
 import { PHOTO_PLOMBIER } from '@/lib/data/photos';
 
 export function SectionPhotoPlombier() {
@@ -89,7 +89,7 @@ export function SectionPhotoPlombier() {
           </ul>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <BoutonRappel variante="inline" className="w-auto px-5 py-3.5 text-base" />
+            <BoutonAppel variante="inline" className="w-auto px-5 py-3.5 text-base" />
             <Link
               href="/depannage"
               className="inline-flex items-center gap-1 rounded-2xl border-2 border-borne-bleu bg-white px-5 py-3.5 font-bold text-borne-bleu hover:bg-borne-bleu hover:text-white transition-colors"

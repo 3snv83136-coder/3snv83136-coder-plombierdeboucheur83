@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Star, Calendar, Clock, MapPin, Wrench, Quote } from 'lucide-react';
 import { RealisationAvantApres } from './RealisationAvantApres';
-import { BoutonRappel } from '@/components/shared/BoutonRappel';
+import { BoutonAppel } from '@/components/shared/BoutonAppel';
 import { Icone } from '@/components/shared/Icone';
 import type { RealisationComplete } from '@/lib/realisations';
 
@@ -152,7 +152,7 @@ export function RealisationFiche({ realisation: r }: Props) {
             Lancez la borne, tarif transparent affiché en 4 clics.
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
-            <BoutonRappel variante="inline" villeNom={r.ville.nom} />
+            <BoutonAppel variante="inline" villeNom={r.ville.nom} />
             <Link
               href={`/depannage/${r.ville.slug}`}
               className="flex w-full items-center justify-center gap-2 rounded-2xl border-2 border-borne-bleu bg-white px-6 py-6 text-xl font-black text-borne-bleu hover:bg-borne-bleu hover:text-white transition-colors"

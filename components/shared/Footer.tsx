@@ -1,19 +1,23 @@
 import Link from 'next/link';
-import { Wrench, MapPin, Mail } from 'lucide-react';
+import { Wrench, MapPin, Mail, Phone } from 'lucide-react';
 import { getParametre } from '@/lib/parametres';
 import { getVilles } from '@/lib/villes';
 import { getServices } from '@/lib/services';
 import { Icone } from '@/components/shared/Icone';
-import { BoutonRappel } from '@/components/shared/BoutonRappel';
-import { SITE_NAME } from '@/lib/utils';
+import { BoutonAppel } from '@/components/shared/BoutonAppel';
+import { SITE_NAME, formaterTelephone, telephoneVersHref } from '@/lib/utils';
 
 export async function Footer() {
-  const [email, siret, services, villes] = await Promise.all([
+  const [tel, email, adresse, siret, services, villes] = await Promise.all([
+    getParametre('TEL_PRINCIPAL'),
     getParametre('EMAIL_CONTACT'),
+    getParametre('ADRESSE_SIEGE'),
     getParametre('SIRET'),
     getServices(),
     getVilles(),
   ]);
+
+  const telAffiche = formaterTelephone(tel);
 
   return (
     <footer className="mt-16 border-t border-slate-200 bg-borne-encre text-slate-300 mb-cta-sticky">
@@ -33,7 +37,7 @@ export async function Footer() {
             toute la Métropole.
           </p>
           <div className="mt-4">
-            <BoutonRappel variante="header" className="bg-borne-vert hover:bg-borne-vert-fonce" />
+            <BoutonAppel variante="header" className="bg-borne-vert hover:bg-borne-vert-fonce" />
           </div>
         </div>
 
@@ -99,17 +103,26 @@ export async function Footer() {
             </li>
             <li className="pt-2">
               <a
+                href={telephoneVersHref(tel)}
+                className="inline-flex items-center gap-2 font-bold text-white hover:text-borne-vert transition-colors"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                {telAffiche}
+              </a>
+            </li>
+            <li>
+              <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-2 hover:text-white"
+                className="inline-flex items-center gap-2 hover:text-white transition-colors"
               >
                 <Mail className="h-3.5 w-3.5" />
                 {email}
               </a>
             </li>
             <li>
-              <span className="inline-flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5" />
-                Rhône (69) — France
+              <span className="inline-flex items-start gap-2">
+                <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0" />
+                {adresse}
               </span>
             </li>
           </ul>

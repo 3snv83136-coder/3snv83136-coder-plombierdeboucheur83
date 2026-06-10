@@ -88,7 +88,7 @@ export async function creerLeadDevis(
             <tr><td style="padding:10px 14px;font-weight:bold;background:#eff6ff;vertical-align:top">Message</td><td style="padding:10px 14px;white-space:pre-wrap">${escapeHtml(v.message)}</td></tr>
             <tr><td style="padding:10px 14px;font-weight:bold;background:#eff6ff">Reçu le</td><td style="padding:10px 14px">${new Date().toLocaleString('fr-FR')}</td></tr>
           </table>
-          <p style="margin-top:16px;font-size:13px;color:#475569">Rappel sous 30 min recommandé.</p>
+          <p style="margin-top:16px;font-size:13px;color:#475569">Réponse rapide recommandée.</p>
         </div>
       `;
       await resend.emails.send({
@@ -105,7 +105,7 @@ export async function creerLeadDevis(
   return {
     success: true,
     message:
-      'Demande envoyée. Un technicien vous rappelle dans les 30 minutes.',
+      'Demande envoyée. Nous vous recontactons dans les plus brefs délais.',
   };
 }
 
