@@ -1,6 +1,4 @@
 import 'server-only';
-import fs from 'fs';
-import path from 'path';
 import { prisma } from './prisma';
 import { REALISATIONS, VILLES, SERVICES, type RealisationData } from './data/mock';
 import { BATCHES_HEBDO } from './data/realisations';
@@ -11,16 +9,10 @@ const TOUTES_REALISATIONS_BRUTES: RealisationData[] = [
   ...BATCHES_HEBDO,
 ];
 
-function photoLocaleExiste(url: string): boolean {
-  if (!url.startsWith('/images/')) return false;
-  const fichier = path.join(process.cwd(), 'public', decodeURIComponent(url));
-  return fs.existsSync(fichier);
-}
-
 function photoUtilisable(url: string | undefined): boolean {
   if (!url) return false;
   if (url.startsWith('http')) return false;
-  return photoLocaleExiste(url);
+  return url.startsWith('/images/');
 }
 
 function normaliserPhotosRealisation(

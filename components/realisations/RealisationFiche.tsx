@@ -3,6 +3,7 @@ import { Star, Calendar, Clock, MapPin, Wrench, Quote } from 'lucide-react';
 import { RealisationAvantApres } from './RealisationAvantApres';
 import { BoutonAppel } from '@/components/shared/BoutonAppel';
 import { Icone } from '@/components/shared/Icone';
+import { PHOTO_REALISATION_FALLBACK } from '@/lib/data/photos';
 import type { RealisationComplete } from '@/lib/realisations';
 
 type Props = { realisation: RealisationComplete };
@@ -50,8 +51,8 @@ export function RealisationFiche({ realisation: r }: Props) {
         {/* avant / apres */}
         <div className="mt-7">
           <RealisationAvantApres
-            photoAvant={r.photoAvant[0] ?? r.photoApres[0]!}
-            photoApres={r.photoApres[0] ?? r.photoAvant[0]!}
+            photoAvant={r.photoAvant[0] ?? PHOTO_REALISATION_FALLBACK}
+            photoApres={r.photoApres[0] ?? PHOTO_REALISATION_FALLBACK}
             alt={r.titre}
           />
           <p className="mt-2 text-center text-xs text-borne-gris">
