@@ -48,18 +48,16 @@ export function RealisationFiche({ realisation: r }: Props) {
         </p>
 
         {/* avant / apres */}
-        {r.photoAvant[0] && r.photoApres[0] && (
-          <div className="mt-7">
-            <RealisationAvantApres
-              photoAvant={r.photoAvant[0]}
-              photoApres={r.photoApres[0]}
-              alt={r.titre}
-            />
-            <p className="mt-2 text-center text-xs text-borne-gris">
-              Glissez le curseur pour comparer
-            </p>
-          </div>
-        )}
+        <div className="mt-7">
+          <RealisationAvantApres
+            photoAvant={r.photoAvant[0] ?? r.photoApres[0]!}
+            photoApres={r.photoApres[0] ?? r.photoAvant[0]!}
+            alt={r.titre}
+          />
+          <p className="mt-2 text-center text-xs text-borne-gris">
+            Glissez le curseur pour comparer
+          </p>
+        </div>
 
         {/* meta */}
         <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">

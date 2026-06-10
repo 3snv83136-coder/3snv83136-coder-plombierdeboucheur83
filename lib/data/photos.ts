@@ -49,6 +49,7 @@ export const PHOTOS_AVANT_PAR_DEFAUT = [
   '/images/realisations/IMG_1028.jpeg',
   '/images/realisations/IMG_1087.jpeg',
   '/images/realisations/IMG_1089.jpeg',
+  '/images/realisations/IMG_1090.png',
   '/images/realisations/IMG_1098.jpeg',
   '/images/realisations/IMG_1102.jpeg',
   '/images/realisations/IMG_1104.jpeg',
@@ -62,6 +63,10 @@ export const PHOTOS_AVANT_PAR_DEFAUT = [
   '/images/realisations/IMG_1456.jpeg',
   '/images/realisations/IMG_1482.jpeg',
   '/images/realisations/IMG_1498.jpeg',
+  '/images/realisations/FullSizeRender.jpeg',
+  '/images/realisations/avant-canalisation-bouchee.jpg',
+  '/images/realisations/avant-evacuation.jpg',
+  '/images/realisations/avant-salle-de-bain.jpg',
 ];
 
 export const PHOTOS_APRES_PAR_DEFAUT = [
@@ -85,4 +90,29 @@ export const PHOTOS_APRES_PAR_DEFAUT = [
   '/images/realisations/IMG_1415.jpeg',
   '/images/realisations/IMG_1463.jpeg',
   '/images/realisations/IMG_1495.jpeg',
+  '/images/realisations/apres-canalisation.jpg',
+  '/images/realisations/apres-cuisine-propre.jpg',
+  '/images/realisations/apres-salle-de-bain.jpg',
 ];
+
+/** Image de secours si une réalisation n'a pas de photo valide. */
+export const PHOTO_REALISATION_FALLBACK = PHOTO_PLOMBIER.src;
+
+/** Attribue une paire avant/après locale distincte selon l'index. */
+export function photosPourRealisation(index: number): {
+  photoAvant: string[];
+  photoApres: string[];
+} {
+  const nAvant = PHOTOS_AVANT_PAR_DEFAUT.length;
+  const nApres = PHOTOS_APRES_PAR_DEFAUT.length;
+  const i =
+    ((index % nAvant) + nAvant) % nAvant;
+  let j = (i + 3 + (index % 7)) % nApres;
+  if (PHOTOS_APRES_PAR_DEFAUT[j] === PHOTOS_AVANT_PAR_DEFAUT[i]) {
+    j = (j + 1) % nApres;
+  }
+  return {
+    photoAvant: [PHOTOS_AVANT_PAR_DEFAUT[i]],
+    photoApres: [PHOTOS_APRES_PAR_DEFAUT[j]],
+  };
+}

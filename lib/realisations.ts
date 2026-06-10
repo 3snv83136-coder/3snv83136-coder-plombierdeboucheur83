@@ -1,12 +1,44 @@
 import 'server-only';
+import fs from 'fs';
+import path from 'path';
 import { prisma } from './prisma';
 import { REALISATIONS, VILLES, SERVICES, type RealisationData } from './data/mock';
 import { BATCHES_HEBDO } from './data/realisations';
+import { photosPourRealisation } from './data/photos';
 
-const TOUTES_REALISATIONS: RealisationData[] = [
+const TOUTES_REALISATIONS_BRUTES: RealisationData[] = [
   ...REALISATIONS,
   ...BATCHES_HEBDO,
 ];
+
+function photoLocaleExiste(url: string): boolean {
+  if (!url.startsWith('/images/')) return false;
+  const fichier = path.join(process.cwd(), 'public', decodeURIComponent(url));
+  return fs.existsSync(fichier);
+}
+
+function photoUtilisable(url: string | undefined): boolean {
+  if (!url) return false;
+  if (url.startsWith('http')) return false;
+  return photoLocaleExiste(url);
+}
+
+function normaliserPhotosRealisation(
+  r: RealisationData,
+  index: number
+): RealisationData {
+  const avant = r.photoAvant[0];
+  const apres = r.photoApres[0];
+  if (photoUtilisable(avant) && photoUtilisable(apres) && avant !== apres) {
+    return r;
+  }
+  const photos = photosPourRealisation(index);
+  return { ...r, ...photos };
+}
+
+const TOUTES_REALISATIONS: RealisationData[] = TOUTES_REALISATIONS_BRUTES.map(
+  normaliserPhotosRealisation
+);
 
 export type RealisationComplete = {
   id: string;
@@ -64,7 +96,29 @@ async function getAllFromDb(): Promise<RealisationComplete[] | null> {
       include: { ville: true, service: true },
     });
     if (!list.length) return null;
-    return list.map((r) => ({
+    return list.map((r, index) => {
+      const normalisee = normaliserPhotosRealisation(
+        {
+          slug: r.slug,
+          villeSlug: r.ville.slug,
+          serviceSlug: r.service.slug,
+          titre: r.titre,
+          description: r.description,
+          contexte: r.contexte,
+          solution: r.solution,
+          resultat: r.resultat,
+          photoAvant: r.photoAvant,
+          photoApres: r.photoApres,
+          dateRealisation: r.dateRealisation.toISOString(),
+          dureeIntervention: r.dureeIntervention ?? 0,
+          noteClient: r.noteClient ?? 0,
+          avisClient: r.avisClient ?? '',
+          prenomClient: r.prenomClient ?? '',
+          publie: r.publie,
+        },
+        index
+      );
+      return {
       id: r.id,
       slug: r.slug,
       titre: r.titre,
@@ -72,8 +126,8 @@ async function getAllFromDb(): Promise<RealisationComplete[] | null> {
       contexte: r.contexte,
       solution: r.solution,
       resultat: r.resultat,
-      photoAvant: r.photoAvant,
-      photoApres: r.photoApres,
+      photoAvant: normalisee.photoAvant,
+      photoApres: normalisee.photoApres,
       dateRealisation: r.dateRealisation,
       dureeIntervention: r.dureeIntervention,
       noteClient: r.noteClient,
@@ -90,7 +144,8 @@ async function getAllFromDb(): Promise<RealisationComplete[] | null> {
         couleur: r.service.couleur,
         icone: r.service.icone,
       },
-    }));
+    };
+    });
   } catch {
     return null;
   }

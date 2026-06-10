@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Star, Clock, MapPin } from 'lucide-react';
 import { Icone } from '@/components/shared/Icone';
+import { PHOTO_REALISATION_FALLBACK } from '@/lib/data/photos';
 import type { RealisationComplete } from '@/lib/realisations';
 
 type Props = { realisation: RealisationComplete };
@@ -11,7 +12,7 @@ export function RealisationCarte({ realisation: r }: Props) {
     month: 'long',
     year: 'numeric',
   });
-  const photo = r.photoApres[0] ?? r.photoAvant[0];
+  const photo = r.photoApres[0] ?? r.photoAvant[0] ?? PHOTO_REALISATION_FALLBACK;
 
   return (
     <Link
@@ -19,15 +20,13 @@ export function RealisationCarte({ realisation: r }: Props) {
       className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition-all hover:-translate-y-1 hover:shadow-borne-hover"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-        {photo && (
-          <Image
-            src={photo}
-            alt={r.titre}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-        )}
+        <Image
+          src={photo}
+          alt={r.titre}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <span
           className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold text-white shadow-md"
           style={{ backgroundColor: r.service.couleur }}
