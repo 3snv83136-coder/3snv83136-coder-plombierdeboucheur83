@@ -25,6 +25,7 @@ import { BATCH as W24 } from './2026-W24';
 import { BATCH as W25 } from './2026-W25';
 import { BATCH as W26 } from './2026-W26';
 import { BATCH as W27 } from './2026-W27';
+import { BATCH as W28 } from './2026-W28';
 
 // === Batches hebdomadaires (à enrichir chaque semaine) ===
 // Format : import { BATCH as W18 } from './2026-W18';
@@ -40,4 +41,5 @@ export const BATCHES_HEBDO: RealisationData[] = [
   ...W25,
   ...W26,
   ...W27,
+  ...W28,
 ];
